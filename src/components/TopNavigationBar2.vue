@@ -9,11 +9,7 @@
         <ul class="nav align-items-center dropdown-hover ms-sm-2">
           <ThemeToggleDropdown />
 
-          <li class="nav-item me-2">
-            <router-link :to="{ name: 'home' }" class="btn btn-sm btn-light mb-0"
-              ><BIconPersonCircle class="me-1" />Sign up</router-link
-            >
-          </li>
+         
 
           <li class="nav-item d-none d-sm-block">
             <a :href="buyLink" target="_blank" class="btn btn-sm btn-primary mb-0">Sign in</a>

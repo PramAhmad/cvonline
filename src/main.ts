@@ -18,8 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import '@/assets/scss/style.scss'
 import 'vue-toastification/dist/index.css'
-// import '@/index.css'
-
+import '@/index.css'
 
 const toastOptions: PluginOptions = {}
 addIcons(FcGoogle)

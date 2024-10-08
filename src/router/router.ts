@@ -16,8 +16,17 @@ const mainRoute = [
     meta: {
       title: setTitle()
     },
-    component: () => import('@/views/home/index.vue')
-  }
+    component: () => import('@/views/home2/index.vue')
+  },
+  //dyanmic route convert
+{
+  path:'/convert/:id',
+  name:'convert',
+  meta:{
+    title:setTitle('convert')
+  },
+  component:()=>import('@/views/convert/index.vue')
+}
  
 
 ];
