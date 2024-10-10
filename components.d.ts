@@ -73,6 +73,7 @@ declare module 'vue' {
     MenuItem: typeof import('./src/components/topbar/AppMenu/MenuItem.vue')['default']
     MenuItemWithChildren: typeof import('./src/components/topbar/AppMenu/MenuItemWithChildren.vue')['default']
     MobileNavbarToggler: typeof import('./src/components/topbar/MobileNavbarToggler.vue')['default']
+    ModalConfirm: typeof import('./src/components/ModalConfirm.vue')['default']
     PagesMenuDropdown: typeof import('./src/components/topbar/AppMenu/PagesMenuDropdown.vue')['default']
     Parallax: typeof import('./src/components/Parallax.vue')['default']
     PasswordInput: typeof import('./src/components/PasswordInput.vue')['default']

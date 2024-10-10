@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-16 tw-flex tw-min-h-[125vh] tw-bg-white tw-flex-col tw-items-center banner-section tw-pb-20 dark:bg-gray-900">
+  <section class="mt-16 tw-flex  tw-bg-white tw-flex-col tw-items-center banner-section tw-pb-20 dark:bg-gray-900">
     <!-- Rate Section -->
     <div class="rate-container tw-w-full tw-flex  tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-md tw-py-2 dark:bg-gray-800 dark:border-gray-700">
       <div
@@ -48,31 +48,41 @@
     <!-- Smaller Banner Slider -->
     <div class="tw-w-full tw-mt-6">
       <div class="tw-grid tw-grid-cols-2 tw-gap-4">
-    <div v-for="secondBanner in secondBanners" :key="secondBanner.id" class="tw-flex tw-flex-col tw-items-center">
-      <div class="banner-container">
-        <img :src="secondBanner.image" alt="banner" class="banner-image" height="300px" />
-      </div>
-      <h3 class="text-center tw-font-semibold tw-text-base tw-mt-2 tw-text-gray-900 dark:text-gray-100">{{ secondBanner.desc }}</h3>
-    </div>
+        <div v-for="secondBanner in secondBanners" 
+             :key="secondBanner.id" 
+             class="tw-flex tw-flex-col tw-items-center tw-border-2 tw-rounded-lg tw-border-gray-100 cursor-pointer"
+             @click="handleSecondBannerClick(secondBanner.id)">
+          <div class="banner-container">
+            <img :src="secondBanner.image" alt="banner" class="banner-image" height="300px" />
+          </div>
+          <h3 class="text-center tw-font-semibold tw-text-base tw-mt-2 tw-text-gray-900 dark:text-gray-100">{{ secondBanner.desc }}</h3>
+        </div>
   </div>
 
       <h3 class="tw-my-5 tw-font-semibold tw-text-gray-900 dark:text-white">Pilih Convert Pulsa</h3>
       <div class="max-w-full tw-flex tw-justify-center">
-        <div
-          v-for="(item, index) in convert"
-          :key="index"
-          class="tw-flex tw-flex-col tw-items-center tw-border tw-border-gray-300 tw-rounded-lg tw-shadow-sm tw-w-1/5 tw-mr-1 dark:bg-gray-800 dark:border-gray-700">
-          <div class="tw-w-20 tw-h-10 tw-p-2">
-            <img :src="item.image" alt="logo" class="tw-w-full tw-h-full tw-object-contain" />
-          </div>
-          <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
-            <p class="tw-font-normal tw-text-center tw-text-[0.6rem] tw-text-white py-2">{{ item.nama }}</p>
-          </div>
-        </div>
-      </div>
+  <div
+    v-for="(item, index) in clientLogos"
+    :key="index"
+    class="tw-flex tw-flex-col tw-items-center tw-border tw-border-gray-300 tw-rounded-lg tw-shadow-sm tw-w-1/5 tw-mr-1 dark:bg-gray-800 dark:border-gray-700"
+    @click="redirectToConvert(item.id)"
+  >
+    <div class="tw-w-20 tw-h-14 tw-p-2">
+      <img 
+        :src="item.status === `1` ? item.image : item.nonaktif_image" 
+        alt="logo" 
+        class="tw-w-full tw-h-full tw-object-contain" 
+      />
+    </div>
+    <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
+      <p class="tw-font-normal tw-text-center tw-text-[0.6rem] tw-text-white py-2">{{ item.name }}</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Kalkulator section -->
-      <div class="tw-w-full tw-rounded-lg tw-p-3 tw-mt-8 tw-border-2 tw-border-gray-200 dark:border-gray-700">
+
+      
+      <div class="tw-w-full tw-rounded-lg tw-p-3 tw-mt-8 tw-border-2 tw-border-gray-200 dark:border-gray-700" @click="calculatorPage">
         <div class="tw-flex tw-items-center tw-justify-between">
           <div class="tw-flex tw-items-center">
             <img :src="cal" alt="Calculator" class="tw-w-6 tw-h-6 tw-mr-2" />
@@ -84,6 +94,21 @@
         </div>
       </div>
     </div>
+    <div v-if="showModal" class="tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-50 tw-flex tw-items-center tw-justify-center">
+        <div class="tw-bg-white dark:bg-gray-800 tw-p-4 tw-rounded-lg tw-w-80">
+          <h3 class="tw-text-lg tw-font-semibold tw-mb-4 dark:text-white">Pilih Provider</h3>
+          <ul class="tw-space-y-2">
+            <li v-for="client in clientLogos" :key="client.id" class="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b dark:text-white">
+              <img :src="`https://admin.cvpulsa.id/uploads/my_provider/`+client.icon" alt="Provider Icon" class="tw-w-8 tw-h-8 tw-mr-2" />
+              <span>{{ client.label }}</span>
+              <!-- rate -->
+              <span class="tw-text-sm tw-font-medium tw-text-gray-700 dark:text-gray-400">Rate: {{ client.rate }}</span>
+              <button @click="redirectToConvert(client.id)" class="tw-bg-rose-500 tw-text-white tw-py-1 tw-px-2 tw-rounded-md">Convert</button>
+            </li>
+          </ul>
+          <button class="tw-mt-4 tw-text-blue-500" @click="closeModal">Close</button>
+        </div>
+      </div>
   </section>
 </template>
 
@@ -91,7 +116,8 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectFade, Autoplay, Pagination } from 'swiper/modules';
-import { onMounted, ref } from 'vue';
+import { onMounted, provide, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import Banner1 from '@/assets/images/banner1.jpg';
 import Banner2 from '@/assets/images/banner2.jpg';
 import client1 from '@/assets/images/client/a.png';
@@ -105,38 +131,45 @@ import xl from '@/assets/images/client/icon_xl_axis.png';
 import smartfren from '@/assets/images/client/icon_smartfreen.png';
 import three from '@/assets/images/client/iconthree.png';
 import cal from '@/assets/images/calculator.png';
+import nonaktifindosat from '@/assets/images/client/icon_indosat_nonaktif.png';
+import nonaktiftelkomsel from '@/assets/images/client/icon_telkomsel_nonaktif.png';
+import nonaktifxl from '@/assets/images/client/icon_xl_axis_nonaktif.png';
+import nonaktifsmartfren from '@/assets/images/client/icon_smartfren_nonaktif.png';
+import nonaktifthree from '@/assets/images/client/iconthree_nonaktif.png';
 
+const router = useRouter();
 
 interface Banner {
   id: number; 
   image: string;
   desc ?: string;
 }
-interface convertPulsa {
-  nama:string;
-  image:string;
-  color?:string;
-}
+
 interface clientLogos {
   id: number;
   icon: string;
   rate: number;
   label: string;
+  status: string;
 }
 const clientLogos = ref<clientLogos[]>([]);
-const convert = ref<convertPulsa[]>([
-  { nama: 'Telkomsel', image: telkomsel, color: 'tw-bg-red-500' },
-  { nama: 'XL/Axis', image: xl, color: 'tw-bg-blue-500' },
-  { nama: 'IM3', image: indosat, color: 'tw-bg-yellow-400' },
-  { nama: 'Smartfren', image: smartfren, color: 'tw-bg-pink-500' },
-  { nama: 'Three', image: three, color: 'tw-bg-purple-500' },
-]);
+
+const images = ref<any>([
+  {image: telkomsel,nonaktif_image:nonaktiftelkomsel,color:'tw-bg-red-500'},
+  {image: xl,nonaktif_image:nonaktifxl,color:'tw-bg-blue-500'},
+  {image: indosat,nonaktif_image:nonaktifindosat,color:'tw-bg-yellow-500'},
+  {image: smartfren,nonaktif_image:nonaktifsmartfren,color:'tw-bg-pink-500'},
+  {image: three,nonaktif_image:nonaktifthree,color:'tw-bg-purple-500'},
+])
 const secondBanners = ref<Banner[]>([
   { id: 1, image: Banner1 , desc:'panduan aplikasi' },
   { id: 2, image: Banner2 , desc:'fitur transfer'},
 ]);
 
 const banners = ref<Banner[]>([]);
+const showModal = ref(false);
+
+
 
 const GetBanner = async () => {
   const config = {
@@ -163,10 +196,11 @@ const GetBanner = async () => {
   }
 };
 
-const getProvider = async()=>{
+
+const getProvider = async () => {
   const config = {
     headers: {
-      'X-Api-Key': '6B327B94169776D1096031DC73EF9F81', 
+      'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
     },
   };
 
@@ -177,18 +211,47 @@ const getProvider = async()=>{
     });
 
     if (response.ok) {
-      const data = await response.json(); 
-      clientLogos.value = data.data.my_provider;
-      console.log(clientLogos.value)
+      const data = await response.json();
 
+      clientLogos.value = data.data.my_provider.map((provider, index) => {
+        const imageData = images.value[index]; 
+        return {
+          ...provider,
+            image: imageData?.image || '',
+            nonaktif_image: imageData?.nonaktif_image || '', 
+            color: imageData?.color || '',
+          icon: provider.icon, 
+        };
+      });
+
+      console.log(clientLogos.value);
     } else {
       console.log("Unexpected response:", response);
     }
   } catch (error) {
     console.error("Failed to fetch provider:", error);
   }
-}
+};
 
+const handleSecondBannerClick = (id: number) => {
+  if (id === 1) {
+    router.push({ name: 'panduan' });
+  } else if (id === 2) {
+    showModal.value = true;
+  }
+};
+
+const closeModal = () => {
+  showModal.value = false;
+};
+
+  const redirectToConvert = (providerId: number) => {
+  closeModal();
+  router.push({ name: 'convert', params: { id: providerId } });
+};
+const calculatorPage = () => {
+  router.push({ name: 'calculator' });
+};
 
 
 
@@ -197,7 +260,6 @@ onMounted(() => {
   getProvider();
 });
 </script>
-
 <style scoped>
 .banner-section {
   padding-left: 5rem;
