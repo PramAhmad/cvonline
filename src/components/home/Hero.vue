@@ -183,8 +183,8 @@ const images = ref<any>([
   {image: three,nonaktif_image:nonaktifthree,color:'tw-bg-purple-500'},
 ])
 const secondBanners = ref<Banner[]>([
-  { id: 1, image: Banner1 , desc:'panduan aplikasi' },
-  { id: 2, image: Banner2 , desc:'fitur transfer'},
+  { id: 1, image: Banner1 , desc:'Panduan Aplikasi' },
+  { id: 2, image: Banner2 , desc:'Fitur Transfer'},
 ]);
 
 const banners = ref<Banner[]>([]);
