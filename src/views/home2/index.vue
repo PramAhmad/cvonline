@@ -1,17 +1,30 @@
 <template>
   <TopNavigationBar2 />
   <main>
-    <Hero />
-    <BottomNav/>
+    <Suspense>
+      <template #default>
+        <Hero />
+      </template>
+      <template #fallback>
+        <SkeletonLoader />
+      </template>
+    </Suspense>
+
+    <Suspense>
+      <template #default>
+        <BottomNav />
+      </template>
+      <template #fallback>
+        <SkeletonLoader />
+      </template>
+    </Suspense>
   </main>
 </template>
 
 <script lang="ts" setup>
+import { defineAsyncComponent } from 'vue'
+import SkeletonLoader from '@/components/SkeletonLoader.vue'
 
-import Hero from '@/components/home/Hero.vue'
-import BottomNav from  '@/components/BottomNav.vue'
-
-
-// Add rates and labels for each client
-
+const Hero = defineAsyncComponent(() => import('@/components/home/Hero.vue'))
+const BottomNav = defineAsyncComponent(() => import('@/components/BottomNav.vue'))
 </script>

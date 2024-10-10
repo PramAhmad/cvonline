@@ -1,9 +1,10 @@
 import path from 'path';
+import authMiddleware from '@/middleware/auth'
 
 const setTitle = (pageName = '') => {
   return pageName
-    ? `${pageName} | Mizzle Vue - Multipurpose Bootstrap Template`
-    : 'Mizzle Vue | Multipurpose Bootstrap Template'
+    ? `${pageName} |CV pulsa`
+    : 'Cv Pulsa'
 }
 
 export const mainRoute = [
@@ -16,7 +17,6 @@ export const mainRoute = [
     path: '/',
     name: 'home',
     meta: {
-      requiresAuth: true, 
       title: setTitle()
     },
     component: () => import('@/views/home2/index.vue')
@@ -35,7 +35,6 @@ export const mainRoute = [
     name:'tutorial',
     meta:{
       title: setTitle('tutorial'),
-      requiresAuth: true
     },
     component: () => import('@/views/tutorial/index.vue')
   },
@@ -131,6 +130,7 @@ export const mainRoute = [
     component: () => import('@/views/login/index.vue')
   }
 ];
+
 
 export const allRoutes = [
   ...mainRoute
