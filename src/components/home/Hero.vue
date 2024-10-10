@@ -105,7 +105,7 @@
     </div>
 
     <!-- Modal Section for Provider Selection -->
-    <div v-if="showModal" class="tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-50 tw-flex tw-items-center tw-justify-center">
+    <div v-if="showModal"  @click.self="showModal = false" class="tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-50 tw-flex tw-items-center tw-justify-center">
       <div class="tw-bg-white dark:bg-gray-800 tw-p-4 tw-rounded-lg tw-w-80">
         <h3 class="tw-text-lg tw-font-semibold tw-mb-4 dark:text-white">Pilih Provider</h3>
         <ul class="tw-space-y-2">
@@ -116,12 +116,12 @@
             <div class="tw-w-1/4 tw-h-4 tw-bg-gray-300 tw-rounded-lg animate-pulse"></div>
           </li>
 
-          <li v-else v-for="provider in providers" :key="provider.id" class="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b dark:text-white">
+          <li v-else v-for="provider in clientLogos" :key="provider.id" class="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b dark:text-white">
             <div>
-              <img :src="provider.logo" alt="provider-logo" class="tw-w-8 tw-h-8 tw-rounded-full" />
-              <p>{{ provider.name }}</p>
+              <img :src="`https://admin.cvpulsa.id/uploads/my_provider/`+provider.icon" alt="provider-logo" class="tw-w-8 tw-h-8 tw-rounded-full" />
             </div>
-            <button @click="selectProvider(provider)">Select</button>
+            <p class="tw-text-gray-900"> {{ provider.name }}</p>
+            <button @click="selectProvider(provider)" class="tw-text-white tw-bg-red-600 tw-py-1 tw-px-2 tw-rounded-lg">Select</button>
           </li>
         </ul>
       </div>
@@ -171,6 +171,7 @@ interface clientLogos {
   icon: string;
   rate: number;
   label: string;
+  name: string;
   status: string;
 }
 const clientLogos = ref<clientLogos[]>([]);
@@ -274,7 +275,9 @@ const calculatorPage = () => {
   router.push({ name: 'calculator' });
 };
 
-
+const selectProvider = (provider: clientLogos) => {
+  redirectToConvert(provider.id);
+};
 
 onMounted(() => {
   GetBanner();

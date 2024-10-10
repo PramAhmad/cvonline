@@ -115,6 +115,7 @@ nama_rekening: string;
 bank:string;
 biaya_transfer: number;
 no_rekening: string;
+kode_pembayaran: string;  
 }
 
 const rekening = ref<Rekening[]>([]);
@@ -332,54 +333,77 @@ return 0;
 });
 
 const confirmTransaction = async () => {
-isLoading.value = true; 
-try {
-  
-  const formData = new FormData();
-formData.append('tanggal', new Date().toISOString());
-formData.append('email', userEmail);
-formData.append('provider', provider.value?.name);
-formData.append('no_telepon', phoneNumber.value);
-formData.append('nominal', nominal.value);
-formData.append('bank', selectedRekening.value?.bank);
-formData.append('no_rekening', selectedRekening.value?.no_rekening);
-formData.append('nama_rekening',selectedRekening.value?.nama_rekening);
-formData.append('biaya_transfer', selectedRekening.value?.biaya_transfer);
-formData.append('total_diterima', calculatedSaldo.value);
-formData.append('status', 'Pending');
+  isLoading.value = true; 
+  try {
+    const formData = new FormData();
+    formData.append('tanggal', new Date().toISOString());
+    formData.append('email', userEmail);
+    formData.append('provider', provider.value?.name);
+    formData.append('no_telepon', phoneNumber.value);
+    formData.append('nominal', nominal.value);
+    formData.append('bank', selectedRekening.value?.bank);
+    
+    if (selectedRekening.value?.kode_pembayaran !== "0") {
+      formData.append('no_rekening', selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening);
+    } else {
+      formData.append('no_rekening', selectedRekening.value?.no_rekening);
+    }
+    
+    formData.append('nama_rekening', selectedRekening.value?.nama_rekening);
+    formData.append('biaya_transfer', selectedRekening.value?.biaya_transfer);
+    formData.append('total_diterima', calculatedSaldo.value);
+    formData.append('status', 'Selesai');
 
-const response = await fetch('https://admin.cvpulsa.id/api/my_transactions/add', {
-method: 'POST',
-headers: {
-  'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
-},
-body: formData,
-});
+    const response = await fetch('https://admin.cvpulsa.id/api/my_transactions/add', {
+      method: 'POST',
+      headers: {
+        'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+      },
+      body: formData,
+    });
 
+    if (response.ok) {
+      const result = await response.json(); 
+      
 
-  if (response.ok) {
-   
-    // Format pesan WhatsApp
-    const message = `Halo, saya ingin convert pulsa dengan rincian berikut:
-    \nProvider: ${provider.value?.name}
-    \nNominal: Rp ${nominal.value}
-    \nRekening: ${selectedRekening.value?.nama_rekening} - ${selectedRekening.value?.no_rekening}
-    \nSaldo Diterima: Rp ${calculatedSaldo.value}`;
+      const message = `
+        \nNominal: Rp ${nominal.value.toLocaleString()}
+        \nSaldo Diterima: Rp ${calculatedSaldo.value.toLocaleString()}
+        \nNomor Pengirim: ${phoneNumber.value}
+        \nConvert : ${provider.value?.name}
+        \nNama : ${selectedRekening.value?.nama_rekening}
+        \nRekening: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran != "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
+      `;
 
-    const whatsappUrl = `https://wa.me/${provider.value?.no_cs}?text=${encodeURIComponent(message)}`;
-    window.location.href = whatsappUrl;
-  } else {
-    console.error('Transaction failed', response);
-    alert('Terjadi kesalahan dalam transaksi.');
+      const whatsappUrl = `https://wa.me/${provider.value?.no_cs}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappUrl, '_blank');
+
+      const updateFormData = new FormData();
+      updateFormData.append('id', selectedRekening.value?.id);  
+      updateFormData.append('status', 'Selesai');
+
+      const res = await fetch(`https://admin.cvpulsa.id/api/my_transactions/update?id=${selectedRekening.value?.id}`, {
+        method: 'POST',
+        headers: {
+          'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+        },
+        body: updateFormData,  
+      });
+
+    } else {
+      console.error('Transaction failed', response);
+      alert('Terjadi kesalahan dalam transaksi.');
+    }
+  } catch (error) {
+    console.error('Error in confirming transaction:', error);
+    alert('Error saat menghubungi server.');
+  } finally {
+    isLoading.value = false;
+    showModal.value = false;
   }
-} catch (error) {
-  console.error('Error in confirming transaction:', error);
-  alert('Error saat menghubungi server.');
-} finally {
-  isLoading.value = false; // Sembunyikan loading indicator setelah proses selesai
-  showModal.value = false;  // Tutup modal
-}
 };
+
 
 onMounted(() => {
 getProviderById();

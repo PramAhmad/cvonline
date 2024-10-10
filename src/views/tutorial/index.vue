@@ -35,7 +35,7 @@
     { image: three, title: 'Three', desc: 'Contoh: *323*1*08961134xxx*20000#' },
     { image: imtri, title: 'IM3', desc: 'Contoh: Transferpulsa 0857xxxxxxx 100000 kirim ke 151' },
     { image: smartfren, title: 'Smartfren', desc: 'Contoh: KIRIM.0838xxxxxxx.100000 kirim ke 879' },
-    { image: byu, title: 'Byu', desc: 'Panduan isi pulsa Byu' },
+    { image: byu, title: 'Byu', desc: 'Contoh: Masuk aplikasi byu, pilih kirim hadiah' },
   ])
   </script>
   
