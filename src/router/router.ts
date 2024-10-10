@@ -95,6 +95,16 @@ export const mainRoute = [
     component: () => import('@/views/rekening/index.vue')
   },
   {
+    path:'/prosedure',
+    name:'prosedure',
+    meta:{
+      title: setTitle('prosedure'),
+      requiresAuth: true
+
+    },
+    component: () => import('@/views/prosedure/index.vue')
+  },
+  {
     path:'/rekening/:id',
     name:'rekening.detail',
     meta:{

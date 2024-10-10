@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-16 tw-flex  tw-bg-white tw-flex-col tw-items-center banner-section tw-pb-20 dark:bg-gray-900">
+  <section class="mt-16 tw-flex  tw-bg-white tw-flex-col tw-items-center banner-section  tw-mb-[6rem] dark:bg-gray-900">
     <!-- Rate Section -->
     <div class="rate-container tw-w-full tw-flex  tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-md tw-py-2 dark:bg-gray-800 dark:border-gray-700">
       <div

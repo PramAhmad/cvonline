@@ -1,6 +1,6 @@
 <template>
     <!-- component -->
-    <div class="tw-w-full tw-max-w-md tw-fixed tw-mx-auto tw-bottom-0 tw-left-0 tw-right-0 tw-mb-5">
+    <div class="tw-w-full tw-max-w-md tw-fixed  tw-mx-auto tw-bottom-0 tw-left-0 tw-right-0 tw-mb-5">
       <div class="tw-bg-white tw-shadow-lg tw-rounded-2xl">
         <div class="tw-flex">
           <div :class="['tw-flex-1', isActive('home') ? 'tw-text-rose-500' : 'tw-text-gray-700']">
@@ -27,7 +27,7 @@
               </span>
             </router-link>
           </div>
-          <div :class="['tw-flex-1', isActive('transaksi') ? 'tw-text-rose-500' : 'tw-text-gray-700']">
+          <div v-if="user" :class="['tw-flex-1', isActive('transaksi') ? 'tw-text-rose-500' : 'tw-text-gray-700']">
             <router-link
               to="/transaksi"
               class="tw-flex tw-items-end tw-justify-center tw-text-center tw-mx-auto tw-px-4 tw-pt-2 tw-w-full tw-border-b-2"
@@ -39,7 +39,7 @@
               </span>
             </router-link>
           </div>
-          <div :class="['tw-flex-1', isActive('profile') ? 'tw-text-rose-500' : 'tw-text-gray-700']">
+          <div v-if="user" :class="['tw-flex-1', isActive('profile') ? 'tw-text-rose-500' : 'tw-text-gray-700']">
             <router-link
               to="/profile"
               class="tw-flex tw-items-end tw-justify-center tw-text-center tw-mx-auto tw-px-4 tw-pt-2 tw-w-full tw-border-b-2"
@@ -51,6 +51,19 @@
               </span>
             </router-link>
           </div>
+          <!-- login -->
+          <div v-if="!user" :class="['tw-flex-1', isActive('login') ? 'tw-text-rose-500' : 'tw-text-gray-700']">
+            <router-link
+              to="/login"
+              class="tw-flex tw-items-end tw-justify-center tw-text-center tw-mx-auto tw-px-4 tw-pt-2 tw-w-full tw-border-b-2"
+              :class="{ 'tw-border-rose-500': isActive('login'), 'tw-border-transparent': !isActive('login') }"
+            >
+              <span class="tw-block tw-px-1 tw-pt-1 tw-pb-2">
+                <i class="far fa-sign-in tw-text-2xl tw-pt-1 tw-mb-1 tw-block"></i>
+                <span class="tw-block tw-text-xs tw-pb-1">Login</span>
+              </span>
+            </router-link>
+            </div>
         </div>
       </div>
     </div>
@@ -59,6 +72,7 @@
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
+const user = localStorage.getItem('user_email');
 
 const isActive = (routeName) => {
   return route.name === routeName;
