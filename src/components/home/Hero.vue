@@ -22,7 +22,7 @@
           <img :src="`https://admin.cvpulsa.id/uploads/my_provider/`+client.icon" 
                :alt="client.label" 
                class="tw-w-10 tw-h-10 tw-rounded-full tw-mb-2 tw-object-cover tw-mx-auto" />
-          <p class="tw-text-sm tw-font-base tw-text-center dark:text-gray-100">
+          <p class="tw-text-[0.72rem] tw-font-base tw-text-center dark:text-gray-100">
             Rate <span class="tw-font-semibold tw-text-gray-950 dark:text-white">{{ client.rate }}</span>
           </p>
         </router-link>  
