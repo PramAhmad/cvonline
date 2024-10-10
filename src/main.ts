@@ -8,7 +8,7 @@ import { BootstrapIconsPlugin } from 'bootstrap-icons-vue'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import Toast, { type PluginOptions } from 'vue-toastification'
 import { FcGoogle } from 'oh-vue-icons/icons'
-
+import PrimeVue from 'primevue/config'
 import 'bs-stepper/dist/css/bs-stepper.min.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'swiper/swiper-bundle.css'
@@ -31,5 +31,8 @@ app.use(router)
 app.use(createBootstrap())
 app.use(BootstrapIconsPlugin)
 app.use(Toast, toastOptions)
+app.use(PrimeVue, {
+    unstyled: true
+})
 
 app.mount('#app')
