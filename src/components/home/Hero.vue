@@ -1,5 +1,13 @@
 <template>
   <section class="mt-16 tw-flex tw-bg-white tw-flex-col tw-items-center banner-section tw-mb-[6rem] dark:bg-gray-900">
+    <!-- jam operasional -->
+    <div class="tw-w-full tw-flex tw-justify-center tw-items-center tw-bg-red-500 tw-text-white tw-p-2 tw-rounded-lg tw-mb-4 dark:bg-red-500">
+   
+      <p class="tw-text-sm
+        tw-font-medium tw-text-white dark:text-white">
+        Jam Operasional: {{ jamop }}
+      </p>
+    </div>
     <!-- Rate Section -->
     <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-md tw-py-2 dark:bg-gray-800 dark:border-gray-700">
       <div
@@ -74,7 +82,7 @@
 
       <h3 class="tw-my-5 tw-font-semibold tw-text-gray-900 dark:text-white">Pilih Convert Pulsa</h3>
       
-      <div class="max-w-full tw-flex tw-justify-center">
+      <div class="max-w-full tw-px-2 tw-flex tw-justify-center">
         <div v-if="isLoading" v-for="index in 5" :key="'loading-provider-' + index" class="tw-flex tw-flex-col tw-items-center tw-border tw-border-gray-300 tw-rounded-lg tw-shadow-sm tw-w-1/5 tw-mr-1 dark:bg-gray-800 dark:border-gray-700">
           <div class="tw-w-20 tw-h-10  animate-pulse tw-mt-4"></div>
           <div class="tw-w-full tw-bg-gray-300 tw-h-6 tw-rounded-b-lg animate-pulse tw-mt-2"></div>
@@ -159,6 +167,7 @@ import nonaktifsmartfren from '@/assets/images/client/icon_smartfren_nonaktif.pn
 import nonaktifthree from '@/assets/images/client/iconthree_nonaktif.png';
 
 const router = useRouter();
+const jamop = ref('');
 const isLoading = ref(true);
 interface Banner {
   id: number; 
@@ -255,6 +264,21 @@ const getProvider = async () => {
   }
 };
 
+const getSetting = async () => {
+  const config = {
+    headers: {
+      'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+    },
+  };
+  const res = await fetch('https://admin.cvpulsa.id/api/my_settings/all', {
+    method: 'GET',
+    headers: config.headers,
+  });
+  const data = await res.json();
+  jamop.value = data.data.my_settings[2].value;  
+  console.log(jamop.value);
+};
+
 const handleSecondBannerClick = (id: number) => {
   if (id === 1) {
     router.push({ name: 'panduan' });
@@ -281,6 +305,7 @@ const selectProvider = (provider: clientLogos) => {
 
 onMounted(() => {
   GetBanner();
+  getSetting()
   getProvider();
   // wait 2 second
   setTimeout(() => {
