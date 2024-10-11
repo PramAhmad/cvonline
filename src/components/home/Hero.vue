@@ -6,8 +6,11 @@
       <p class="tw-text-sm
         tw-font-medium tw-text-white dark:text-white">
         Jam Operasional: {{ jamop }}
+        
       </p>
     </div>
+    <marquee class="tw-text-gray-900 tw-text-xs tw-mb-4 ">Hanya menerima pulsa halal ,tidak menerima pulsa ilegal ,hasil judi ,pencurian dsb.
+    </marquee>
     <!-- Rate Section -->
     <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-md tw-py-2 dark:bg-gray-800 dark:border-gray-700">
       <div
