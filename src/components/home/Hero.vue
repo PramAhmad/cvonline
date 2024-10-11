@@ -189,11 +189,11 @@ interface clientLogos {
 const clientLogos = ref<clientLogos[]>([]);
 
 const images = ref<any>([
-  {image: telkomsel,nonaktif_image:nonaktiftelkomsel,color:'tw-bg-red-500'},
-  {image: xl,nonaktif_image:nonaktifxl,color:'tw-bg-blue-500'},
-  {image: indosat,nonaktif_image:nonaktifindosat,color:'tw-bg-yellow-500'},
-  {image: smartfren,nonaktif_image:nonaktifsmartfren,color:'tw-bg-pink-500'},
-  {image: three,nonaktif_image:nonaktifthree,color:'tw-bg-purple-500'},
+  {image: telkomsel,nonaktif_image:nonaktiftelkomsel,color:'tw-bg-[#d81d1f]'},
+  {image: xl,nonaktif_image:nonaktifxl,color:'tw-bg-[#0000FF]'},
+  {image: indosat,nonaktif_image:nonaktifindosat,color:'tw-bg-[#ff9800]'},
+  {image: smartfren,nonaktif_image:nonaktifsmartfren,color:'tw-bg-[#E91E63]'},
+  {image: three,nonaktif_image:nonaktifthree,color:'tw-bg-[#673ab7]'},
 ])
 const secondBanners = ref<Banner[]>([
   { id: 1, image: Banner1 , desc:'Panduan Aplikasi' },
