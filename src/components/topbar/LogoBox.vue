@@ -8,7 +8,7 @@
       :src="logo"
       alt="logo"
     />
-    <h6 class="light-mode-item text-dark mt-2">Cv Pulsa</h6>
+    <h6 class="light-mode-item text-dark mt-2 tw-font-semibold ">Cv Pulsa</h6>
     </div>
     <img
       v-if="!smallLogo"
@@ -17,7 +17,7 @@
       :class="imageClass"
       alt="logo"
     />
-    <h6  v-if="!onlyLight" class="dark-mode-item text-light">Cv Pulsa</h6>
+    <h6  v-if="!onlyLight" class="dark-mode-item  tw-font-semibold text-light">Cv Pulsa</h6>
     <img v-if="smallLogo" :src="logoIcon" class="h-50px mb-4" alt="logo" />
   </router-link>
 </template>
