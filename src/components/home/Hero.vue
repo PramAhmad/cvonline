@@ -4,7 +4,8 @@
     <div class="tw-w-full tw-flex tw-justify-center tw-items-center  tw-text-gray-900  tw-rounded-lg  dark:bg-red-500">
    
       <p class="tw-text-base
-        tw-font-semibold tw-text-gray-800 dark:text-white">
+        tw-font-semibold tw-text-gray-800
+         dark:text-white">
        {{ jamop }}
         
       </p>
@@ -68,20 +69,7 @@
     </div>
 
     <div class="tw-w-full tw-mt-6">
-      <div class="tw-grid tw-grid-cols-2 tw-gap-4">
-        <div v-if="isLoading" v-for="index in 2" :key="'loading-small-banner-' + index" class="tw-flex tw-flex-col tw-items-center tw-border-2 tw-rounded-lg tw-border-gray-100 cursor-pointer">
-          <!-- Skeleton Loader for Small Banner -->
-          <div class="tw-w-full tw-h-20 tw-bg-gray-300 animate-pulse tw-rounded-lg"></div>
-          <h3 class="tw-w-24 tw-h-4 tw-bg-gray-300 tw-rounded-lg tw-mt-2 animate-pulse"></h3>
-        </div>
-
-        <div v-else v-for="secondBanner in secondBanners" :key="secondBanner.id" class="tw-flex tw-flex-col tw-items-center tw-border-2 tw-rounded-lg tw-border-gray-100 cursor-pointer" @click="handleSecondBannerClick(secondBanner.id)">
-          <div class="banner-container">
-            <img :src="secondBanner.image" alt="banner" class="banner-image" height="300px" />
-          </div>
-          <h3 class="text-center tw-font-semibold tw-text-base tw-mt-2 tw-text-gray-900 dark:text-gray-100">{{ secondBanner.desc }}</h3>
-        </div>
-      </div>
+     
 
       <h3 class="tw-my-5 tw-font-semibold tw-text-gray-900 dark:text-white">Pilih Convert Pulsa</h3>
       
@@ -98,6 +86,20 @@
           <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
             <p class="tw-font-normal tw-text-center tw-text-[0.6rem] tw-text-white py-2">{{ item.name }}</p>
           </div>
+        </div>
+      </div>
+      <div class="tw-grid tw-grid-cols-2 tw-gap-4 tw-mt-5">
+        <div v-if="isLoading" v-for="index in 2" :key="'loading-small-banner-' + index" class="tw-flex tw-flex-col tw-items-center tw-border-2 tw-rounded-lg tw-border-gray-100 cursor-pointer">
+          <!-- Skeleton Loader for Small Banner -->
+          <div class="tw-w-full tw-h-20 tw-bg-gray-300 animate-pulse tw-rounded-lg"></div>
+          <h3 class="tw-w-24 tw-h-4 tw-bg-gray-300 tw-rounded-lg tw-mt-2 animate-pulse"></h3>
+        </div>
+
+        <div v-else v-for="secondBanner in secondBanners" :key="secondBanner.id" class="tw-flex tw-flex-col tw-items-center tw-border-2 tw-rounded-lg tw-border-gray-100 cursor-pointer" @click="handleSecondBannerClick(secondBanner.id)">
+          <div class="banner-container">
+            <img :src="secondBanner.image" alt="banner" class="banner-image" height="300px" />
+          </div>
+          <h3 class="text-center tw-font-semibold tw-text-base tw-mt-2 tw-text-gray-900 dark:text-gray-100">{{ secondBanner.desc }}</h3>
         </div>
       </div>
 
