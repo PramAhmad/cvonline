@@ -10,9 +10,9 @@
   
   <div class="tw-py-6 tw-px-4">
     <!-- Form Fields -->
-    <div class="tw-mb-4">
+    <div class="tw-mb-4 tw-w-full">
       <label class="tw-block tw-text-gray-700 tw-font-medium tw-mb-2">Jumlah Pulsa Sekarang *</label>
-      <input type="number" placeholder="0" class="tw-w-full tw-px-4 tw-py-2 tw-border tw-rounded-md" v-model="pulsaSekarang" />
+      <InputNumber type="number" placeholder="0" class="tw-w-full tw-px-4 tw-py-2 tw-border tw-rounded-md tw-block" v-model="pulsaSekarang" />
     </div>
 
     <div class="tw-mb-4">
@@ -71,6 +71,7 @@ import router from '../../router';
 const pulsaSekarang = ref<number | null>(null)
 const selectedProvider = ref<Provider | null>(null)
 const isModalOpen = ref<boolean>(false)
+import InputNumber from 'primevue/inputnumber';
 
 interface Provider {
   id: number;
@@ -122,7 +123,7 @@ function closeModal() {
 
 function selectProvider(providerItem: Provider) {
   selectedProvider.value = providerItem
-  sisaPulsa.value = providerItem.sisa_pulsa
+  sisaPulsa.value = parseInt(providerItem.sisa_pulsa) || 0
   const pulsa = pulsaSekarang.value || 0
   switch (providerItem.name) {
   case 'Telkomsel':
@@ -228,6 +229,8 @@ function selectProvider(providerItem: Provider) {
 }
 
 const convertPulsa = computed(() => {
+ console.log(pulsaSekarang.value, BiayaTransfer.value, sisaPulsa.value)
+//  ubah sisa pulsa ke int
   if (!pulsaSekarang.value || !selectedProvider.value) return 0;
   return (pulsaSekarang.value - BiayaTransfer.value - sisaPulsa.value).toLocaleString('id-ID');
 });
