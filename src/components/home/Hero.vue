@@ -84,7 +84,7 @@
             <img :src="item.status === `1` ? item.image : item.nonaktif_image" alt="logo" class="tw-w-full tw-h-full tw-object-contain" />
           </div>
           <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
-            <p class="tw-font-normal tw-text-center tw-text-[0.6rem] tw-text-white py-2">{{ item.name }}</p>
+            <p class="tw-font-semibold tw-text-center tw-text-[0.62rem] tw-text-white py-2">{{ item.name }}</p>
           </div>
         </div>
       </div>
