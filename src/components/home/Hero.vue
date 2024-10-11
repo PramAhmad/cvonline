@@ -4,7 +4,7 @@
     <div class="tw-w-full tw-flex tw-justify-center tw-items-center  tw-text-gray-900  tw-rounded-lg  dark:bg-red-500">
    
       <p class="tw-text-base
-        tw-font-medium tw-text-gray-900 dark:text-white">
+        tw-font-semibold tw-text-gray-800 dark:text-white">
        {{ jamop }}
         
       </p>
