@@ -16,54 +16,33 @@
       <li>
         <hr class="dropdown-divider" />
       </li>
-      <li>
-        <a class="dropdown-item" :href="supportLink">
-          <BIconLifePreserver class="me-2" />
-          Halaman 1
-        </a>
-      </li>
-      <li>
-        <a
-          class="dropdown-item"
-          href="https://mizzle-vue.vercel.app/docs/index.html"
-          target="_blank"
-        >
-          <b-card-text class="me-2" />
-          Halaman 2
-        </a>
-      </li>
+     
+      
     </div>
   </li>
-  <li class="nav-item">
-    <a
-      class="nav-link"
-      href="https://mizzle-vue.vercel.app/docs/index.html"
-      target="_blank"
-    >
-      Halaman 3
-    </a>
-    </li> 
-    <li class="nav-item">
-    <a
-      class="nav-link"
-      href="https://mizzle-vue.vercel.app/docs/index.html"
-      target="_blank"
-    >
-      Halaman 4
-      
-    </a>
-    </li> 
-    <li class="nav-item">
-    <a
-      class="nav-link"
-      href="https://mizzle-vue.vercel.app/docs/index.html"
-      target="_blank"
-    >
-      Halaman 5
-    </a>
-    </li> 
-</template>
+  <li class="nav-item" v-if="isLoggedIn">
+    <router-link class="nav-link" to="/panduan" target="_blank">
+      Tutorial
+    </router-link>
+  </li>
+  <li class="nav-item" v-if="isLoggedIn">
+    <router-link class="nav-link" to="/transaksi" target="_blank">
+      Transaksi
+    </router-link>
+  </li>
+  <!-- Conditionally display Profile and Login based on login status -->
+  <li class="nav-item" v-if="isLoggedIn">
+    <router-link class="nav-link" to="/profile" target="_blank">
+      Profile
+    </router-link>
+  </li>
 
+  <li class="nav-item" v-else>
+    <router-link class="nav-link" to="login" target="_blank">
+      Login
+    </router-link>
+  </li>
+</template>
 <script lang="ts" setup>
 import router from '@/router'
 import { supportLink } from '@/helpers'
@@ -73,6 +52,10 @@ import MenuItemWithChildren from '@/components/topbar/AppMenu/MenuItemWithChildr
 import { menuItemActive } from '@/components/topbar/AppMenu/getActiveClass'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { BIconLifePreserver } from 'bootstrap-icons-vue'
+import { computed } from 'vue'
+
+// Check if the user is logged in by checking the presence of email_user in localStorage
+const isLoggedIn = computed(() => !!localStorage.getItem('user_email'))
 
 type PagesMenuDropdownProps = {
   menuItems: MenuItemType[]

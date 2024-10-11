@@ -1,18 +1,18 @@
 <template>
   <section class="mt-16 tw-flex tw-bg-white tw-flex-col tw-items-center banner-section tw-mb-[6rem] dark:bg-gray-900">
     <!-- jam operasional -->
-    <div class="tw-w-full tw-flex tw-justify-center tw-items-center tw-bg-red-500 tw-text-white tw-p-2 tw-rounded-lg tw-mb-4 dark:bg-red-500">
+    <div class="tw-w-full tw-flex tw-justify-center tw-items-center  tw-text-gray-900  tw-rounded-lg  dark:bg-red-500">
    
-      <p class="tw-text-sm
-        tw-font-medium tw-text-white dark:text-white">
-        Jam Operasional: {{ jamop }}
+      <p class="tw-text-base
+        tw-font-medium tw-text-gray-900 dark:text-white">
+       {{ jamop }}
         
       </p>
     </div>
-    <marquee class="tw-text-gray-900 tw-text-xs tw-mb-4 ">Hanya menerima pulsa halal ,tidak menerima pulsa ilegal ,hasil judi ,pencurian dsb.
+    <marquee class="tw-text-gray-900 tw-text-sm tw-mb-4 ">Hanya menerima pulsa halal ,tidak menerima pulsa ilegal ,hasil judi ,pencurian dsb.
     </marquee>
     <!-- Rate Section -->
-    <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-md tw-py-2 dark:bg-gray-800 dark:border-gray-700">
+    <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-lg tw-py-2 dark:bg-gray-800 dark:border-gray-700">
       <div
         v-if="isLoading"
         v-for="index in 4"  

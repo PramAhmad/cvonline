@@ -29,7 +29,13 @@ import StickyHeader from '@/components/topbar/StickyHeader.vue'
 import LogoBox from '@/components/topbar/LogoBox.vue'
 import ThemeToggleDropdown from '@/components/topbar/ThemeToggleDropdown.vue'
 import MobileNavbarToggler from '@/components/topbar/MobileNavbarToggler.vue'
-import { BIconPersonCircle } from 'bootstrap-icons-vue'
 import AppMenu from '@/components/topbar/AppMenu/index.vue'
-import { buyLink } from '@/helpers'
+import { useRoute } from 'vue-router'
+
+const route = useRoute();
+const buyLink = 'https://example.com/buy-link';  // Example buy link
+
+const isActive = (routeName) => {
+  return route.name === routeName;
+};
 </script>
