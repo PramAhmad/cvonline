@@ -36,6 +36,7 @@ declare module 'vue' {
     BIconExclamationTriangleFill: typeof import('bootstrap-vue-next')['BIconExclamationTriangleFill']
     BIconLifePreserver: typeof import('bootstrap-vue-next')['BIconLifePreserver']
     BIconShieldCheck: typeof import('bootstrap-vue-next')['BIconShieldCheck']
+    BIconYoutube: typeof import('bootstrap-vue-next')['BIconYoutube']
     BImg: typeof import('bootstrap-vue-next')['BImg']
     BListGroup: typeof import('bootstrap-vue-next')['BListGroup']
     BListGroupItem: typeof import('bootstrap-vue-next')['BListGroupItem']

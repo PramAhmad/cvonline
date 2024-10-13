@@ -5,13 +5,12 @@
       <Hero />
 
       <b-container>
+        <About />
       
-        <Client />
         
         
         
       </b-container>  
-      <About />
       <Services />
       <Cta />
       <Features />
@@ -20,6 +19,7 @@
       <Testimonial />
 
       <Footer5 />
+      <BottomNav/>
     </main>
   
   </template>
@@ -36,5 +36,6 @@
   import Footer5 from '@/components/footer/Footer9.vue'
   import FAQ from '@/views/home/components/FAQ.vue'
   import Testimonial from '@/views/home/components/Testimonials.vue'
+import BottomNav from '../../components/BottomNav.vue'
 
   </script>

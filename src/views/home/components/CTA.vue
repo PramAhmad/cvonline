@@ -2,13 +2,13 @@
   <section>
     <b-container>
       <div class="bg-light rounded position-relative overflow-hidden p-4 p-sm-6">
-        <div class="position-absolute end-0 bottom-0 me-5">
+        <div class="position-absolute end-0 bottom-0 me-5 md:tw-block tw-hidden">
           <img :src="ctaVectorImg" class="h-200px" alt="vector-img" />
         </div>
 
         <b-row class="g-4">
           <b-col lg="5">
-            <h2 class="mb-4">Dimana pun Kapan pun Tukar Uang Kalian </h2>
+            <h2 class="mb-4 tw-text-start tw-font-semibold tw-text-gray-800">Dimana pun Kapan pun Tukar Uang Kalian </h2>
             <p class="mb-4">
               install aplikasi kami dan nikmati kemudahan dalam melakukan transaksi
             </p>
@@ -26,15 +26,7 @@
             </b-row>
           </b-col>
 
-          <b-col lg="5">
-            <div
-              class="iphone-x iphone-x-small ms-lg-auto m-0 mb-n9"
-              :style="`background: url(${placeholderImg6}); background-size: 100%; width: 280px; height:430px`"
-            >
-              <i></i>
-              <b style="left: 6%"></b>
-            </div>
-          </b-col>
+         
         </b-row>
       </div>
     </b-container>
@@ -45,5 +37,5 @@
 import ctaVectorImg from '@/assets/images/elements/cta-vector.svg'
 import googlePlay from '@/assets/images/elements/google-play.svg'
 import appStore from '@/assets/images/elements/app-store.svg'
-import placeholderImg6 from '@/assets/images/mokeup/cta.jpeg'
+import router from '../../../router';
 </script>

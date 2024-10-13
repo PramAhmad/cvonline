@@ -230,15 +230,22 @@ function selectProvider(providerItem: Provider) {
 
 const convertPulsa = computed(() => {
  console.log(pulsaSekarang.value, BiayaTransfer.value, sisaPulsa.value)
-//  ubah sisa pulsa ke int
   if (!pulsaSekarang.value || !selectedProvider.value) return 0;
   return (pulsaSekarang.value - BiayaTransfer.value - sisaPulsa.value).toLocaleString('id-ID');
 });
 
 function convertPulsaNow() {
-  // redirect to page conver
-  router.push('/convert/'+selectedProvider.value?.id)
+  const providerId = selectedProvider.value?.id;
+  const nominal = pulsaSekarang.value.toString();
+  
+  const expiryTime = new Date().getTime() + 30000; 
+  localStorage.setItem('nominal', nominal);
+  localStorage.setItem('nominal_expiry', expiryTime.toString());
+  window.location.href = `/convert/${providerId}`;
+  
+
 }
+
 
 onMounted(() => {
   getProvider();

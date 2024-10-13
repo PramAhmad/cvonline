@@ -1,16 +1,12 @@
 <template>
   <section class="pt-8 pt-xl-9">
-    <b-container>
       <b-row>
         <b-col xl="10" class="text-center mx-auto">
-          <span class="font-heading heading-color d-inline-block bg-light px-3 py-2 rounded-3 mb-4"
-            >🤩 Apa yang kita lakukan </span
+          <h3 class="tw-font-bold tw-text-red-600 tw-text-2xl x-3 py-2 rounded-3 mb-4"
+            >Convert Pulsa Jadi Uang </h3
           >
-          <h1 class="mb-4">Kita adalah sebuah platform untuk menukar Pulsa menjadi CASH</h1>
           <p class="lead mb-0">
-            platform kami memungkinkan anda untuk menukar pulsa menjadi uang tunai
-            dengan mudah dan cepat. dengan berbagai metode pembayaran yang kami sediakan
-            dan juga dengan harga yang tinggi.
+            Convert pulsa adalah platform digital yang menyediakan layanan penukaran pulsa menjadi saldo E-Wallet. Dengan berbagai fitur unggulan dan keamanan yang terjamin. Kami berkomitmen untuk memberikan pelayanan yang terbaik untuk masyarakat Indonesia
           </p>
 
           <b-row class="g-4 mt-5 mx-auto align-items-end">
@@ -273,28 +269,19 @@
                 <div class="bg-overlay bg-dark opacity-2"></div>
 
                 <div class="position-absolute end-0 bottom-0 m-3 z-index-2">
-                  <CustomGLightbox
-                    link="https://www.youtube.com/embed/tXHviS-4ygo"
-                    className="btn btn-lh btn-white icons-center"
-                    data-gallery="course-video"
-                  >
-                    <BIconYoutube class="text-danger fa-fw fa-xl me-2" />Watch our story
-                  </CustomGLightbox>
+                 
                 </div>
               </b-card>
             </b-col>
           </b-row>
         </b-col>
       </b-row>
-    </b-container>
   </section>
 </template>
 
 <script setup lang="ts">
-import CustomGLightbox from '@/components/CustomGLightbox.vue'
-import { BIconYoutube } from 'bootstrap-icons-vue'
 
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '@/assets/images/avatar/hero.png'
 import about15 from '@/assets/images/about/15.jpg'
 import about16 from '@/assets/images/about/16.jpg'
 </script>

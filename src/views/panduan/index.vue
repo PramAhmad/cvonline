@@ -1,12 +1,13 @@
 <template>
-     <div class="tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
-<router-link to="/" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
-    <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div ref="header" class="sticky-header tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
+    <!-- Button to go back -->
+    <button @click="goBack" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
       </svg>
-</router-link>
-<h2 class="tw-font-medium tw-text-md tw-text-gray-900">Pengaduan Penggunaan Aplikasi</h2>
-</div>
+    </button>
+    <h2 class="tw-font-medium tw-text-md tw-text-gray-900">Pengaduan Penggunaan Aplikasi</h2>
+  </div>
     <div class="tw-py-6 tw-px-4">
      
       <div v-for="step in steps" :key="step.urutan" class="tw-flex tw-py-4 tw-border-b">
@@ -20,6 +21,7 @@
   </template>
   
   <script lang="ts" setup>
+  import { useRouter } from 'vue-router';
   import step1 from '@/assets/images/panduan/tutor 1.png'
   import step2 from '@/assets/images/panduan/tutor 2.png'
   import step3 from '@/assets/images/panduan/tutor 3.png'
@@ -93,8 +95,22 @@
             description: 'Hubungi customer service jika ada kendala dalam proses convert pulsa'
       }
   ];
+  const router = useRouter();
+  const goBack = () => {
+        router.go(-1);
+};
+
   </script>
   
   <style scoped>
-  </style>
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: box-shadow 0.3s ease-in-out;
+  }
   
+  .tw-shadow-lg {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  </style>

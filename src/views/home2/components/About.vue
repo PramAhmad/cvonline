@@ -278,7 +278,6 @@
                     className="btn btn-lh btn-white icons-center"
                     data-gallery="course-video"
                   >
-                    <BIconYoutube class="text-danger fa-fw fa-xl me-2" />Watch our story
                   </CustomGLightbox>
                 </div>
               </b-card>
@@ -292,7 +291,6 @@
 
 <script setup lang="ts">
 import CustomGLightbox from '@/components/CustomGLightbox.vue'
-import { BIconYoutube } from 'bootstrap-icons-vue'
 
 import about14 from '@/assets/images/about/14.jpg'
 import about15 from '@/assets/images/about/15.jpg'

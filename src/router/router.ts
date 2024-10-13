@@ -19,7 +19,7 @@ export const mainRoute = [
     meta: {
       title: setTitle()
     },
-    component: () => import('@/views/home2/index.vue')
+    component: () => import('@/views/home/index.vue')
   },
   {
     path:'/convert/:id',

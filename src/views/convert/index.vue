@@ -30,7 +30,7 @@
       </div>
   
       <label class="tw-block tw-mb-2 tw-text-sm tw-font-medium">Nomor Pengirim Pulsa <span class="tw-text-red-500">*</span></label>
-      <input v-model="phoneNumber" type="text" placeholder="081234xxxxxxx" class="tw-w-full tw-border tw-rounded tw-p-2 tw-mb-2" />
+      <input v-model="phoneNumber" type="number" placeholder="081234xxxxxxx" class="tw-w-full tw-border tw-rounded tw-p-2 tw-mb-2" />
       <span v-if="errorMessages.phoneNumber" class="tw-text-red-500 tw-text-sm">{{ errorMessages.phoneNumber }}</span>
     
       <label class="tw-block tw-mb-2 tw-text-sm tw-font-medium">Pilih Rekening</label>
@@ -95,6 +95,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import InputNumber from 'primevue/inputnumber';
+import { parse } from 'path';
 
 interface Provider {
 id: number;
@@ -307,7 +308,6 @@ errorMessages.value.isConfirmed = isConfirmed.value ? '' : 'Anda harus menyetuju
   
 }
 const submitForm = () => {
-  console.log(errorMessages.value);
   validateForm();
   if (
   !errorMessages.value.phoneNumber &&
@@ -408,7 +408,16 @@ const confirmTransaction = async () => {
 onMounted(() => {
 getProviderById();
 getRekening();
-});
+// ambil data dari calculator
+const calnominal = localStorage.getItem('nominal');
+const exptime = localStorage.getItem('nominal_expiry');
+const curent = new Date().getTime();
+// nominal masukin ke nominal.
+console.log(calnominal)
+if(curent < parseInt(exptime)){
+  nominal.value = calnominal
+}
+  });
 </script>
 
 <style scoped>

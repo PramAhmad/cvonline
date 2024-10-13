@@ -1,6 +1,6 @@
 <template>
   <!-- component -->
-  <div class="tw-w-full tw-max-w-md tw-fixed tw-mx-auto tw-bottom-0 tw-left-0 tw-right-0 ">
+  <div class="tw-w-full tw-max-w-md tw-fixed tw-mx-auto tw-bottom-0 tw-left-0 tw-right-0  tw-z-50">
     <div class="tw-bg-white tw-shadow-lg tw-rounded-xl">
       <div class="tw-flex">
         <div :class="['tw-flex-1', isActive('home') ? 'tw-text-rose-500' : 'tw-text-gray-700']">

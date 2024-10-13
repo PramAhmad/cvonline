@@ -223,9 +223,7 @@ const GetBanner = async () => {
     if (response.ok) {
       const data = await response.json(); 
       banners.value = data.data.my_banner;
-      console.log("Banners:", banners.value);
     } else {
-      console.log("Unexpected response:", response);
     }
   } catch (error) {
     console.error("Failed to fetch banners:", error);

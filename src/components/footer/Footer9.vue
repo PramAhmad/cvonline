@@ -96,9 +96,21 @@
                 <b-col cols="5" sm="4" md="6">
                   <router-link to="#"><img :src="appStore" alt="app-store" /></router-link>
                 </b-col>
+           
               </b-row>
+              <b-row>
+  <b-col cols="6" sm="4" md="6" class="text-center">
+    <router-link to="#">
+      <img 
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEhj_BJfJeTZn8SIhqAD_Lp1F0uvpSgCK5DLIpUBycl3Wx96Rvt9apImDxL36-38EUrxWq0WVH6X5cJc3lYFTmXeH2mnxzziUdI3bSnwbaHozaO8WjSTmSwzkO5BLFhaFdRVFKfVgXeQYumMuMBXT450Psn13-ieXbcwDp3DUQaqB9dQmhj1t-vetl51YXgB=s1600" 
+        alt="footer-logo" 
+        class="tw-rounded-xl"
+      />
+    </router-link>
+  </b-col>
+</b-row>
 
-              <h6 class="mb-2 mb-md-4">Follow on</h6>
+              <h6 class="mb-2 mb-md-4 mt-4">Follow on</h6>
 
               <ul class="list-inline mb-0 mt-3 d-flex align-items-center gap-1">
                 <li class="list-inline-item" v-for="(item, idx) in followOnIcons" :key="idx">

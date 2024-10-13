@@ -1,15 +1,16 @@
 <template>
     <div class="tw-w-full tw-h-full">
       <!-- Header Section -->
-      <div class="tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
-        <button @click="goBack" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <h2 class="tw-font-medium tw-text-md tw-text-gray-900">Kebijakan Privasi</h2>
-      </div>
-  
+      <div ref="header" class="sticky-header tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
+    <!-- Button to go back -->
+    <button @click="goBack" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+     
+    </button>
+    <h2 class="tw-font-medium tw-text-md tw-text-gray-900">Pengaduan Penggunaan Aplikasi</h2>
+  </div>
       <!-- Content Section -->
       <div class="tw-p-6 tw-bg-white tw-text-gray-800">
         <h3 class="tw-text-lg tw-font-bold tw-mb-4">Kebijakan Privasi</h3>
@@ -127,3 +128,14 @@ tertentu dari layanan kami.</li>
   };
   </script>
   
+  <style scoped>
+ .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .tw-shadow-lg {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }</style>

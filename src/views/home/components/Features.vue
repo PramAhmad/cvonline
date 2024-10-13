@@ -2,7 +2,7 @@
   <section class="pb-0">
     <b-container>
       <div class="inner-container-small text-center mb-9">
-        <h2 class="mb-4">Fitur apa saja yang kami miliki</h2>
+        <h2 class="mb-4 tw-text-red-600 tw-font-semibold tw-text-2xl">Fitur apa saja yang kami miliki</h2>
         <p class="mb-0">
           Kami memiliki berbagai fitur yang dapat membantu anda dalam melakukan transaksi 
         </p>
@@ -69,7 +69,7 @@
               <div class="icon-lg bg-primary text-white rounded ms-lg-auto mb-3 flex-centered">
                 <BIconShieldCheck style="height: 24px; width: 24px" class="fa-lg" />
               </div>
-              <h5 class="mb-3">Keamanan Data</h5>
+              <h5 class="mb-3 tw-font-semibold tw-text-xl">Keamanan Data</h5>
               <p class="mb-0">
                 Kami menjamin keamanan data anda, sehingga anda tidak perlu khawatir dengan data
                 yang anda berikan
@@ -80,7 +80,7 @@
               <div class="icon-lg bg-primary text-white rounded ms-lg-auto mb-3 flex-centered">
                 <BIconFingerprint style="height: 24px; width: 24px" class="fa-lg" />
               </div>
-              <h5 class="mb-3">Keamanan Pembayaran</h5>
+              <h5 class="mb-3 mb-3 tw-font-semibold tw-text-xl">Keamanan Pembayaran</h5>
               <p class="mb-0">
                 Kami menjamin keamanan pembayaran anda, sehingga anda tidak perlu khawatir dengan
                 pembayaran yang anda lakukan
@@ -225,7 +225,7 @@
               <div class="icon-lg bg-primary text-white rounded mb-3 flex-centered">
                 <BIconGear style="height: 24px; width: 24px" class="fa-lg" />
               </div>
-              <h5 class="mb-3">Kemudahan Transaksi</h5>
+              <h5 class="mb-3 mb-3 tw-font-semibold tw-text-xl">Kemudahan Transaksi</h5>
               <p class="mb-0">
                 Transaksi mudah dan cepat, tanpa perlu antri dan tanpa perlu keluar rumah.
               </p>
@@ -235,7 +235,7 @@
               <div class="icon-lg bg-primary text-white rounded mb-3 flex-centered">
                 <BIconChevronBarContract style="height: 24px; width: 24px" class="fa-lg" />
               </div>
-              <h5 class="mb-3">Kecepatan Transaksi</h5>
+              <h5 class="mb-3 mb-3 tw-font-semibold tw-text-xl">Kecepatan Transaksi</h5>
               <p class="mb-0">
                 Transaksi cepat dan
               </p>
