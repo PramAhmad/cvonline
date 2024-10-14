@@ -13,54 +13,58 @@
         <MenuItemWithChildren v-if="item.children" :item="item" />
         <MenuItem v-else :item="item" />
       </template>
-      <li>
-        <!-- convert dan calculator -->
-        
 
+      <li>
         <router-link class="dropdown-item" to="/calculator">
-          Calculator
+          Kalkulator Pulsa
         </router-link>
       </li>
-     
       
+      <li v-for="item in provider" :key="item.id">
+        <router-link class="dropdown-item" :to="'/convert/' + item.id">
+          Convert {{ item.name }}
+        </router-link>
+      </li>
     </div>
   </li>
   <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/panduan" >
+    <router-link class="nav-link" to="/panduan">
       Tutorial
     </router-link>
   </li>
   <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/transaksi" >
+    <router-link class="nav-link" to="/transaksi">
       Transaksi
     </router-link>
   </li>
-  <!-- Conditionally display Profile and Login based on login status -->
   <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/profile" >
+    <router-link class="nav-link" to="/profile">
       Profile
     </router-link>
   </li>
-
   <li class="nav-item" v-else>
-    <router-link class="nav-link" to="login" >
+    <router-link class="nav-link" to="/login">
       Login
     </router-link>
   </li>
 </template>
+
 <script lang="ts" setup>
-import router from '@/router'
-import { supportLink } from '@/helpers'
-import type { MenuItemType } from '@/helpers/menu'
+import { ref, computed, onMounted } from 'vue'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { menuItemActive } from '@/components/topbar/AppMenu/getActiveClass'
 import MenuItem from '@/components/topbar/AppMenu/MenuItem.vue'
 import MenuItemWithChildren from '@/components/topbar/AppMenu/MenuItemWithChildren.vue'
-import { menuItemActive } from '@/components/topbar/AppMenu/getActiveClass'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import { BIconLifePreserver } from 'bootstrap-icons-vue'
-import { computed } from 'vue'
+import router from '@/router'
 
-// Check if the user is logged in by checking the presence of email_user in localStorage
 const isLoggedIn = computed(() => !!localStorage.getItem('user_email'))
+
+interface Provider {
+  id: number;
+  name: string;
+}
+
+const provider = ref<Provider[]>([])
 
 type PagesMenuDropdownProps = {
   menuItems: MenuItemType[]
@@ -69,4 +73,32 @@ type PagesMenuDropdownProps = {
 defineProps<PagesMenuDropdownProps>()
 
 const currentRouteName = router.currentRoute.value.name
+
+const getProvider = async () => {
+  const config = {
+    headers: {
+      'X-Api-Key': import.meta.env.VITE_API_KEY,
+    },
+  };
+
+  try {
+    const response = await fetch('https://admin.cvpulsa.id/api/my_provider/all?sort_order=asc', {
+      method: 'GET',
+      headers: config.headers,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      provider.value = data.data.my_provider;
+    } else {
+      console.log("Unexpected response:", response);
+    }
+  } catch (error) {
+    console.error("Failed to fetch provider:", error);
+  }
+};
+
+onMounted(() => {
+  getProvider();
+});
 </script>
