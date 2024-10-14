@@ -10,7 +10,8 @@
         
       </p>
     </div>
-    <marquee class="tw-text-gray-900 tw-text-sm tw-mb-4 ">Hanya menerima pulsa halal ,tidak menerima pulsa ilegal ,hasil judi ,pencurian dsb.
+    <marquee class="tw-text-gray-900 tw-text-sm tw-mb-4 ">
+      {{ homeinfo }}
     </marquee>
     <!-- Rate Section -->
     <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-lg tw-py-2 dark:bg-gray-800 dark:border-gray-700">
@@ -173,6 +174,7 @@ import nonaktifthree from '@/assets/images/client/iconthree_nonaktif.png';
 
 const router = useRouter();
 const jamop = ref('');
+const homeinfo = ref('');
 const isLoading = ref(true);
 interface Banner {
   id: number; 
@@ -278,7 +280,9 @@ const getSetting = async () => {
     headers: config.headers,
   });
   const data = await res.json();
-  jamop.value = data.data.my_settings[3].value;  
+  jamop.value = data.data.my_settings[3].value;
+  homeinfo.value = data.data.my_settings[0].value;
+    
   console.log(jamop.value);
 };
 
