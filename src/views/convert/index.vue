@@ -150,7 +150,7 @@ try {
   const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/all?filter=${userEmail}`, {
     method: 'GET',
     headers: {
-      'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+      'X-Api-Key': import.meta.env.VITE_API_KEY,
     },
   });
 
@@ -170,7 +170,7 @@ try {
   const response = await fetch(`https://admin.cvpulsa.id/api/my_provider/detail?id=${$route.params.id}`, {
     method: 'GET',
     headers: {
-      'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+      'X-Api-Key': import.meta.env.VITE_API_KEY,
     },
   });
 
@@ -357,7 +357,7 @@ const confirmTransaction = async () => {
     const response = await fetch('https://admin.cvpulsa.id/api/my_transactions/add', {
       method: 'POST',
       headers: {
-        'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+        'X-Api-Key': import.meta.env.VITE_API_KEY,
       },
       body: formData,
     });
@@ -386,7 +386,7 @@ const confirmTransaction = async () => {
       const res = await fetch(`https://admin.cvpulsa.id/api/my_transactions/update?id=${selectedRekening.value?.id}`, {
         method: 'POST',
         headers: {
-          'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+          'X-Api-Key': import.meta.env.VITE_API_KEY,
         },
         body: updateFormData,  
       });

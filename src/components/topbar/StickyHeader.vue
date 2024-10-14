@@ -1,5 +1,5 @@
 <template>
-  <header :class="`${isSticky ? 'header-sticky-on' : ''} ${className}`">
+  <header :class="`${isSticky ? '' : ''} ${className}`">
     <slot />
   </header>
 </template>

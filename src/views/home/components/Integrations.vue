@@ -32,10 +32,10 @@
                 delay: 2000
               }"
               :loop="true"
-              :slidesPerView="4"
+              :slidesPerView="2"
               :spaceBetween="30"
               :breakpoints="{
-                576: { slidesPerView: 4 },
+                576: { slidesPerView: 2 },
                 768: { slidesPerView: 4 }
               }"
               wrapperClass="align-items-center"
@@ -52,15 +52,16 @@
 import { BIconPatchCheck } from 'bootstrap-icons-vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
-import bca from '@/assets/images/pembayaran/Bca.png'
-import bri from '@/assets/images/pembayaran/Bri.png'
-import mandiri from '@/assets/images/pembayaran/Mandiri.png'
-import dana from '@/assets/images/pembayaran/Dana.png'
-import gopay from '@/assets/images/pembayaran/Gopay.png'
-import ovo from '@/assets/images/pembayaran/Ovo.png'
-import shopeepay from '@/assets/images/pembayaran/Shopeepay.png'
-import linkaja from '@/assets/images/pembayaran/Linkaja.png'
-import jenius from '@/assets/images/pembayaran/jenius.png'
+import bca from '@/assets/images/pembayaran/pay_bca.png'
+import bri from '@/assets/images/pembayaran/pay_bri.png'
+import mandiri from '@/assets/images/pembayaran/pay_mandiri.png'
+import dana from '@/assets/images/pembayaran/pay_dana.png'
+import gopay from '@/assets/images/pembayaran/pay_gopay.png'
+import ovo from '@/assets/images/pembayaran/pay_ovo.png'
+import shopeepay from '@/assets/images/pembayaran/pay_shopeepay.png'
+import linkaja from '@/assets/images/pembayaran/pay_linkaja.png'
+import jenius from '@/assets/images/pembayaran/pay_jenius.png'
+
 
 // Data yang dipilih agar layout tetap rapi
   const swiper = [bca, bri, mandiri, dana, gopay, ovo, shopeepay, linkaja, jenius]

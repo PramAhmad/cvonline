@@ -110,6 +110,9 @@
                     ><img :src="googlePlay" alt=""
                   /></router-link>
                 </b-col>
+              </b-row>
+              <b-row class="g-2 mt-2 mb-4 mb-sm-5">
+
                 <b-col cols="5" sm="4" md="6">
                   <router-link to="#"
                     ><img :src="appStore" alt="app-store"

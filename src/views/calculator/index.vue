@@ -92,7 +92,7 @@ const BiayaTransfer = ref<number>(0)
 const getProvider = async () => {
   const config = {
     headers: {
-      'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+      'X-Api-Key': import.meta.env.VITE_API_KEY,
     },
   };
 

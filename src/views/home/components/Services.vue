@@ -25,7 +25,7 @@
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A2.png -->
             <div class="col-md-6">
-              <div class="                                    -hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class=" t                                  card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A2.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Proses Cepat</h5>
@@ -35,7 +35,7 @@
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A3.png -->
             <div class="col-md-6">
-              <div class="                                    -hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="                                   card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A3.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Pembayaran</h5>
@@ -45,7 +45,7 @@
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A4.png -->
             <div class="col-md-6">
-              <div class="                                    -hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="                                   card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A4.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Proses Mudah</h5>
@@ -55,7 +55,7 @@
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A5.png -->
             <div class="col-md-6">
-              <div class="                                    -hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="                                   card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A5.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Dijamin Aman</h5>
@@ -65,7 +65,7 @@
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A6.png -->
             <div class="col-md-6">
-              <div class="                                    -hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="                                   card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A6.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Cuan Maksimal</h5>

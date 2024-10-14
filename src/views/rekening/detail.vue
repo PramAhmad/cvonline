@@ -77,7 +77,7 @@
       const response = await fetch(`https://admin.cvpulsa.id/api/my_metode_pembayaran/all`, {
         method: 'GET',
         headers: {
-          'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+          'X-Api-Key': import.meta.env.VITE_API_KEY,
         },
       });
   
@@ -95,7 +95,7 @@
       const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/detail?id=${id}`, {
         method: 'GET',
         headers: {
-          'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+          'X-Api-Key': import.meta.env.VITE_API_KEY,
         },
       });
   
@@ -165,7 +165,7 @@
     const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/update?id=${rekeningId.value}`, {
       method: 'POST',
       headers: {
-        'X-Api-Key': '6B327B94169776D1096031DC73EF9F81',
+        'X-Api-Key': import.meta.env.VITE_API_KEY,
       },
       body: formData,
     });
