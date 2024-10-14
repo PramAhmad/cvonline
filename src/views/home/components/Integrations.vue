@@ -1,12 +1,12 @@
 <template>
-  <section class="pt-5 pt-sm-0" style="margin-top:8rem;">
+  <section class="pt-5 pt-sm-0" >
     <b-container>
       <b-row class="align-items-center">
      
 
         <!-- Bagian Teks -->
         <b-col lg="6" class="order-1 order-lg-2 mb-5 mb-lg-0 ps-xl-5">
-          <h2 class="mb-4 tw-text-red-600 tw-text-2xl tw-font-semibold text-center" >Kemi memiliki banyak metode pembayaran</h2>
+          <h2 class="mb-4 tw-text-red-600 tw-text-2xl tw-font-semibold text-center" >Kami memiliki banyak metode pembayaran</h2>
           <p class="mb-4">
             Kami menyediakan berbagai metode pembayaran yang dapat dipilih oleh pengguna. Kami
             memastikan bahwa setiap transaksi yang dilakukan aman dan terpercaya
