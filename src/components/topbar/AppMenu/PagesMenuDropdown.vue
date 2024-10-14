@@ -16,7 +16,6 @@
       <li>
         <!-- convert dan calculator -->
         
-        <hr class="dropdown-divider" />
 
         <router-link class="dropdown-item" to="/calculator">
           Calculator
