@@ -62,7 +62,7 @@
 
         <b-col lg="8" xxl="7">
           <b-row class="g-4">
-            <b-col cols="6" md="4">
+            <b-col cols="12" md="4">
               <h6 class="mb-2 mb-md-4">Quick links</h6>
               <ul class="nav flex-column">
                 <li
@@ -83,7 +83,7 @@
               </ul>
             </b-col>
 
-            <b-col cols="6" md="4">
+            <b-col cols="12" md="4">
               <h6 class="mb-2 mb-md-4">Community</h6>
               <ul class="nav flex-column">
                 <li

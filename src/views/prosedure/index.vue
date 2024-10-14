@@ -4,7 +4,7 @@
        <TopNavigationBar2 />
   
       <!-- Content Section -->
-      <div class="tw-p-2 tw-px-3 tw-bg-white tw-text-gray-800 tw-translate-y-14">
+      <div class="tw-p-2 tw-px-3 tw-bg-white tw-text-gray-800 tw-translate-y-20">
         <p class="tw-mb-4">
             Untuk melakukan convert pulsa ada bebrapa prosedur yang harus diketahui sebagai berikut:
         </p>

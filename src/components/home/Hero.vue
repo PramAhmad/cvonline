@@ -278,7 +278,7 @@ const getSetting = async () => {
     headers: config.headers,
   });
   const data = await res.json();
-  jamop.value = data.data.my_settings[2].value;  
+  jamop.value = data.data.my_settings[3].value;  
   console.log(jamop.value);
 };
 

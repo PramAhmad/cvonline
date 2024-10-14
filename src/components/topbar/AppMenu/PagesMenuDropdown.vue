@@ -27,24 +27,24 @@
     </div>
   </li>
   <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/panduan" target="_blank">
+    <router-link class="nav-link" to="/panduan" >
       Tutorial
     </router-link>
   </li>
   <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/transaksi" target="_blank">
+    <router-link class="nav-link" to="/transaksi" >
       Transaksi
     </router-link>
   </li>
   <!-- Conditionally display Profile and Login based on login status -->
   <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/profile" target="_blank">
+    <router-link class="nav-link" to="/profile" >
       Profile
     </router-link>
   </li>
 
   <li class="nav-item" v-else>
-    <router-link class="nav-link" to="login" target="_blank">
+    <router-link class="nav-link" to="login" >
       Login
     </router-link>
   </li>
