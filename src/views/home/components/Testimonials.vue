@@ -2,39 +2,31 @@
   <section class="pb-0">
     <b-container>
       <div class="inner-container-small text-center mb-4 mb-sm-5">
-        <h2 class="mb-0">Apa Yang Mereka Katakan</h2>
+        <h2 class="mb-0 tw-text-red-600 tw-font-semibold tw-text-2xl">Apa Yang Mereka Katakan</h2>
       </div>
 
-      <b-row
-        class="row-cols-sm-2 row-cols-lg-3 g-4 g-lg-5 demo-grid"
-        data-isotope='{"layoutMode": "masonry"}'
+      <!-- Swiper container -->
+      <swiper
+        class="testimonial-slider"
+        :slides-per-view="1"
+        :space-between="30"
+        navigation
       >
-        <b-col v-for="(testimonial, idx) in testimonials" :key="idx" class="demo-grid-item">
+        <!-- Testimonial slides -->
+        <swiper-slide v-for="(testimonial, idx) in testimonials" :key="idx">
           <TestimonialCard :testimonial="testimonial" />
-        </b-col>
-      </b-row>
+        </swiper-slide>
+      </swiper>
     </b-container>
   </section>
 </template>
 
 <script lang="ts" setup>
 import { testimonials } from '@/views/home/testimoni.ts'
-import Isotope from 'isotope-layout'
 import { onMounted } from 'vue'
 import TestimonialCard from '@/views/home/components/TestimonialCard.vue'
 
-onMounted(() => {
-  let grid = document.querySelector<HTMLElement>('.demo-grid')
-  if (grid) {
-    let iso = new Isotope(grid, {
-      itemSelector: '.demo-grid-item',
-      percentPosition: true,
-      layoutMode: 'masonry'
-    })
+// Import Swiper components
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
-    setTimeout(() => {
-      iso.arrange({})
-    }, 100)
-  }
-})
 </script>

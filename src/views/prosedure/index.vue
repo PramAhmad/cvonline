@@ -1,17 +1,10 @@
 <template>
     <div class="tw-w-full tw-h-full">
-      <!-- Header Section -->
-      <div class="tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
-        <button @click="goBack" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <h2 class="tw-font-medium tw-text-md tw-text-gray-900">Prosedur</h2>
-      </div>
+      <!-- Top Navigation Bar -->
+       <TopNavigationBar2 />
   
       <!-- Content Section -->
-      <div class="tw-p-2 tw-px-3 tw-bg-white tw-text-gray-800">
+      <div class="tw-p-2 tw-px-3 tw-bg-white tw-text-gray-800 tw-translate-y-14">
         <p class="tw-mb-4">
             Untuk melakukan convert pulsa ada bebrapa prosedur yang harus diketahui sebagai berikut:
         </p>
@@ -36,6 +29,7 @@
        
       </div>
     </div>
+    <BottomNav />
   </template>
   
   <script lang="ts" setup>

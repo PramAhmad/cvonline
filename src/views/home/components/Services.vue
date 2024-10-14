@@ -19,7 +19,7 @@
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A1.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Berpengalaman</h5>
-                  <p class="tw-text-xs">Kami memiliki pengalaman sejak 2013</p>
+                  <p class="tw-text-sm">Kami memiliki pengalaman sejak 2013</p>
                 </div><!----><!---->
               </div>
             </div>
@@ -29,7 +29,7 @@
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A2.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Proses Cepat</h5>
-                  <p class="tw-text-xs">Proses cepat 5 - 10 menit , uang cair</p>
+                  <p class="tw-text-sm">Proses cepat 5 - 10 menit , uang cair</p>
                 </div><!----><!---->
               </div>
             </div>
@@ -39,7 +39,7 @@
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A3.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Pembayaran</h5>
-                  <p class="tw-text-xs">Banyak pilihan pembayaran yang tersedia</p>
+                  <p class="tw-text-sm">Banyak pilihan pembayaran yang tersedia</p>
                 </div><!----><!---->
               </div>
             </div>
@@ -49,7 +49,7 @@
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A4.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Proses Mudah</h5>
-                  <p class="tw-text-xs">Proses convert mudah untuk dilakukan</p>
+                  <p class="tw-text-sm">Proses convert mudah untuk dilakukan</p>
                 </div><!----><!---->
               </div>
             </div>
@@ -59,7 +59,7 @@
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A5.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Dijamin Aman</h5>
-                  <p class="tw-text-xs">Convert pulsa di cvpulsa 100% aman</p>
+                  <p class="tw-text-sm">Convert pulsa di cvpulsa 100% aman</p>
                 </div><!----><!---->
               </div>
             </div>
@@ -69,7 +69,7 @@
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A6.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
                   <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Cuan Maksimal</h5>
-                  <p class="tw-text-xs">Tukar pulsa kamu dengan rate tinggi</p>
+                  <p class="tw-text-sm">Tukar pulsa kamu dengan rate tinggi</p>
                 </div><!----><!---->
               </div>
             </div>

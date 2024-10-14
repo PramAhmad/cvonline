@@ -1,11 +1,11 @@
 <template>
-  <section class="">
+  <section class="tw-mt-3">
       <b-row>
         <b-col xl="10" class="text-center mx-auto">
-          <h3 class="tw-font-bold tw-text-red-600 tw-text-2xl x-3 py-2 rounded-3 mb-4"
+          <h3 class="tw-font-bold tw-text-red-600 tw-text-4xl x-3 py-2 rounded-3 mb-4"
             >Convert Pulsa Jadi Uang </h3
           >
-          <p class="lead mb-0">
+          <p class="lead mb-0 tw-text-base">
             Convert pulsa adalah platform digital yang menyediakan layanan penukaran pulsa menjadi saldo E-Wallet. Dengan berbagai fitur unggulan dan keamanan yang terjamin. Kami berkomitmen untuk memberikan pelayanan yang terbaik untuk masyarakat Indonesia
           </p>
 

@@ -43,7 +43,7 @@
         <router-link to="/prosedure">
           <div class="tw-bg-white tw-border-2 tw-border-gray-100 tw-rounded-lg tw-p-3 tw-flex tw-items-center">
             <span class="tw-text-xl tw-text-gray-800 tw-pr-4"><i class="fa fa-file"></i></span> 
-            <div class="tw-text-gray-800 tw-font-light">Prosedure</div>
+            <div class="tw-text-gray-800 tw-font-light">Prosedur</div>
             <i class="fa fa-chevron-right tw-text-gray-800 tw-ml-auto"></i>
           </div>
         </router-link>

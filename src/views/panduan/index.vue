@@ -1,14 +1,7 @@
 <template>
-    <div ref="header" class="sticky-header tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
-    <!-- Button to go back -->
-    <button @click="goBack" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
-      <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <h2 class="tw-font-medium tw-text-md tw-text-gray-900">Pengaduan Penggunaan Aplikasi</h2>
-  </div>
-    <div class="tw-py-6 tw-px-4">
+    <TopNavigationBar2 />
+
+    <div class="tw-py-6 tw-px-4 tw-translate-y-14">
      
       <div v-for="step in steps" :key="step.urutan" class="tw-flex tw-py-4 tw-border-b">
         <img :src="step.image" alt="" class="tw-w-1/2 tw-rounded-md tw-mr-4"/>
@@ -18,6 +11,7 @@
         </div>
       </div>
     </div>
+    <BottomNav />
   </template>
   
   <script lang="ts" setup>
@@ -31,6 +25,7 @@
   import step7 from '@/assets/images/panduan/tutor 7.png'
   import step8 from '@/assets/images/panduan/tutor 8.png'
   import step9 from '@/assets/images/panduan/tutor 9.png'
+import BottomNav from '../../components/BottomNav.vue';
   
   interface Step {
       title: string;

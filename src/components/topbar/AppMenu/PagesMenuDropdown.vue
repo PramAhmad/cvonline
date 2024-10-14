@@ -14,7 +14,13 @@
         <MenuItem v-else :item="item" />
       </template>
       <li>
+        <!-- convert dan calculator -->
+        
         <hr class="dropdown-divider" />
+
+        <router-link class="dropdown-item" to="/calculator">
+          Calculator
+        </router-link>
       </li>
      
       

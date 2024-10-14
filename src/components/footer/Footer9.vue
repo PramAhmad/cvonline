@@ -1,5 +1,8 @@
 <template>
-  <footer class="bg-dark position-relative overflow-hidden pt-6 mt-5" data-bs-theme="dark">
+  <footer
+    class="bg-dark position-relative overflow-hidden pt-6 mt-5"
+    data-bs-theme="dark"
+  >
     <figure class="position-absolute top-0 start-0 mt-n8 ms-n9">
       <svg
         class="fill-mode"
@@ -52,7 +55,8 @@
           <LogoBox className="me-0" imageClass="h-40px" />
 
           <p class="mt-4 mb-2">
-            Cv pulsa adalah platform yang memudahkan anda dalam melakukan tukar pulsa ke uang
+            Cv pulsa adalah platform yang memudahkan anda dalam melakukan tukar
+            pulsa ke uang
           </p>
         </b-col>
 
@@ -61,7 +65,11 @@
             <b-col cols="6" md="4">
               <h6 class="mb-2 mb-md-4">Quick links</h6>
               <ul class="nav flex-column">
-                <li class="nav-item" v-for="(item, idx) in quickLinks" :key="idx">
+                <li
+                  class="nav-item"
+                  v-for="(item, idx) in quickLinks"
+                  :key="idx"
+                >
                   <router-link
                     class="nav-link"
                     :class="idx === 0 && 'pt-0'"
@@ -78,8 +86,15 @@
             <b-col cols="6" md="4">
               <h6 class="mb-2 mb-md-4">Community</h6>
               <ul class="nav flex-column">
-                <li class="nav-item" v-for="(item, idx) in communityLinks" :key="idx">
-                  <router-link class="nav-link" :class="!idx && 'pt-0'" :to="{ name: item.link }"
+                <li
+                  class="nav-item"
+                  v-for="(item, idx) in communityLinks"
+                  :key="idx"
+                >
+                  <router-link
+                    class="nav-link"
+                    :class="!idx && 'pt-0'"
+                    :to="{ name: item.link }"
                     >{{ item.name }}
                     <component :is="item.icon" class="small ms-1" />
                   </router-link>
@@ -91,31 +106,41 @@
               <h6 class="mb-2 mb-md-4">App available on</h6>
               <b-row class="g-2 mt-2 mb-4 mb-sm-5">
                 <b-col cols="5" sm="4" md="6">
-                  <router-link to="#"><img :src="googlePlay" alt="" /></router-link>
+                  <router-link to="#"
+                    ><img :src="googlePlay" alt=""
+                  /></router-link>
                 </b-col>
                 <b-col cols="5" sm="4" md="6">
-                  <router-link to="#"><img :src="appStore" alt="app-store" /></router-link>
+                  <router-link to="#"
+                    ><img :src="appStore" alt="app-store"
+                  /></router-link>
                 </b-col>
-           
               </b-row>
               <b-row>
-  <b-col cols="6" sm="4" md="6" class="text-center">
-    <router-link to="#">
-      <img 
-        src="https://blogger.googleusercontent.com/img/a/AVvXsEhj_BJfJeTZn8SIhqAD_Lp1F0uvpSgCK5DLIpUBycl3Wx96Rvt9apImDxL36-38EUrxWq0WVH6X5cJc3lYFTmXeH2mnxzziUdI3bSnwbaHozaO8WjSTmSwzkO5BLFhaFdRVFKfVgXeQYumMuMBXT450Psn13-ieXbcwDp3DUQaqB9dQmhj1t-vetl51YXgB=s1600" 
-        alt="footer-logo" 
-        class="tw-rounded-xl"
-      />
-    </router-link>
-  </b-col>
-</b-row>
+                <b-col cols="6" sm="4" md="6" class="text-center">
+                  <router-link to="#">
+                    <img
+                      src="https://blogger.googleusercontent.com/img/a/AVvXsEhj_BJfJeTZn8SIhqAD_Lp1F0uvpSgCK5DLIpUBycl3Wx96Rvt9apImDxL36-38EUrxWq0WVH6X5cJc3lYFTmXeH2mnxzziUdI3bSnwbaHozaO8WjSTmSwzkO5BLFhaFdRVFKfVgXeQYumMuMBXT450Psn13-ieXbcwDp3DUQaqB9dQmhj1t-vetl51YXgB=s1600"
+                      alt="footer-logo"
+                      class="tw-rounded-xl"
+                    />
+                  </router-link>
+                </b-col>
+              </b-row>
 
               <h6 class="mb-2 mb-md-4 mt-4">Follow on</h6>
 
               <ul class="list-inline mb-0 mt-3 d-flex align-items-center gap-1">
-                <li class="list-inline-item" v-for="(item, idx) in followOnIcons" :key="idx">
+                <li
+                  class="list-inline-item"
+                  v-for="(item, idx) in followOnIcons"
+                  :key="idx"
+                >
                   <a class="btn btn-xs btn-icon btn-light" href="#">
-                    <font-awesome-icon :icon="item.icon" class="fa-fw lh-base" />
+                    <font-awesome-icon
+                      :icon="item.icon"
+                      class="fa-fw lh-base"
+                    />
                   </a>
                 </li>
               </ul>
@@ -127,30 +152,37 @@
       <hr class="mt-4 mb-0" />
 
       <div
-        class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4"
+        class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4 tw-mb-16"
       >
         <div class="text-body">
-          Copyrights ©{{ currentYear }} cv pulsa
-          <a :href="developedByLink" target="_blank" class="text-body text-primary-hover">online</a
+          Copyrights ©{{ currentYear }} PT Solusi Digital Gresindo
+          <a
+            :href="developedByLink"
+            target="_blank"
+            class="text-body text-primary-hover"
+            >online</a
           >.
         </div>
-      
       </div>
     </b-container>
   </footer>
 </template>
 
 <script lang="ts" setup>
-import LogoBox from '@/components/topbar/LogoBox.vue'
-import { currentYear, developedBy, developedByLink } from '@/helpers'
-import { quickLinks, communityLinks, followOnIcons } from '@/assets/data/footer-items'
-import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import LogoBox from "@/components/topbar/LogoBox.vue";
+import { currentYear, developedBy, developedByLink } from "@/helpers";
+import {
+  quickLinks,
+  communityLinks,
+  followOnIcons,
+} from "@/assets/data/footer-items";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-import ukFlag from '@/assets/images/flags/uk.svg'
-import grFlag from '@/assets/images/flags/gr.svg'
-import spFlag from '@/assets/images/flags/sp.svg'
-import appStore from '@/assets/images/elements/app-store.svg'
-import googlePlay from '@/assets/images/elements/google-play.svg'
-import pattern2 from '@/assets/images/elements/decoration-pattern-2.svg'
+import ukFlag from "@/assets/images/flags/uk.svg";
+import grFlag from "@/assets/images/flags/gr.svg";
+import spFlag from "@/assets/images/flags/sp.svg";
+import appStore from "@/assets/images/elements/app-store.svg";
+import googlePlay from "@/assets/images/elements/google-play.svg";
+import pattern2 from "@/assets/images/elements/decoration-pattern-2.svg";
 </script>

@@ -1,15 +1,9 @@
 <template>
-  <div class="tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
-    <button @click="goBack" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
-      <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <h2 class="tw-font-medium tw-text-md tw-text-gray-900">Data Rekening</h2>
-  </div>
+    <TopNavigationBar2 style="margin-bottom: 3rem" />
+ 
 
   <!-- List Rekening -->
-  <main class="tw-py-10 tw-pb-20 tw-px-1">
+  <main class=" tw-pb-20 tw-px-1">
     <div v-if="isLoading" class="tw-space-y-4">
       <!-- Skeleton loader for each list item -->
       <div v-for="n in 3" :key="n" class="tw-w-full tw-px-4 tw-py-3 tw-bg-white tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100 tw-mb-4">
@@ -24,8 +18,8 @@
       </div>
     </div>
 
-    <div v-else>
-      <div v-for="item in rekening" :key="item.id" class="tw-w-full tw-px-4 tw-py-3 tw-bg-white tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100 tw-mb-4">
+    <div class="tw-translate-y-20" v-else >
+      <div v-for="item in rekening" :key="item.id" class="tw-w-full  tw-px-4 tw-py-3 tw-bg-white tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100 tw-mb-4">
         <div class="tw-flex tw-items-center">
           <img :src="`https://admin.cvpulsa.id/uploads/my_metode_pembayaran/` + item.icon" alt="icon" class="tw-h-10 tw-w-10 tw-mr-3" />
           <div class="tw-flex tw-items-center tw-justify-around">
@@ -79,11 +73,13 @@
       </div>
     </div>
   </div>
+  <BottomNav/>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import BottomNav from '../../components/BottomNav.vue';
 
 interface Rekening {
   id: number;
