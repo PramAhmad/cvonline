@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-16 tw-flex tw-bg-white tw-flex-col tw-items-center banner-section tw-mb-[5.5rem] dark:bg-gray-900">
+  <section class="mt-16 tw-flex tw-bg-white tw-flex-col tw-items-center banner-section  dark:bg-gray-900">
     <!-- jam operasional -->
     <div class="tw-w-full tw-flex tw-justify-center tw-items-center  tw-text-gray-900  tw-rounded-lg  dark:bg-red-500">
    

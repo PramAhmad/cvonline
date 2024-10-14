@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-8 pt-xl-9">
+  <section class="">
       <b-row>
         <b-col xl="10" class="text-center mx-auto">
           <h3 class="tw-font-bold tw-text-red-600 tw-text-2xl x-3 py-2 rounded-3 mb-4"
