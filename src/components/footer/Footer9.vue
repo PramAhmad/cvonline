@@ -155,7 +155,7 @@
       <div
         class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4 tw-mb-16"
       >
-        <div class="text-body tw-bg-gray-800 tw-py-2 tw-rounded-lg">
+        <div class="text-body tw-bg-gray-700 tw-p-1 tw-rounded-lg">
           Copyrights ©{{ currentYear }} PT Solusi Digital Gresindo
           <a
             :href="developedByLink"
