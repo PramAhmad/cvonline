@@ -257,12 +257,7 @@
                 </svg>
               </figure>
 
-              <b-card no-body class="bg-dark text-start z-index-2 w-75 p-5 mb-4">
-                <span class="text-white">Our Goal:</span>
-                <h4 class="text-white fw-light mb-0 mt-3">
-                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, dolores.
-                </h4>
-              </b-card>
+          
 
               <b-card no-body class="overflow-hidden p-0">
                 <img :src="about15" class="card-img" alt="about-img" />

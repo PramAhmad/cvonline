@@ -128,6 +128,15 @@ export const mainRoute = [
       title: setTitle('login')
     },
     component: () => import('@/views/login/index.vue')
+  },
+  // blog detail
+  {
+    path:'/blog/:slug',
+    name:'blog.detail',
+    meta:{
+      title: setTitle('blog.detail')
+    },
+    component: () => import('@/views/blog/detail.vue')
   }
 ];
 

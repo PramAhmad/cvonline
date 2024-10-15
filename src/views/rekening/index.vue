@@ -3,7 +3,7 @@
  
 
   <!-- List Rekening -->
-  <main class=" tw-pb-20 tw-px-1">
+  <main class=" tw-pb-20 tw-px-1 tw-translate-y-20">
     <div v-if="isLoading" class="tw-space-y-4">
       <!-- Skeleton loader for each list item -->
       <div v-for="n in 3" :key="n" class="tw-w-full tw-px-4 tw-py-3 tw-bg-white tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100 tw-mb-4">
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div class="tw-translate-y-20" v-else >
+    <div class="" v-else >
       <div v-for="item in rekening" :key="item.id" class="tw-w-full  tw-px-4 tw-py-3 tw-bg-white tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100 tw-mb-4">
         <div class="tw-flex tw-items-center">
           <img :src="`https://admin.cvpulsa.id/uploads/my_metode_pembayaran/` + item.icon" alt="icon" class="tw-h-10 tw-w-10 tw-mr-3" />
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="tw-flex tw-text-center">
+    <div class="tw-flex tw-text-center  tw-top-20">
       <router-link to="/rekening/tambah" class="tw-mt-4 tw-w-full tw-py-2 tw-bg-red-600 tw-text-white tw-rounded-full">
         Tambah
       </router-link>
@@ -48,7 +48,7 @@
   </main>
 
   <!-- Modal for Edit/Delete -->
-  <div v-if="isModalOpen" class="tw-fixed tw-inset-0 tw-flex tw-justify-center tw-items-end tw-bg-black tw-bg-opacity-50" @click="closeModal">
+  <div v-if="isModalOpen" class="tw-fixed tw-bottom-16 tw-inset-0 tw-flex tw-justify-center tw-items-end tw-bg-black tw-bg-opacity-50" @click="closeModal">
     <div class="tw-w-full tw-bg-white tw-rounded-t-lg tw-p-6 tw-py-10" @click.stop>
       <h3 class="tw-text-center tw-font-medium tw-text-lg tw-mb-2 tw-text-gray-950">Data Akun/ E-Wallet</h3>
       <hr />

@@ -415,7 +415,7 @@ const curent = new Date().getTime();
 // nominal masukin ke nominal.
 console.log(calnominal)
 if(curent < parseInt(exptime)){
-  nominal.value = calnominal
+  nominal.value = parseInt(calnominal)
 }
   });
 </script>

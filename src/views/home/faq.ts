@@ -116,30 +116,27 @@ export const testimonials: TestimonialType[] = [
 
 export const faqData: FAQType[] = [
   {
-    question: 'Real-time Collaboration',
+    question: 'Apa itu Convert Pulsa ?',
     answer:
-      'Collaborate seamlessly with team members in real time. Share drafts, make edits, and work together efficiently to create content that meets your goals. Sight House has sex never. No visit raising gravity outward subject.'
+     ' Convert pulsa adalah cara menukar sejumlah pulsa menjadi uang/saldo e-wallet dengan rate yang tersedia di perusahaan jasa tukar pulsa.'
   },
   {
-    question: 'Robust API Integration',
+    question: 'Apa itu Rate Convert Pulsa ',
     answer:
-      'Our platform offers robust API integration options, allowing you to integrate our content generation capabilities into your existing software, apps, or platforms.'
+      'Rate adalah ketentuan harga jual pulsa. Bagaimana cara menghitungnya? Misalnya, kamu ingin convert pulsa Indosat senilai Rp1 juta dengan contoh rate terkini 0,80 '
+
   },
   {
-    question: 'Privacy and Security',
+    question: 'Apakah Sendpulsa aman & Terpercaya ?',
     answer:
-      "We prioritize your data's security and privacy. Our platform adheres to the highest standards of data protection to ensure your content remains confidential and secure."
+      "Tukar Pulsa sudah berbadan hukum dan sudah melayani ribuan pelanggan. Jadi, kamu bisa bertransaksi secara aman."
   },
   {
-    question: 'Cost-Effective Solutions',
+    question: 'Berapa Lama Prosesnya ?',
     answer:
-      'We offer flexible pricing options to suit your needs, ensuring you get the most value from our platform without breaking the bank.'
+      'Proses pengiriman pulsa antara 5-10 menit dalam keadaan normal. Namun, proses akan terhambat apabila terjadi gangguan eksternal seperti gangguan bank dari pusat. Selain itu, proses juga dapat terhambat apabila nomor rekening yang di-input salah.'
   },
-  {
-    question: 'Data Analytics',
-    answer:
-      'Offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me..'
-  }
+  
 ]
 
 export const blogs: BlogType[] = [

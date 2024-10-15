@@ -77,8 +77,9 @@
         </div>
       </section>
 <div class="tw-py-7">
-  <h3 class="tw-text-center tw-text-2xl tw-text-red-600 tw-font-bold">Media Partner Kami</h3>
-  <p class="tw-text-sm  text-center tw-font-normal tw-text-gray-900">Kami bekerja sama dengan beberapa media partner terkemuka di Indonesia</p>
+  <h3 class="tw-text-center tw-text-2xl tw-text-red-600 tw-font-bold">Diliput Oleh
+</h3>
+  <p class="tw-text-sm  text-center tw-font-normal tw-text-gray-900">Beberapa media yang telah meliput cvpulsa</p>
 </div>
       <Swiper
               :modules="[Autoplay]"

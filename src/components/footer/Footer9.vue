@@ -63,25 +63,23 @@
         <b-col lg="8" xxl="7">
           <b-row class="g-4">
             <b-col cols="12" md="4">
-              <h6 class="mb-2 mb-md-4">Quick links</h6>
-              <ul class="nav flex-column">
-                <li
-                  class="nav-item"
-                  v-for="(item, idx) in quickLinks"
-                  :key="idx"
-                >
-                  <router-link
-                    class="nav-link"
-                    :class="idx === 0 && 'pt-0'"
-                    :to="{ name: item.link }"
-                    >{{ item.name }}
-                    <span v-if="item.badge" class="badge text-bg-danger ms-2">{{
-                      item.badge
-                    }}</span></router-link
-                  >
-                </li>
-              </ul>
-            </b-col>
+    <h6 class="mb-2 mb-md-4">Quick links</h6>
+    <ul class="nav flex-column">
+      <li
+        class="nav-item"
+        v-for="(item) in blog"
+        :key="item.id"
+      >
+        <router-link
+          class="nav-link"
+          :class="item.id === 0 ? 'pt-0' : ''"
+          :to="{ name: 'blog.detail', params: { slug: item.slug } }"
+        >
+          {{ item.title }}
+        </router-link>
+      </li>
+    </ul>
+  </b-col>
 
             <b-col cols="12" md="4">
               <h6 class="mb-2 mb-md-4">Community</h6>
@@ -106,7 +104,7 @@
               <h6 class="mb-2 mb-md-4">App available on</h6>
               <b-row class="g-2 mt-2 mb-4 mb-sm-5">
                 <b-col cols="5" sm="4" md="6">
-                  <router-link to="#"
+                  <router-link to="https://play.google.com/store/apps/details?id=com.cv.pulsa"
                     ><img :src="googlePlay" alt=""
                   /></router-link>
                 </b-col>
@@ -114,7 +112,7 @@
               <b-row class="g-2 mt-2 mb-4 mb-sm-5">
 
                 <b-col cols="5" sm="4" md="6">
-                  <router-link to="#"
+                  <router-link to="https://apps.apple.com/app/cvpulsa-convert-pulsa/id6720757606"
                     ><img :src="appStore" alt="app-store"
                   /></router-link>
                 </b-col>
@@ -157,7 +155,7 @@
       <div
         class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4 tw-mb-16"
       >
-        <div class="text-body">
+        <div class="text-body tw-bg-gray-800 tw-py-2 tw-rounded-lg">
           Copyrights ©{{ currentYear }} PT Solusi Digital Gresindo
           <a
             :href="developedByLink"
@@ -188,4 +186,36 @@ import spFlag from "@/assets/images/flags/sp.svg";
 import appStore from "@/assets/images/elements/app-store.svg";
 import googlePlay from "@/assets/images/elements/google-play.svg";
 import pattern2 from "@/assets/images/elements/decoration-pattern-2.svg";
+import { onMounted, ref } from "vue";
+
+interface Blog{
+  id: number;
+  slug: string;
+  title: string;
+}
+const blog = ref([])
+
+const getBlog = async()=>{
+  try {
+  const response = await fetch(`https://admin.cvpulsa.id/api/blog/all`, {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': import.meta.env.VITE_API_KEY,
+    },
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    blog.value = data.data.blog;
+  } else {
+    console.log('Unexpected response:', response);
+  }
+} catch (error) {
+  console.error('Failed to fetch provider:', error);
+}
+}
+
+onMounted(()=>{
+  getBlog()
+})
 </script>
