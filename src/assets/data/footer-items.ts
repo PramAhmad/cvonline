@@ -12,6 +12,7 @@ import {
   BIconPuzzleFill,
   BIconStickiesFill
 } from 'bootstrap-icons-vue'
+import { link } from 'fs'
 
 type FooterLinkType = {
   name: string
@@ -44,11 +45,10 @@ export const communityLinks: FooterLinkType[] = [
 ]
 
 export const followOnIcons = [
-  { icon: faFacebookF, variant: 'bg-facebook' },
-  { icon: faInstagram, variant: 'bg-instagram' },
-  { icon: faTwitter, variant: 'bg-twitter' },
-  { icon: faLinkedinIn, variant: 'bg-linkedin' },
-  { icon: faYoutube, variant: 'bg-youtube' }
+  { icon: faFacebookF, variant: 'bg-facebook',link:'https://web.facebook.com/cvpulsa.id' },
+  { icon: faInstagram, variant: 'bg-instagram',link:'https://www.instagram.com/cvpulsaid' },
+  { icon: faTwitter, variant: 'bg-twitter',link:'https://x.com/CvPulsa2'},
+  { icon: faYoutube, variant: 'bg-youtube',link:'https://www.youtube.com/@Cvpulsa' }
 ]
 
 export const contactDetails = {
