@@ -14,14 +14,14 @@
             </p>
             <b-row class="g-4 mb-4 mb-lg-0">
               <b-col cols="6" sm="4">
-                <router-link to="">
+                <a href="https://play.google.com/store/apps/details?id=com.cv.pulsa">
                   <img :src="googlePlay" class="btn-transition" alt="google-store" />
-                </router-link>
+                </a>
               </b-col>
               <b-col cols="6" sm="4">
-                <router-link to="">
+                <a href="https://apps.apple.com/app/cvpulsa-convert-pulsa/id6720757606">
                   <img :src="appStore" class="btn-transition" alt="app-store" />
-                </router-link>
+                </a>
               </b-col>
             </b-row>
           </b-col>

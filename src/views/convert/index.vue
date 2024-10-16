@@ -286,7 +286,9 @@ switch (provider.value?.name) {
   default:
     sisaPulsa.value = 0;
 }
-return sisaPulsa.value;
+// return decimal value
+sisaPulsa.value = sisaPulsa.value.toLocaleString('id-ID');
+return parseFloat(sisaPulsa.value);
 };
 interface ErrorMessages {
 phoneNumber: string;

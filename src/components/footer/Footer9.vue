@@ -63,7 +63,7 @@
         <b-col lg="8" xxl="7">
           <b-row class="g-4">
             <b-col cols="12" md="4">
-    <h6 class="mb-2 mb-md-4">Quick links</h6>
+    <h6 class="mb-2 mb-md-4">Panduan</h6>
     <ul class="nav flex-column">
       <li
         class="nav-item"
@@ -81,40 +81,23 @@
     </ul>
   </b-col>
 
-            <b-col cols="12" md="4">
-              <h6 class="mb-2 mb-md-4">Community</h6>
-              <ul class="nav flex-column">
-                <li
-                  class="nav-item"
-                  v-for="(item, idx) in communityLinks"
-                  :key="idx"
-                >
-                  <router-link
-                    class="nav-link"
-                    :class="!idx && 'pt-0'"
-                    :to="{ name: item.link }"
-                    >{{ item.name }}
-                    <component :is="item.icon" class="small ms-1" />
-                  </router-link>
-                </li>
-              </ul>
-            </b-col>
+           
 
             <b-col md="4">
               <h6 class="mb-2 mb-md-4">App available on</h6>
               <b-row class="g-2 mt-2 mb-4 mb-sm-5">
                 <b-col cols="5" sm="4" md="6">
-                  <router-link to="https://play.google.com/store/apps/details?id=com.cv.pulsa"
+                  <a href="https://play.google.com/store/apps/details?id=com.cv.pulsa"
                     ><img :src="googlePlay" alt=""
-                  /></router-link>
+                  /></a>
                 </b-col>
               </b-row>
               <b-row class="g-2 mt-2 mb-4 mb-sm-5">
 
                 <b-col cols="5" sm="4" md="6">
-                  <router-link to="https://apps.apple.com/app/cvpulsa-convert-pulsa/id6720757606"
+                  <a href="https://apps.apple.com/app/cvpulsa-convert-pulsa/id6720757606"
                     ><img :src="appStore" alt="app-store"
-                  /></router-link>
+                  /></a>
                 </b-col>
               </b-row>
               <b-row>
@@ -156,13 +139,7 @@
         class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4 tw-mb-16"
       >
         <div class="text-body tw-bg-gray-700 tw-p-1 tw-rounded-lg">
-          Copyrights ©{{ currentYear }} PT Solusi Digital Gresindo
-          <a
-            :href="developedByLink"
-            target="_blank"
-            class="text-body text-primary-hover"
-            >online</a
-          >.
+          Copyright ©{{ currentYear }} PT Solusi Digital Gresindo
         </div>
       </div>
     </b-container>
