@@ -49,7 +49,7 @@
 
   <!-- Modal for Edit/Delete -->
   <div v-if="isModalOpen" class="tw-fixed tw-bottom-16 tw-inset-0 tw-flex tw-justify-center tw-items-end tw-bg-black tw-bg-opacity-50" @click="closeModal">
-    <div class="tw-w-full tw-bg-white tw-rounded-t-lg tw-p-6 tw-py-10" @click.stop>
+    <div class="tw-w-full container tw-bg-white tw-rounded-t-lg tw-p-6 tw-py-10" @click.stop>
       <h3 class="tw-text-center tw-font-medium tw-text-lg tw-mb-2 tw-text-gray-950">Data Akun/ E-Wallet</h3>
       <hr />
       <div class="tw-w-full tw-px-4 tw-py-3 tw-bg-white tw-my-10 tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100">

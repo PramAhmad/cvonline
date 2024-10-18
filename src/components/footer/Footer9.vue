@@ -50,7 +50,7 @@
           </p>
         </b-col>
 
-        <b-col lg="8" xxl="7">
+        <b-col lg="6" xxl="7">
           <b-row class="g-4">
             <b-col cols="12" md="4">
               <h6 class="mb-2 mb-md-4 tw-font-semibold">Panduan</h6>
@@ -63,7 +63,19 @@
                 </li>
               </ul>
             </b-col>
+            <b-col cols="12" md="4">
+              <h6 class="mb-2 mb-md-4 tw-font-semibold">Layanan</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item" v-for="(item) in provider" :key="item.id">
+                  <router-link class="nav-link" :class="item.id === 0 ? 'pt-0' : ''"
+                    :to="'/convert/' + item.id">
+                    Jasa Convert {{ item.name }}
+                  </router-link>
+                </li>
+              </ul>
+            </b-col>
 
+        
 
 
             <b-col md="4">
@@ -139,7 +151,37 @@ interface Blog {
   slug: string;
   title: string;
 }
+interface Provider {
+  id: number;
+  name: string;
+}
+
+const provider = ref<Provider[]>([])
 const blog = ref([])
+
+const getProvider = async () => {
+  const config = {
+    headers: {
+      'X-Api-Key': import.meta.env.VITE_API_KEY,
+    },
+  };
+
+  try {
+    const response = await fetch('https://admin.cvpulsa.id/api/my_provider/all?sort_order=asc', {
+      method: 'GET',
+      headers: config.headers,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      provider.value = data.data.my_provider;
+    } else {
+      console.log("Unexpected response:", response);
+    }
+  } catch (error) {
+    console.error("Failed to fetch provider:", error);
+  }
+};
 
 const getBlog = async () => {
   try {
@@ -161,7 +203,9 @@ const getBlog = async () => {
   }
 }
 
+
 onMounted(() => {
   getBlog()
+  getProvider()
 })
 </script>

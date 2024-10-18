@@ -13,7 +13,7 @@
                 delay: 2000
               }"
               :loop="true"
-              :slidesPerView="3"
+              :slidesPerView="1"
               :spaceBetween="5"
               :breakpoints="{
                 576: { slidesPerView: 1 },
