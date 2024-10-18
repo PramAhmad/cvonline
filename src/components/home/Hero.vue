@@ -1,20 +1,20 @@
 <template>
-  <section class="mt-16 tw-flex tw-bg-white tw-flex-col tw-items-center banner-section  dark:bg-gray-900">
+  <section class="mt-16 tw-flex container  tw-flex-col tw-items-center banner-section  dark:bg-gray-900">
     <!-- jam operasional -->
     <div class="tw-w-full tw-flex tw-justify-center tw-items-center  tw-text-gray-900  tw-rounded-lg  dark:bg-red-500">
    
       <p class="tw-text-base
-        tw-font-semibold tw-text-gray-800
+        tw-font-semibold heading-color
          dark:text-white">
        {{ jamop }}
         
       </p>
     </div>
-    <marquee class="tw-text-gray-900 tw-text-sm tw-mb-4 ">
+    <marquee class="tw-text-gray-900 tw-text-sm tw-mb-4  heading-color">
       {{ homeinfo }}
     </marquee>
     <!-- Rate Section -->
-    <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white tw-border-gray-200 tw-rounded-lg tw-py-2 dark:bg-gray-800 dark:border-gray-700">
+    <div class="rate-container tw-w-full tw-flex tw-z-10 tw-justify-between tw-items-center tw-border-2 tw-bg-white  tw-border-gray-200 tw-rounded-lg tw-py-2 dark:bg-gray-800 dark:border-gray-700">
       <div
         v-if="isLoading"
         v-for="index in 4"  
@@ -35,8 +35,8 @@
           <img :src="`https://admin.cvpulsa.id/uploads/my_provider/`+client.icon" 
                :alt="client.label" 
                class="tw-w-10 tw-h-10 tw-rounded-full tw-mb-2 tw-object-cover tw-mx-auto" />
-          <p class="tw-text-[0.72rem] tw-font-base tw-text-center dark:text-gray-100">
-            Rate <span class="tw-font-semibold tw-text-gray-950 dark:text-white">{{ client.rate }}</span>
+          <p class="tw-text-[0.72rem] tw-font-base tw-text-center tw-text-gr">
+            <span class="tw-text-gray-950">Rate</span> <span class="tw-font-semibold tw-text-gray-950 dark:text-white"> {{ client.rate }}</span>
           </p>
         </router-link>  
       </div>
@@ -72,7 +72,7 @@
     <div class="tw-w-full tw-mt-3">
      
 
-      <h3 class="tw-my-3 tw-font-semibold tw-text-gray-900 dark:text-white">Pilih Convert Pulsa</h3>
+      <h3 class="tw-my-3 tw-font-semibold  ">Pilih Convert Pulsa</h3>
       
       <div class="max-w-full tw-px-2 tw-flex tw-justify-center">
         <div v-if="isLoading" v-for="index in 5" :key="'loading-provider-' + index" class="tw-flex tw-flex-col tw-items-center tw-border tw-border-gray-300 tw-rounded-lg tw-shadow-sm tw-w-1/5 tw-mr-1 dark:bg-gray-800 dark:border-gray-700">
@@ -85,7 +85,7 @@
             <img :src="item.status === `1` ? item.image : item.nonaktif_image" alt="logo" class="tw-w-full tw-h-full tw-object-contain" />
           </div>
           <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
-            <p class="tw-font-semibold tw-text-center tw-text-[0.62rem] tw-text-white py-2">{{ item.name }}</p>
+            <p class="tw-font-semibold tw-text-center tw-text-[0.62rem] text-white py-2">{{ item.name }}</p>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@
           <div class="banner-container">
             <img :src="secondBanner.image" alt="banner" class="banner-image" height="300px" />
           </div>
-          <h3 class="text-center tw-font-semibold tw-text-base tw-mt-2 tw-text-gray-900 dark:text-gray-100">{{ secondBanner.desc }}</h3>
+          <h3 class="text-center tw-font-semibold tw-text-base tw-mt-2 heading-color">{{ secondBanner.desc }}</h3>
         </div>
       </div>
 
@@ -109,7 +109,7 @@
         <div class="tw-flex tw-items-center tw-justify-between">
           <div class="tw-flex tw-items-center">
             <img :src="cal" alt="Calculator" class="tw-w-6 tw-h-6 tw-mr-2" />
-            <h3 class="tw-text-lg tw-font-semibold tw-text-gray-900 dark:text-white">Kalkulator convert pulsa</h3>
+            <h3 class="tw-text-lg tw-font-semibold heading-color">Kalkulator convert pulsa</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" class="tw-w-6 tw-h-6 tw-text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

@@ -1,6 +1,6 @@
 <template>
   <TopNavigationBar2 />
-  <main class="tw-py-16 tw-pb-20 tw-px-1">
+  <main class="tw-py-16 tw-pb-20 md:tw-py-24 tw-px-1 container">
     <div v-if="loading">
       <div
         v-for="n in skeletonCount"

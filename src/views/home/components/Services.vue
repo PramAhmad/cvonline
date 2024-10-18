@@ -2,7 +2,7 @@
   <Section class="pb-0">
     <b-container>
       <b-row class="align-items-center mb-2">
-        <b-col md="6" class="mb-3 mb-md-0">
+        <b-col md="12" class="mb-3 mb-md-5">
           <h2 class="mb-0 tw-text-center tw-text-2xl tw-text-red-600 tw-font-bold">Kenapa Memilih Kami</h2>
           <p class="tw-text-sm  text-center tw-font-normal tw-text-gray-900">CV Pulsa adalah layanan digital yang khusus membantu mengkonversi pulsa Anda menjadi saldo dompet digital Anda. Terjamin aman sebab kami sudah terdaftar secara resmi di PSE Kominfo</p>
         </b-col>
@@ -15,60 +15,60 @@
         <div class="container">
           <div class="row g-4 g-lg-5">
             <div class="col-md-6">
-              <div class="tw-shadow-md tw-shadow-gray-300 card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="shadow card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A1.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
-                  <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Berpengalaman</h5>
+                  <h5 class="mb-1 heading-color tw-font-semibold">Berpengalaman</h5>
                   <p class="tw-text-sm">Kami memiliki pengalaman sejak 2013</p>
                 </div><!----><!---->
               </div>
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A2.png -->
             <div class="col-md-6">
-              <div class=" tw-shadow-md tw-shadow-gray-300                                 card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="  card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A2.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
-                  <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Proses Cepat</h5>
+                  <h5 class="mb-1 heading-color tw-font-semibold">Proses Cepat</h5>
                   <p class="tw-text-sm">Proses cepat 5 - 10 menit , uang cair</p>
                 </div><!----><!---->
               </div>
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A3.png -->
             <div class="col-md-6">
-              <div class="  tw-shadow-md tw-shadow-gray-300                                 card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="   card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A3.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
-                  <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Pembayaran</h5>
+                  <h5 class="mb-1 heading-color tw-font-semibold">Pembayaran</h5>
                   <p class="tw-text-sm">Banyak pilihan pembayaran yang tersedia</p>
                 </div><!----><!---->
               </div>
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A4.png -->
             <div class="col-md-6">
-              <div class="    tw-shadow-md tw-shadow-gray-300                               card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="    shadow                               card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A4.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
-                  <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Proses Mudah</h5>
+                  <h5 class="mb-1 heading-color tw-font-semibold">Proses Mudah</h5>
                   <p class="tw-text-sm">Proses convert mudah untuk dilakukan</p>
                 </div><!----><!---->
               </div>
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A5.png -->
             <div class="col-md-6">
-              <div class="    tw-shadow-md tw-shadow-gray-300                               card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="    shadow                               card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A5.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
-                  <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Dijamin Aman</h5>
+                  <h5 class="mb-1 heading-color tw-font-semibold">Dijamin Aman</h5>
                   <p class="tw-text-sm">Convert pulsa di cvpulsa 100% aman</p>
                 </div><!----><!---->
               </div>
             </div>
             <!-- https://sendpulsa.com/wp-content/uploads/2024/09/A6.png -->
             <div class="col-md-6">
-              <div class="tw-shadow-md tw-shadow-gray-300 card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
+              <div class="shadow card card-body card-hover-shadow border d-flex flex-row p-4 h-100"><!----><!----><!---->
                 <figure class="text-primary mb-0"><img src="https://sendpulsa.com/wp-content/uploads/2024/09/A6.png" class="tw-h-13 tw-rounded-full tw-w-16" alt="" srcset=""></figure>
                 <div class="d-flex flex-column ms-4">
-                  <h5 class="mb-1 tw-text-gray-900 tw-font-semibold">Cuan Maksimal</h5>
+                  <h5 class="mb-1 heading-color tw-font-semibold">Cuan Maksimal</h5>
                   <p class="tw-text-sm">Tukar pulsa kamu dengan rate tinggi</p>
                 </div><!----><!---->
               </div>
@@ -87,10 +87,10 @@
                 delay: 2000
               }"
               :loop="true"
-              :slidesPerView="2"
-              :spaceBetween="30"
+              :slidesPerView="3"
+              :spaceBetween="5"
               :breakpoints="{
-                576: { slidesPerView: 2 },
+                576: { slidesPerView: 3},
                 768: { slidesPerView: 4 }
               }"
               wrapperClass="align-items-center"

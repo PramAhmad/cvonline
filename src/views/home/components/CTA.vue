@@ -1,7 +1,7 @@
 <template>
   <section>
     <b-container>
-      <div class="bg-light rounded position-relative overflow-hidden p-4 p-sm-6">
+      <div class="tw-bg-[#f7fcfd] rounded position-relative overflow-hidden p-4 p-sm-6">
         <div class="position-absolute end-0 bottom-0 me-5 md:tw-block tw-hidden">
           <img :src="ctaVectorImg" class="h-200px" alt="vector-img" />
         </div>

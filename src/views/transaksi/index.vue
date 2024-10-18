@@ -1,6 +1,6 @@
 <template>
   <TopNavigationBar2 />
-  <main class="tw-py-8 tw-pb-20 tw-px-1 tw-bg-gray-100">
+  <main class="tw-py-8 tw-pb-20 tw-px-1  container">
     <section class="tw-space-y-4">
       <!-- Skeleton Loading -->
       <div v-if="loading">
@@ -30,7 +30,7 @@
         <div 
           v-for="(item, index) in transaksi" 
           :key="index" 
-          class="tw-bg-white tw-p-4 tw-rounded-lg tw-shadow-md"
+          class="tw-bg-white tw-p-4 tw-rounded-lg tw-shadow-md tw-my-2"
         >
           <div class="tw-flex tw-justify-between">
             <span class="tw-text-sm tw-text-gray-700 tw-font-light">{{ item.tanggal }}</span>

@@ -5,7 +5,7 @@
      
 
         <!-- Bagian Teks -->
-        <b-col lg="6" class="order-1 order-lg-2 mb-5 mb-lg-0 ps-xl-5">
+        <b-col lg="12" class="order-1 order-lg-2 mb-5 mt-lg-5 mb-lg-0 ps-xl-5">
           <h2 class="mb-4 tw-text-red-600 tw-text-2xl tw-font-semibold text-center" >Kami memiliki banyak metode pembayaran</h2>
           <p class="mb-4">
             Kami menyediakan berbagai metode pembayaran yang dapat dipilih oleh pengguna. Kami
@@ -32,10 +32,10 @@
                 delay: 2000
               }"
               :loop="true"
-              :slidesPerView="2"
-              :spaceBetween="30"
+              :slidesPerView="3"
+              :spaceBetween="5"
               :breakpoints="{
-                576: { slidesPerView: 2 },
+                576: { slidesPerView: 3 },
                 768: { slidesPerView: 4 }
               }"
               wrapperClass="align-items-center"

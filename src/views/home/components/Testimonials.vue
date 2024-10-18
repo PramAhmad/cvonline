@@ -8,9 +8,17 @@
       <!-- Swiper container -->
       <swiper
         class="testimonial-slider"
-        :slides-per-view="1"
-        :space-between="30"
-        navigation
+        :modules="[Autoplay]"
+              :autoplay="{
+                delay: 2000
+              }"
+              :loop="true"
+              :slidesPerView="3"
+              :spaceBetween="5"
+              :breakpoints="{
+                576: { slidesPerView: 1 },
+                768: { slidesPerView: 3 }
+              }"
       >
         <!-- Testimonial slides -->
         <swiper-slide v-for="(testimonial, idx) in testimonials" :key="idx">
@@ -28,5 +36,5 @@ import TestimonialCard from '@/views/home/components/TestimonialCard.vue'
 
 // Import Swiper components
 import { Swiper, SwiperSlide } from 'swiper/vue'
-
+import { Autoplay } from 'swiper/modules'
 </script>

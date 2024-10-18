@@ -1,6 +1,6 @@
 <template>
   <TopNavigationBar2 />
-    <div class="tw-w-full tw-h-full tw-translate-y-14">
+    <div class="tw-w-full tw-h-full tw-translate-y-14 container">
       <!-- Header Section -->
      
       <!-- Content Section -->

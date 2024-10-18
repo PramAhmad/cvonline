@@ -106,8 +106,8 @@
 
       <hr class="mt-4 mb-0" />
 
-      <div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4 tw-mb-16">
-        <div class="text-body tw-bg-gray-700 tw-p-1 tw-rounded-lg">
+      <div class="d-md-flex justify-content-center align-items-center text-center text-lg-start py-4 tw-mb-16">
+        <div class="text-body tw-bg-gray-700 tw-p-1 tw-rounded-lg md:tw-text-center">
           Copyright ©{{ currentYear }} PT Solusi Digital Gresindo
         </div>
       </div>

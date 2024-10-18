@@ -1,7 +1,7 @@
 <template>
     <TopNavigationBar2 />
 
-    <div class="tw-py-6 tw-px-4 tw-translate-y-14">
+    <div class="tw-py-6 tw-px-4 tw-translate-y-14 md:tw-translate-y-20 container">
      
       <div v-for="step in steps" :key="step.urutan" class="tw-flex tw-py-4 tw-border-b">
         <img :src="step.image" alt="" class="tw-w-1/2 tw-rounded-md tw-mr-4"/>

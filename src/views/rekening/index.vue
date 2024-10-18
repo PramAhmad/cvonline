@@ -3,7 +3,7 @@
  
 
   <!-- List Rekening -->
-  <main class=" tw-pb-20 tw-px-1 tw-translate-y-20">
+  <main class="container tw-pb-20 md:tw-translate-y-28 tw-px-1 tw-translate-y-20">
     <div v-if="isLoading" class="tw-space-y-4">
       <!-- Skeleton loader for each list item -->
       <div v-for="n in 3" :key="n" class="tw-w-full tw-px-4 tw-py-3 tw-bg-white tw-flex tw-justify-between tw-items-center tw-rounded-lg tw-border-2 tw-border-gray-100 tw-mb-4">

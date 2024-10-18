@@ -11,9 +11,7 @@
 
          
 
-          <li class="nav-item d-none d-sm-block">
-            <a :href="buyLink" target="_blank" class="btn btn-sm btn-primary mb-0">Sign in</a>
-          </li>
+         
 
           <li class="nav-item">
             <MobileNavbarToggler />

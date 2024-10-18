@@ -23,9 +23,9 @@
       </p>
       
       <div v-else-if="nominal >= provider?.min_transaksi && nominal <= provider?.max_transaksi">
-        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-blue-100">
-          <h5 class="tw-text-blue-400 tw-font-medium">Rate <span class="tw-font-semibold">{{ provider?.rate }}</span></h5>
-          <h5 class="tw-text-blue-400 tw-font-medium">Saldo Diterima <span class="tw-font-semibold">{{ formattedSaldoDiterima }}</span></h5>
+        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#CCCCCC]">
+          <h5 class="tw-text-[#000000] tw-font-medium">Rate <span class="tw-font-semibold">{{ provider?.rate }}</span></h5>
+          <h5 class="tw-text-[#000000] tw-font-medium">Saldo Diterima <span class="tw-font-semibold">{{ formattedSaldoDiterima }}</span></h5>
         </div>
       </div>
   
@@ -38,6 +38,9 @@
         <option disabled>Pilih Rekening</option>
         <option v-for="rek in rekening" :key="rek.id" :value="rek">
           {{ rek.nama_rekening }} - {{ rek.no_rekening }}
+        </option>
+        <option value="tambahrek">
+          Tambah Rekening
         </option>
       </select>
       <span v-if="errorMessages.selectedRekening" class="tw-text-red-500 tw-text-sm">{{ errorMessages.selectedRekening }}</span>
@@ -62,6 +65,7 @@
       <button
         type="submit"
         class="tw-w-full tw-bg-rose-600 tw-text-white tw-font-medium tw-py-2 tw-rounded-full"
+        
       >
         <span>Selanjutnya</span>
       </button>
@@ -87,15 +91,52 @@
       </div>
     </div>
   </div>
+  <div v-if="modalRekening" class="tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center tw-bg-gray-800 tw-bg-opacity-75">
+    <div class="tw-bg-white tw-rounded-lg tw-shadow-lg tw-p-6 tw-w-full tw-max-w-md">
+      <h3 class="tw-text-lg tw-font-semibold tw-mb-4">Tamnbah Rekening</h3>
+      <div class="tw-relative mb-4"> 
+        
+        <select v-model="selectedRekening" @change="populatePaymentData" class="tw-pl-10 tw-bg-gray-50 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg">
+          <option value="" disabled selected>Pilih rekening</option>
+          <option v-for="item in metodepembayaran" :key="item.id" :value="item.id">{{ item.nama }}</option>
+        </select>
+      </div>
+  
+      <!-- Input for Nomor Akun/Wallet -->
+      <div class="tw-relative mb-4"> 
+        
+        <input type="text" v-model="nomorAkun" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nomor akun/wallet" />
+
+
+        
+      </div>
+  
+      <!-- Input for Atas Nama -->
+      <div class="tw-relative mb-4"> 
+        <input type="text" v-model="atasNama" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Atas Nama" />
+      </div>
+  
+      <!-- Display Data from Selected Metode Pembayaran -->
+     
+      <!-- Save Button -->
+      <div class="tw-flex tw-text-center tw-px-4 tw-mt-6">
+        <button @click="tambahDataRekening" class="tw-mt-4 tw-w-full tw-py-2 tw-bg-red-600 tw-text-white tw-rounded-full">
+          Simpan
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 
 <script lang="ts" setup>
 
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed,watch } from 'vue';
 import { useRoute } from 'vue-router';
 import InputNumber from 'primevue/inputnumber';
-import { parse } from 'path';
+import Swal from 'sweetalert2';
+
+
 
 interface Provider {
 id: number;
@@ -118,7 +159,15 @@ biaya_transfer: number;
 no_rekening: string;
 kode_pembayaran: string;  
 }
-
+interface MetodePembayaran {
+    id: any;
+    nama: string;
+    bank: string;
+    kode_pembayaran: string;
+    biaya_transfer: string;
+    icon: string;
+  }
+  
 const rekening = ref<Rekening[]>([]);
 const provider = ref<Provider | null>(null);
 const nominal = ref(0);
@@ -130,6 +179,12 @@ const userEmail = localStorage.getItem('user_email');
 const showModal = ref(false);
 const selectedRekening = ref<Rekening | null>(null);
 const isLoading = ref(false);
+const modalRekening = ref(false)
+  const metodepembayaran = ref<MetodePembayaran[]>([]);
+const nomorAkun = ref()
+const atasNama = ref()
+const selectedPaymentMethod = ref<MetodePembayaran | null>(null);
+
 
 const formatCurrency = (value: number) => {
 return new Intl.NumberFormat('id-ID', {
@@ -184,6 +239,25 @@ try {
   console.error('Failed to fetch provider:', error);
 }
 };
+const getMetodePembayaran = async () => {
+    try {
+      const response = await fetch(`https://admin.cvpulsa.id/api/my_metode_pembayaran/all`, {
+        method: 'GET',
+        headers: {
+          'X-Api-Key': import.meta.env.VITE_API_KEY,
+        },
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        metodepembayaran.value = data.data.my_metode_pembayaran;
+      } else {
+        console.log('Unexpected response:', response);
+      }
+    } catch (error) {
+      console.error('Failed to fetch provider:', error);
+    }
+  };
 
 const calculateFee = (nominal: number) => {
 switch (provider.value?.name) {
@@ -324,6 +398,11 @@ const submitForm = () => {
 }
 };
 
+watch(selectedRekening,(value)=>{
+  if(value ===  'tambahrek'){
+    modalRekening.value = true
+  }
+})
 const calculatedSaldo = computed(() => {
 const fee = calculateFee(nominal.value);
 const biaya_transfer = selectedRekening.value?.biaya_transfer || 0;
@@ -377,7 +456,7 @@ const confirmTransaction = async () => {
         \nRekening: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran != "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
       `;
 
-      const whatsappUrl = `https://wa.me/${provider.value?.no_cs}?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/62${provider.value?.no_cs}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, '_blank');
 
@@ -406,15 +485,87 @@ const confirmTransaction = async () => {
   }
 };
 
+const populatePaymentData = () => {
+  const paymentMethod = metodepembayaran.value.find(item => item.id === selectedRekening.value);
+  
+  if (paymentMethod) {
+    selectedPaymentMethod.value = paymentMethod;
+  } else {
+    selectedPaymentMethod.value = null;
+  }
+};
+
+const tambahDataRekening = async () => {
+    if (!selectedRekening.value || !nomorAkun.value || !atasNama.value) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Harap isi semua data yang dibutuhkan!',
+      });
+      return;
+    }
+  
+ 
+
+
+    try {
+        const formData = new FormData();
+    formData.append('email', userEmail);
+    formData.append('id_pembayaran', selectedPaymentMethod.value?.id);
+    formData.append('no_rekening', nomorAkun.value);
+    formData.append('nama_rekening', atasNama.value);
+    formData.append('bank', selectedPaymentMethod.value?.nama);
+    formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode);
+    formData.append('biaya_transfer', selectedPaymentMethod.value?.biaya);
+    formData.append('icon', selectedPaymentMethod.value?.icon);
+
+      const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/add`, {
+        method: 'POST',
+  headers: {
+    'X-Api-Key': import.meta.env.VITE_API_KEY,
+  },
+  body: formData,
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil',
+          text: 'Data berhasil disimpan!',
+        });
+        nomorAkun.value = '';
+        atasNama.value = '';
+        selectedRekening.value = null;
+        selectedPaymentMethod.value = null;
+        modalRekening.value = false
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Terjadi kesalahan saat menyimpan data!',
+        });
+      }
+    } catch (error) {
+      console.error('Error saving data:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Terjadi kesalahan pada server!',
+      });
+    }
+  };
+  
+
 
 onMounted(() => {
 getProviderById();
 getRekening();
-// ambil data dari calculator
+getMetodePembayaran()
 const calnominal = localStorage.getItem('nominal');
 const exptime = localStorage.getItem('nominal_expiry');
 const curent = new Date().getTime();
-// nominal masukin ke nominal.
+
 console.log(calnominal)
 if(curent < parseInt(exptime)){
   nominal.value = parseInt(calnominal)

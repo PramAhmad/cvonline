@@ -1,6 +1,6 @@
 <template>
   <TopNavigationBar2 />
-  <main class="tw-py-16 tw-pt-20 tw-px-4">
+  <main class="tw-py-16 md:tw-py-32 tw-pt-20 tw-px-4 container">
     <!-- Profile Section -->
     <div v-if="loading">
       <SkeletonLoader class="tw-h-28 tw-w-full" />

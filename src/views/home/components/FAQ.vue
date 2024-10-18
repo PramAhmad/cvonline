@@ -1,6 +1,6 @@
 <template>
   <section class="bg-dark" data-bs-theme="dark">
-    <b-container class="mt-9">
+    <b-container class="">
       <b-row class="align-items-start">
         <b-col md="6" xl="5" class="position-relative">
           <figure class="position-absolute top-0 start-0 mt-n6 ms-n5">
@@ -46,7 +46,7 @@
             </svg>
           </figure>
 
-          <b-card class="position-absolute top-0 end-0 mt-5 me-xl-n5">
+          <b-card class="position-absolute top-0 end-0 mt-2 me-xl-">
             <p>Our lovely customers</p>
             <div class="d-flex align-items-center">
               <ul class="avatar-group mb-0 align-items-center">
@@ -107,7 +107,7 @@ import avatar3 from '@/assets/images/avatar/03.jpg'
 import avatar4 from '@/assets/images/avatar/04.jpg'
 import avatar5 from '@/assets/images/avatar/05.jpg'
 import avatar6 from '@/assets/images/avatar/06.jpg'
-import about5 from '@/assets/images/about/05.jpg'
+import about5 from '@/assets/images/1.jpg'
 
 onMounted(() => {
   AOS.init()

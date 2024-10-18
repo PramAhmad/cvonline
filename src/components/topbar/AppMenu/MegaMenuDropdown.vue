@@ -85,6 +85,7 @@
             </p>
           </div>
         </b-col>
+        
       </b-row>
     </div>
   </li>

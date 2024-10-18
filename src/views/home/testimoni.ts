@@ -98,87 +98,50 @@ export const testimonials: TestimonialType[] = [
   {
     user: {
       avatar: avatar1,
-      firstName: 'Billy',
-      lastName: 'Vasquez'
+      firstName: 'Mas ',
+      lastName: 'Heri Official'
     },
-    comment: 'Timed voice share led him to widen noisy young. At weddings believed laughing.',
+    comment: 'terimakasih aplikasi ini sangat membantu buat kalian yang mau convert pulsa ke no rekening kalian ,amanah,terpercaya sukses selalu',
     rating: 5
   },
   {
     user: {
       avatar: avatar2,
-      firstName: 'Emma',
-      lastName: 'Watson'
+      firstName: 'Olivia',
+      lastName: 'Pratiwi'
     },
     comment:
-      "Moonlight newspaper up its enjoyment agreeable depending. Timed voice share led him to widen noisy young. At weddings believed laughing we've just launched our 5th website! You guys rock!",
+      "SET SAT SETTTTT!!! keren cpt bgt ga sampe 10menit lebih bahkan",
     rating: 4.5
   },
   {
     user: {
       avatar: avatar3,
-      firstName: 'Larry',
-      lastName: 'Lawson'
+      firstName: 'Marvin ',
+      lastName: 'Sohilait'
     },
-    comment: 'Timed voice share led him to widen noisy young. At weddings believed laughing.',
-    rating: 3.5
+    comment: 'Aman dan amanah proses cepat dan admin ramah',
+    rating: 4.5
   },
   {
     user: {
       avatar: avatar5,
-      firstName: 'Carolyn',
-      lastName: 'Ortiz'
+      firstName: 'Teguh',
+      lastName: 'Gama'
     },
     comment:
-      'The experience of using Mizzle was enjoyable and easy. Timed voice share led him to widen noisy young. At weddings believed laughing.',
+      'Aplikasi tepercaya Tidak ada penundaan, geng. Pertama kali mencoba dan wuuuuussshhhh sudah berhasil. Terima kasih',
     rating: 5
   },
   {
     user: {
       avatar: avatar7,
-      firstName: 'Dennis',
-      lastName: 'Barrett'
+      firstName: 'Ari ',
+      lastName: 'Prasetio Official  '
     },
     comment:
-      "I'm really happy with the Mizzle service. we've just launched our 5th website - they're amazing! At weddings believed laughing we've just launched our 5th website! You guys rock",
+      "Respon cepat dan terpercaya, ngak usah ragu convert pulsa disini,amanah banget",
     rating: 4.5
   },
-  {
-    user: {
-      avatar: avatar10,
-      firstName: 'Lori',
-      lastName: 'Stevens'
-    },
-    comment:
-      "I am really satisfied with my service. Thanks to service, we've just launched our 5th website! You guys rock!",
-    rating: 5
-  },
-  {
-    user: {
-      avatar: avatar8,
-      firstName: 'Joan',
-      lastName: 'Wallace'
-    },
-    comment: 'Timed voice share led him to widen noisy young. At weddings believed laughing.',
-    rating: 5
-  },
-  {
-    user: {
-      avatar: avatar11,
-      firstName: 'Jacqueline',
-      lastName: 'Miller'
-    },
-    comment: 'I am really satisfied with my service. You guys rock!',
-    rating: 3.5
-  },
-  {
-    user: {
-      avatar: avatar4,
-      firstName: 'Louis',
-      lastName: 'Ferguson'
-    },
-    comment:
-      "We've just launched our 5th website - they're amazing! At weddings believed laughing we've just launched our 5th website! You guys rock",
-    rating: 4
-  }
+ 
 ]
