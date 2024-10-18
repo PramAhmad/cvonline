@@ -1,19 +1,17 @@
 <template>
-  <form @submit.prevent="submitForm" class="tw-w-full">
-    <div class="tw-flex tw-items-center tw-mb-4 tw-w-full tw-justify-center tw-px-2 tw-bg-gray-50 tw-py-3 tw-border-b-2 tw-border-gray-200">
-      <router-link to="/" class="tw-flex tw-items-center tw-space-x-2 tw-text-gray-500 tw-text-sm tw-absolute tw-left-5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-5 tw-w-5 tw-text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </router-link>
-      <h2 class="tw-font-medium tw-text-xl tw-text-gray-900">Convert {{ provider?.name || 'Provider' }}</h2>
-    </div>
+  <TopNavigationBar2/>
+  <form @submit.prevent="submitForm" class="tw-w-full md:tw-translate-y-28 tw-px-1 tw-translate-y-20 container">
+
     
     <div class="tw-w-full tw-p-4">
       <label class="tw-block tw-mb-2 tw-text-sm tw-font-medium">Nominal Pulsa Yang Di Convert <span class="tw-text-red-500">*</span></label>
       <div class="tw-flex tw-max-w-full ">
-        <InputNumber v-model="nominal" type="number" placeholder="0" class="tw-w-full  tw-border tw-rounded tw-p-2 tw-mb-2 tw-my-5" />
-      
+        <input
+      v-model="formattedNominal"
+      @input="formatNumber"
+      placeholder="0"
+      class="tw-w-full tw-border tw-rounded tw-p-2 tw-mb-2 tw-my-5"
+    />
       </div>
       <p v-if="nominal < provider?.min_transaksi" class="tw-text-red-500 tw-text-sm tw-my-2">
         Minimal convert pulsa {{ formatCurrency(provider?.min_transaksi) }}
@@ -135,6 +133,7 @@ import { ref, onMounted, computed,watch } from 'vue';
 import { useRoute } from 'vue-router';
 import InputNumber from 'primevue/inputnumber';
 import Swal from 'sweetalert2';
+import TopNavigationBar2 from '../../components/TopNavigationBar2.vue';
 
 
 
@@ -184,6 +183,7 @@ const modalRekening = ref(false)
 const nomorAkun = ref()
 const atasNama = ref()
 const selectedPaymentMethod = ref<MetodePembayaran | null>(null);
+  const formattedNominal = ref<string>('');
 
 
 const formatCurrency = (value: number) => {
@@ -193,8 +193,18 @@ return new Intl.NumberFormat('id-ID', {
   minimumFractionDigits: 0
 }).format(value);
 };
+const formatNumber = (e: any) => {
+  const input = e.target.value.replace(/[^0-9]/g, ''); 
+  nominal.value = parseFloat(input) || null;
 
-const formattedNominal = computed(() => formatCurrency(nominal.value));
+  formattedNominal.value = input
+    ? parseFloat(input).toLocaleString('id-ID') 
+    : '';
+};
+
+watch(nominal, (newVal) => {
+  formattedNominal.value = newVal?.toLocaleString('id-ID') || '';
+});
 const formattedSisaPulsa = computed(() => formatCurrency(sisaPulsa.value));
 const formattedSaldoDiterima = computed(() => formatCurrency(calculatedSaldo.value));
 
@@ -455,8 +465,11 @@ const confirmTransaction = async () => {
         \nNama : ${selectedRekening.value?.nama_rekening}
         \nRekening: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran != "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
       `;
+     const wa = provider.value?.no_cs;
 
-      const whatsappUrl = `https://wa.me/62${provider.value?.no_cs}?text=${encodeURIComponent(message)}`;
+const formattedNumber = wa?.startsWith('0') ? wa.replace(/^0/, '62') : wa;
+
+const whatsappUrl = `https://wa.me/${formattedNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, '_blank');
 
