@@ -13,13 +13,20 @@
           </p>
           <ul class="list-group list-group-borderless mb-4">
             <li class="list-group-item heading-color d-flex mb-0 icons-center">
-              <BIconPatchCheck class="text-primary me-2" />Dukungan berbagai platform pembayaran
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tw-size-5 me-2 text-primary">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /> 
+</svg>
+ Dukungan berbagai platform pembayaran
             </li>
             <li class="list-group-item heading-color d-flex mb-0 icons-center">
-              <BIconPatchCheck class="text-primary me-2" />Transaksi cepat dan instan
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tw-size-5 me-2 text-primary">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /> 
+</svg>Transaksi cepat dan instan
             </li>
             <li class="list-group-item heading-color d-flex mb-0 icons-center">
-              <BIconPatchCheck class="text-primary me-2" />Keamanan terjamin dengan sistem enkripsi
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tw-size-5 me-2 text-primary">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /> 
+</svg>Keamanan terjamin dengan sistem enkripsi
 
             </li>
           </ul>
@@ -50,6 +57,7 @@
 
 <script lang="ts" setup>
 import { BIconPatchCheck } from 'bootstrap-icons-vue'
+import {BIconPatchCheckFill} from 'bootstrap-icons-vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 import bca from '@/assets/images/pembayaran/pay_bca.png'

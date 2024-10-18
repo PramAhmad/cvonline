@@ -1,4 +1,5 @@
 <template>
+  
   <button
     v-b-toggle="'topbar-appmenu-collapse'"
     class="navbar-toggler ms-sm-3 p-2"

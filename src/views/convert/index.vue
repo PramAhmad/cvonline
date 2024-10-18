@@ -90,40 +90,52 @@
     </div>
   </div>
   <div v-if="modalRekening" class="tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center tw-bg-gray-800 tw-bg-opacity-75">
-    <div class="tw-bg-white tw-rounded-lg tw-shadow-lg tw-p-6 tw-w-full tw-max-w-md">
-      <h3 class="tw-text-lg tw-font-semibold tw-mb-4">Tamnbah Rekening</h3>
-      <div class="tw-relative mb-4"> 
-        
-        <select v-model="selectedRekening" @change="populatePaymentData" class="tw-pl-10 tw-bg-gray-50 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg">
-          <option value="" disabled selected>Pilih rekening</option>
-          <option v-for="item in metodepembayaran" :key="item.id" :value="item.id">{{ item.nama }}</option>
-        </select>
-      </div>
+  <div class="tw-bg-white tw-rounded-lg tw-shadow-lg tw-p-6 tw-w-full tw-max-w-md relative">
+    <!-- Close Button -->
   
-      <!-- Input for Nomor Akun/Wallet -->
-      <div class="tw-relative mb-4"> 
-        
-        <input type="text" v-model="nomorAkun" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nomor akun/wallet" />
 
+    <div class="tw-flex tw-items-center tw-justify-between">
 
-        
-      </div>
-  
-      <!-- Input for Atas Nama -->
-      <div class="tw-relative mb-4"> 
-        <input type="text" v-model="atasNama" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Atas Nama" />
-      </div>
-  
-      <!-- Display Data from Selected Metode Pembayaran -->
-     
-      <!-- Save Button -->
-      <div class="tw-flex tw-text-center tw-px-4 tw-mt-6">
-        <button @click="tambahDataRekening" class="tw-mt-4 tw-w-full tw-py-2 tw-bg-red-600 tw-text-white tw-rounded-full">
-          Simpan
-        </button>
-      </div>
+    <h3 class="tw-text-lg tw-font-semibold tw-mb-4">Tambah Rekening</h3>
+    <!-- close button -->
+    <button @click="modalRekening = false" class="mb-3">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tw-w-6 tw-h-6">
+    close
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+    </div>
+    <div class="tw-relative mb-4"> 
+      <label for="metodePembayaran" class="tw-absolute tw-left-10 tw-top-1/2 tw-transform -tw-translate-y-1/2 tw-text-gray-500" 
+    :class="{ 'tw-opacity-0': selectedRekening }">
+    Pilih Metode Pembayaran
+  </label>
+      <select v-model="selectedRekening" @change="populatePaymentData" class="tw-pl-10 tw-bg-gray-50 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg">
+    
+        <option :value="''" disabled selected>Pilih Metode Pembayaran</option>     
+        <option v-for="item in metodepembayaran" :key="item.id" :value="item.id">{{ item.nama }}</option>
+      </select>
+    </div>
+
+    <div class="tw-relative mb-4"> 
+      <input type="text" v-model="nomorAkun" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nomor akun/wallet" />
+    </div>
+    <div class="tw-relative mb-4"> 
+      <input type="text" v-model="atasNama" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Atas Nama" />
+    </div>
+
+    <div v-if="isBankLain" class="tw-relative mb-4">
+      <input type="text" v-model="bankLain" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nama Bank Lain" />
+    </div>
+    <!-- Save Button -->
+    <div class="tw-flex tw-text-center tw-px-4 tw-mt-6">
+      <button @click="tambahDataRekening" class="tw-mt-4 tw-w-full tw-py-2 tw-bg-red-600 tw-text-white tw-rounded-full">
+        Simpan
+      </button>
     </div>
   </div>
+</div>
+
 </template>
 
 
@@ -176,7 +188,7 @@ const isConfirmed = ref(false);
 const $route = useRoute();
 const userEmail = localStorage.getItem('user_email');
 const showModal = ref(false);
-const selectedRekening = ref<Rekening | null>(null);
+const selectedRekening = ref<string | null>(null);
 const isLoading = ref(false);
 const modalRekening = ref(false)
   const metodepembayaran = ref<MetodePembayaran[]>([]);
@@ -184,6 +196,8 @@ const nomorAkun = ref()
 const atasNama = ref()
 const selectedPaymentMethod = ref<MetodePembayaran | null>(null);
   const formattedNominal = ref<string>('');
+    const bankLain = ref<string>(''); 
+const isBankLain = ref<boolean>(false); 
 
 
 const formatCurrency = (value: number) => {
@@ -458,12 +472,12 @@ const confirmTransaction = async () => {
       
 
       const message = `
-        \nNominal: Rp ${nominal.value.toLocaleString()}
-        \nSaldo Diterima: Rp ${calculatedSaldo.value.toLocaleString()}
-        \nNomor Pengirim: ${phoneNumber.value}
-        \nConvert : ${provider.value?.name}
-        \nNama : ${selectedRekening.value?.nama_rekening}
-        \nRekening: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran != "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
+        Nominal: Rp ${nominal.value.toLocaleString()} 
+        Saldo Diterima: Rp ${calculatedSaldo.value.toLocaleString()} 
+        Nomor Pengirim: ${phoneNumber.value}
+        Convert : ${provider.value?.name}
+        Nama : ${selectedRekening.value?.nama_rekening}
+        Rekening: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran != "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
       `;
      const wa = provider.value?.no_cs;
 
@@ -498,76 +512,80 @@ const whatsappUrl = `https://wa.me/${formattedNumber}?text=${encodeURIComponent(
   }
 };
 
+
 const populatePaymentData = () => {
-  const paymentMethod = metodepembayaran.value.find(item => item.id === selectedRekening.value);
-  
-  if (paymentMethod) {
-    selectedPaymentMethod.value = paymentMethod;
-  } else {
+  if (selectedRekening.value == '1') {
+    isBankLain.value = true;
     selectedPaymentMethod.value = null;
+  } else {
+    isBankLain.value = false;
+    const paymentMethod = metodepembayaran.value.find(item => item.id === selectedRekening.value);
+    if (paymentMethod) {
+      selectedPaymentMethod.value = paymentMethod;
+    } else {
+      selectedPaymentMethod.value = null;
+    }
   }
 };
 
 const tambahDataRekening = async () => {
-    if (!selectedRekening.value || !nomorAkun.value || !atasNama.value) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Harap isi semua data yang dibutuhkan!',
-      });
-      return;
-    }
-  
- 
+  if (!selectedRekening.value || !nomorAkun.value || !atasNama.value || (isBankLain.value && !bankLain.value)) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Harap isi semua data yang dibutuhkan!',
+    });
+    return;
+  }
 
-
-    try {
-        const formData = new FormData();
+  try {
+    const formData = new FormData();
     formData.append('email', userEmail);
-    formData.append('id_pembayaran', selectedPaymentMethod.value?.id);
+    formData.append('id_pembayaran', isBankLain.value ?  "1" : selectedPaymentMethod.value?.id);
     formData.append('no_rekening', nomorAkun.value);
     formData.append('nama_rekening', atasNama.value);
-    formData.append('bank', selectedPaymentMethod.value?.nama);
-    formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode);
-    formData.append('biaya_transfer', selectedPaymentMethod.value?.biaya);
-    formData.append('icon', selectedPaymentMethod.value?.icon);
+    formData.append('bank', isBankLain.value ? bankLain.value : selectedPaymentMethod.value?.nama);
+    formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode_pembayaran || '-');
+    formData.append('biaya_transfer', selectedPaymentMethod.value?.biaya_transfer || '0');
+    formData.append('icon', selectedPaymentMethod.value?.icon || '-');
 
-      const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/add`, {
-        method: 'POST',
-  headers: {
-    'X-Api-Key': import.meta.env.VITE_API_KEY,
-  },
-  body: formData,
+    const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/add`, {
+      method: 'POST',
+      headers: {
+        'X-Api-Key': import.meta.env.VITE_API_KEY,
+      },
+      body: formData,
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: 'Data berhasil disimpan!',
       });
-  
-      if (response.ok) {
-        const result = await response.json();
-        Swal.fire({
-          icon: 'success',
-          title: 'Berhasil',
-          text: 'Data berhasil disimpan!',
-        });
-        nomorAkun.value = '';
-        atasNama.value = '';
-        selectedRekening.value = null;
-        selectedPaymentMethod.value = null;
-        modalRekening.value = false
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Terjadi kesalahan saat menyimpan data!',
-        });
-      }
-    } catch (error) {
-      console.error('Error saving data:', error);
+      nomorAkun.value = '';
+      atasNama.value = '';
+      selectedRekening.value = null;
+      selectedPaymentMethod.value = null;
+      bankLain.value = '';
+      isBankLain.value = false;
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Terjadi kesalahan pada server!',
+        text: 'Terjadi kesalahan saat menyimpan data!',
       });
     }
-  };
+  } catch (error) {
+    console.error('Error saving data:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Terjadi kesalahan pada server!',
+    });
+  }
+};
   
 
 

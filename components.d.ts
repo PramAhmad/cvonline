@@ -35,6 +35,7 @@ declare module 'vue' {
     BFormTextarea: typeof import('bootstrap-vue-next')['BFormTextarea']
     BIconExclamationTriangleFill: typeof import('bootstrap-vue-next')['BIconExclamationTriangleFill']
     BIconLifePreserver: typeof import('bootstrap-vue-next')['BIconLifePreserver']
+    BIconPatchCheckFill: typeof import('bootstrap-vue-next')['BIconPatchCheckFill']
     BIconShieldCheck: typeof import('bootstrap-vue-next')['BIconShieldCheck']
     BIconYoutube: typeof import('bootstrap-vue-next')['BIconYoutube']
     BImg: typeof import('bootstrap-vue-next')['BImg']

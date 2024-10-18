@@ -110,6 +110,7 @@ const getRekening = async () => {
     if (response.ok) {
       const data = await response.json();
       rekening.value = data.data.my_bank;
+      console.log(rekening.value)
     } else {
       console.log('Unexpected response:', response);
     }
