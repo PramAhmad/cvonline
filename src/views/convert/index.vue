@@ -35,7 +35,7 @@
       <select v-model="selectedRekening" class="tw-w-full tw-border tw-rounded tw-p-2 tw-mb-1 tw-bg-gray-50">
         <option disabled>Pilih Rekening</option>
         <option v-for="rek in rekening" :key="rek.id" :value="rek">
-          {{ rek.nama_rekening }} - {{ rek.no_rekening }}
+          {{ rek.bank }}  - {{ rek.no_rekening }}
         </option>
         <option value="tambahrek">
           Tambah Rekening
@@ -45,7 +45,7 @@
   
       <label class="tw-block tw-mb-2 tw-text-sm tw-font-medium">Info Sisa Pulsa Setelah Transfer <span class="tw-text-red-500">*</span></label>
       <div class="tw-flex tw-items-center tw-mb-2">
-        <span class="tw-text-gray-500 tw-pr-2">Rp</span>
+      
         <input v-model="sisaPulsa" type="number" placeholder="0" class="tw-w-full tw-border tw-rounded tw-p-2" disabled />
       </div>
   
@@ -219,7 +219,7 @@ const formatNumber = (e: any) => {
 watch(nominal, (newVal) => {
   formattedNominal.value = newVal?.toLocaleString('id-ID') || '';
 });
-const formattedSisaPulsa = computed(() => formatCurrency(sisaPulsa.value));
+
 const formattedSaldoDiterima = computed(() => formatCurrency(calculatedSaldo.value));
 
 
@@ -283,111 +283,152 @@ const getMetodePembayaran = async () => {
     }
   };
 
-const calculateFee = (nominal: number) => {
-switch (provider.value?.name) {
-  case 'Telkomsel':
-    switch (true) {
-      case nominal >= 20000 && nominal <= 49900:
-        sisaPulsa.value = 4000;
-        break;
-      case nominal >= 50000 && nominal <= 99900:
-        sisaPulsa.value = 5000;
-        break;
-      case nominal >= 100000 && nominal <= 199900:
-        sisaPulsa.value = 8500;
-        break;
-      case nominal >= 200000 && nominal <= 299000:
-        sisaPulsa.value = 13500;
-        break;
-      case nominal >= 300000 && nominal <= 498000:
-        sisaPulsa.value = 18500;
-        break;
-      case nominal >= 500000 && nominal <= 1000000:
-        sisaPulsa.value = 24500;
-        break;
-      default:
-        sisaPulsa.value = 0;
-    }
-    break;
-  case 'XL/Axis':
-    switch (true) {
-      case nominal >= 25000 && nominal <= 49999:
-        sisaPulsa.value = 2000;
-        break;
-      case nominal >= 50000 && nominal <= 99999:
-        sisaPulsa.value = 2500;
-        break;
-      case nominal >= 100000 && nominal <= 200000:
-        sisaPulsa.value = 4500;
-        break;
-      case nominal >= 200001 && nominal <= 300000:
-        sisaPulsa.value = 6600;
-        break;
-      case nominal >= 300001 && nominal <= 500000:
-        sisaPulsa.value = 8500;
-        break;
-      case nominal >= 500001 && nominal <= 1000000:
-        sisaPulsa.value = 10500;
-        break;
-      default:
-        sisaPulsa.value = 0;
-    }
-    break;
-  case 'Three':
-    switch (true) {
-      case nominal >= 25000 && nominal <= 49999:
-        sisaPulsa.value = 1500;
-        break;
-      case nominal >= 50000 && nominal <= 99999:
-        sisaPulsa.value = 2000;
-        break;
-      case nominal >= 100000 && nominal <= 200000:
-        sisaPulsa.value = 4000;
-        break;
-      case nominal >= 200001 && nominal <= 400000:
-        sisaPulsa.value = 8000;
-        break;
-      case nominal >= 400001 && nominal <= 600000:
-        sisaPulsa.value = 12000;
-        break;
-      case nominal >= 600001 && nominal <= 1000000:
-        sisaPulsa.value = 20000;
-        break;
-      default:
-        sisaPulsa.value = 0;
-    }
-    break;
-  case 'Smartfreen':
-    switch (true) {
-      case nominal >= 20000 && nominal <= 50000:
-        sisaPulsa.value = 2000;
-        break;
-      case nominal >= 50001 && nominal <= 100000:
-        sisaPulsa.value = 2500;
-        break;
-      case nominal >= 100001 && nominal <= 200000:
-        sisaPulsa.value = 5000;
-        break;
-      case nominal >= 200001 && nominal <= 300000:
-        sisaPulsa.value = 7500;
-        break;
-      case nominal >= 300001 && nominal <= 400000:
-        sisaPulsa.value = 10000;
-        break;
-      case nominal >= 400001 && nominal <= 500000:
-        sisaPulsa.value = 12500;
-        break;
-      default:
-        sisaPulsa.value = 0;
-    }
-    break;
-  default:
-    sisaPulsa.value = 0;
-}
-// return decimal value
-sisaPulsa.value = sisaPulsa.value.toLocaleString('id-ID');
-return parseFloat(sisaPulsa.value);
+  const calculateFee = (nominal: number) => {
+  let mandatoryBalance = 0;
+
+  switch (provider.value?.name) {
+    case 'Telkomsel':
+      mandatoryBalance = 2000; // Sisa pulsa wajib for Telkomsel
+      switch (true) {
+        case nominal >= 20000 && nominal <= 49900:
+          sisaPulsa.value = 4000;
+          break;
+        case nominal >= 50000 && nominal <= 99900:
+          sisaPulsa.value = 5000;
+          break;
+        case nominal >= 100000 && nominal <= 199900:
+          sisaPulsa.value = 8500;
+          break;
+        case nominal >= 200000 && nominal <= 299000:
+          sisaPulsa.value = 13500;
+          break;
+        case nominal >= 300000 && nominal <= 498000:
+          sisaPulsa.value = 18500;
+          break;
+        case nominal >= 500000 && nominal <= 1000000:
+          sisaPulsa.value = 24500;
+          break;
+        default:
+          sisaPulsa.value = 0;
+      }
+      break;
+    case 'XL/Axis':
+      mandatoryBalance = 5000; // Sisa pulsa wajib for XL/Axis
+      switch (true) {
+        case nominal >= 25000 && nominal <= 49999:
+          sisaPulsa.value = 2000;
+          break;
+        case nominal >= 50000 && nominal <= 99999:
+          sisaPulsa.value = 2500;
+          break;
+        case nominal >= 100000 && nominal <= 200000:
+          sisaPulsa.value = 4500;
+          break;
+        case nominal >= 200001 && nominal <= 300000:
+          sisaPulsa.value = 6600;
+          break;
+        case nominal >= 300001 && nominal <= 500000:
+          sisaPulsa.value = 8500;
+          break;
+        case nominal >= 500001 && nominal <= 1000000:
+          sisaPulsa.value = 10500;
+          break;
+        default:
+          sisaPulsa.value = 0;
+      }
+      break;
+    case 'Three':
+      mandatoryBalance = 5000; // Sisa pulsa wajib for Three (updated)
+      switch (true) {
+        case nominal >= 25000 && nominal <= 49999:
+          sisaPulsa.value = 1500;
+          break;
+        case nominal >= 50000 && nominal <= 99999:
+          sisaPulsa.value = 2000;
+          break;
+        case nominal >= 100000 && nominal <= 200000:
+          sisaPulsa.value = 4000;
+          break;
+        case nominal >= 200001 && nominal <= 400000:
+          sisaPulsa.value = 8000;
+          break;
+        case nominal >= 400001 && nominal <= 600000:
+          sisaPulsa.value = 12000;
+          break;
+        case nominal >= 600001 && nominal <= 800000:
+          sisaPulsa.value = 16000;
+          break;
+        case nominal >= 800001 && nominal <= 1000000:
+          sisaPulsa.value = 20000;
+          break;
+        default:
+          sisaPulsa.value = 0;
+      }
+      break;
+    case 'Smartfreen':
+      mandatoryBalance = 5000; // Sisa pulsa wajib for Smartfreen
+      switch (true) {
+        case nominal >= 20000 && nominal <= 50000:
+          sisaPulsa.value = 2000;
+          break;
+        case nominal >= 50001 && nominal <= 100000:
+          sisaPulsa.value = 2500;
+          break;
+        case nominal >= 100001 && nominal <= 200000:
+          sisaPulsa.value = 5000;
+          break;
+        case nominal >= 200001 && nominal <= 300000:
+          sisaPulsa.value = 7500;
+          break;
+        case nominal >= 300001 && nominal <= 400000:
+          sisaPulsa.value = 10000;
+          break;
+        case nominal >= 400001 && nominal <= 500000:
+          sisaPulsa.value = 12500;
+          break;
+        default:
+          sisaPulsa.value = 0;
+      }
+      break;
+    case 'Im3': 
+      mandatoryBalance = 5000; // Sisa pulsa wajib for Im3
+      switch (true) {
+        case nominal >= 25000 && nominal <= 49999:
+          sisaPulsa.value = 1500;
+          break;
+        case nominal >= 50000 && nominal <= 99999:
+          sisaPulsa.value = 2000;
+          break;
+        case nominal >= 100000 && nominal <= 200000:
+          sisaPulsa.value = 4000;
+          break;
+        case nominal >= 200001 && nominal <= 400000:
+          sisaPulsa.value = 8000;
+          break;
+        case nominal >= 400001 && nominal <= 600000:
+          sisaPulsa.value = 12000;
+          break;
+        case nominal >= 600001 && nominal <= 800000:
+          sisaPulsa.value = 16000;
+          break;
+        case nominal >= 800001 && nominal <= 1000000:
+          sisaPulsa.value = 20000;
+          break;
+        default:
+          sisaPulsa.value = 0;
+      }
+      break;
+    default:
+      sisaPulsa.value = 0;
+  }
+
+  sisaPulsa.value += mandatoryBalance;
+
+  sisaPulsa.value = sisaPulsa.value.toLocaleString('id-ID');
+  
+  return parseFloat(sisaPulsa.value);
 };
+
 interface ErrorMessages {
 phoneNumber: string;
 selectedRekening: string;
@@ -472,13 +513,13 @@ const confirmTransaction = async () => {
       
 
       const message = `
-        Nominal: Rp ${nominal.value.toLocaleString()} 
-        Saldo Diterima: Rp ${calculatedSaldo.value.toLocaleString()} 
-        Nomor Pengirim: ${phoneNumber.value}
-        Convert : ${provider.value?.name}
-        Nama : ${selectedRekening.value?.nama_rekening}
-        Rekening: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran != "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
-      `;
+            Nominal: Rp ${nominal.value.toLocaleString()} \n
+            Diterima: Rp ${calculatedSaldo.value.toLocaleString()} \n 
+            Nomer: ${phoneNumber.value}
+            Convert: ${provider.value?.name}
+            Nama: ${selectedRekening.value?.nama_rekening}
+            Rek: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran !== "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
+            `;
      const wa = provider.value?.no_cs;
 
 const formattedNumber = wa?.startsWith('0') ? wa.replace(/^0/, '62') : wa;

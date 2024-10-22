@@ -216,8 +216,8 @@
                 <BIconStarFill class="text-warning fs-6" />
               </li>
             </ul>
-            <h6 class="mb-2">4.5 /5.0 Rating on google</h6>
-            <p class="mb-0">365 Ratings & Reviews</p>
+            <h6 class="mb-2">4,9 Ulasan di Playstore</h6>
+            <p class="mb-0">7.779 Rating & Review</p>
           </b-col>
 
           <b-col md="6" lg="4" class="order-3">

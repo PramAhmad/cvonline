@@ -97,7 +97,7 @@
                 <b-col cols="6" sm="4" md="6" class="text-center">
                   <a href="https://pse.kominfo.go.id/tdpse-detail/19979">
                     <img
-                      src="https://blogger.googleusercontent.com/img/a/AVvXsEhj_BJfJeTZn8SIhqAD_Lp1F0uvpSgCK5DLIpUBycl3Wx96Rvt9apImDxL36-38EUrxWq0WVH6X5cJc3lYFTmXeH2mnxzziUdI3bSnwbaHozaO8WjSTmSwzkO5BLFhaFdRVFKfVgXeQYumMuMBXT450Psn13-ieXbcwDp3DUQaqB9dQmhj1t-vetl51YXgB=s1600"
+                      :src="kominfo"
                       alt="footer-logo" class="tw-rounded-xl" />
                   </a> </b-col>
               </b-row>
@@ -141,9 +141,10 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import ukFlag from "@/assets/images/flags/uk.svg";
 import grFlag from "@/assets/images/flags/gr.svg";
 import spFlag from "@/assets/images/flags/sp.svg";
-import appStore from "@/assets/images/elements/app-store.svg";
-import googlePlay from "@/assets/images/elements/google-play.svg";
+import appStore from "@/assets/images/ios-white.png";
+import googlePlay from "@/assets/images/playstore-white.png";
 import pattern2 from "@/assets/images/elements/decoration-pattern-2.svg";
+import kominfo from "@/assets/images/logo-kominfo.png";
 import { onMounted, ref } from "vue";
 
 interface Blog {

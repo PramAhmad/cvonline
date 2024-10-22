@@ -140,15 +140,19 @@ const editRekening = () => {
 const deleteRekening = async () => {
   if (selectedRekening.value) {
     try {
+      const formData = new FormData();
+      formData.append('id', selectedRekening.value.id);
+
       const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/delete?id=${selectedRekening.value.id}`, {
         method: 'POST',
         headers: {
           'X-Api-Key': import.meta.env.VITE_API_KEY,
         },
+        body: formData, 
       });
 
       if (response.ok) {
-        rekening.value = rekening.value.filter(item => item.id !== selectedRekening.value?.id);
+        rekening.value = rekening.value.filter(item => item.id !== selectedRekening.value.id);
         closeModal();
       } else {
         console.log('Failed to delete rekening:', response);
@@ -158,6 +162,7 @@ const deleteRekening = async () => {
     }
   }
 };
+
 
 const goBack = () => {
   router.go(-1);
