@@ -517,8 +517,8 @@ const confirmTransaction = async () => {
       
 
       const message = `
-Nominal: Rp ${nominal.value.toLocaleString()} \n
-Diterima: Rp ${calculatedSaldo.value.toLocaleString()} \n 
+Nominal: Rp ${nominal.value.toLocaleString()}
+Diterima: Rp ${calculatedSaldo.value.toLocaleString()}
 Nomer: ${phoneNumber.value}
 Convert: ${provider.value?.name}
 Nama: ${selectedRekening.value?.nama_rekening}
