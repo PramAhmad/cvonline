@@ -611,6 +611,7 @@ const tambahDataRekening = async () => {
       selectedPaymentMethod.value = null;
       bankLain.value = '';
       isBankLain.value = false;
+      getRekening();
     } else {
       Swal.fire({
         icon: 'error',
