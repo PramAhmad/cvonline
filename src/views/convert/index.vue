@@ -517,12 +517,12 @@ const confirmTransaction = async () => {
       
 
       const message = `
-Nominal: Rp ${nominal.value.toLocaleString()}
+Nominal :  ${nominal.value.toLocaleString()}
 Diterima: Rp ${calculatedSaldo.value.toLocaleString()}
-Nomer: ${phoneNumber.value}
-Convert: ${provider.value?.name}
-Nama: ${selectedRekening.value?.nama_rekening}
-Rek: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran !== "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
+Nomer   : ${phoneNumber.value}
+Convert : ${provider.value?.name}
+Nama    : ${selectedRekening.value?.nama_rekening}
+Rek     : ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran !== "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
             `;
      const wa = provider.value?.no_cs;
 
