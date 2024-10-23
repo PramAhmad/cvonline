@@ -98,7 +98,7 @@
                   <a href="https://pse.kominfo.go.id/tdpse-detail/19979">
                     <img
                       :src="kominfo"
-                      alt="footer-logo" class="tw-rounded-xl" />
+                      alt="footer-logo" class="md:tw-w-full tw-w-[90%]"/>
                   </a> </b-col>
               </b-row>
 
@@ -106,7 +106,7 @@
 
               <ul class="list-inline mb-0 mt-3 d-flex align-items-center gap-1">
                 <li class="list-inline-item" v-for="(item, idx) in followOnIcons" :key="idx">
-                  <a class="btn btn-xs btn-icon btn-light" href="">
+                  <a class="btn btn-xs btn-icon btn-light" :href="item.link">
                     <font-awesome-icon :icon="item.icon" class="fa-fw lh-base" />
                   </a>
                 </li>

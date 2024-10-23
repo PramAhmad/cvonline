@@ -1,11 +1,17 @@
 <template>
+  <li class="nav-item">
+    <!-- home -->
+     <router-link class="nav-link" to="/">
+      Home
+    </router-link>
+  </li>
   <li class="nav-item dropdown">
     <a
       class="nav-link dropdown-toggle arrow-none d-flex justify-content-between align-items-center w-100"
       href="#"
       :class="menuItemActive('pages', currentRouteName) && 'active'"
     >
-      Home
+      Convert Pulsa
       <font-awesome-icon :icon="faAngleDown" class="fa-sm ms-1" />
     </a>
     <div class="dropdown-menu">
@@ -30,6 +36,11 @@
   <li class="nav-item" v-if="isLoggedIn">
     <router-link class="nav-link" to="/panduan">
       Tutorial
+    </router-link>
+  </li>
+  <li class="nav-item" >
+    <router-link class="nav-link" to="/blog">
+      Blog
     </router-link>
   </li>
   <li class="nav-item" v-if="isLoggedIn">

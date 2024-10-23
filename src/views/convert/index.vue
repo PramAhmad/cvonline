@@ -21,7 +21,7 @@
       </p>
       
       <div v-else-if="nominal >= provider?.min_transaksi && nominal <= provider?.max_transaksi">
-        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#CCCCCC]">
+        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#EBFBFF]">
           <h5 class="tw-text-[#000000] tw-font-medium">Rate <span class="tw-font-semibold">{{ provider?.rate }}</span></h5>
           <h5 class="tw-text-[#000000] tw-font-medium">Saldo Diterima <span class="tw-font-semibold">{{ formattedSaldoDiterima }}</span></h5>
         </div>
@@ -77,7 +77,8 @@
       <p>Apakah Anda yakin ingin melanjutkan transaksi ini?</p>
       <p><strong>Nominal:</strong> {{ formattedNominal }}</p>
       <p><strong>Provider:</strong> {{ provider?.name }}</p>
-      <p><strong>Rekening:</strong> {{ selectedRekening.nama_rekening }} - {{ selectedRekening.no_rekening }}</p>
+      <p><strong>Rekening:</strong> {{ selectedRekening.bank }} - {{ selectedRekening.no_rekening }}</p>
+      <p><strong>Nama Penerima:</strong> {{ selectedRekening.nama_rekening }}</p>
       <p><strong>Saldo Diterima:</strong> {{ formattedSaldoDiterima }}</p>
   
       <div class="tw-flex tw-justify-end tw-mt-4">
@@ -116,6 +117,9 @@
         <option v-for="item in metodepembayaran" :key="item.id" :value="item.id">{{ item.nama }}</option>
       </select>
     </div>
+    <div v-if="isBankLain" class="tw-relative mb-4">
+      <input type="text" v-model="bankLain" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nama Bank Lain" />
+    </div>
 
     <div class="tw-relative mb-4"> 
       <input type="text" v-model="nomorAkun" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nomor akun/wallet" />
@@ -124,9 +128,7 @@
       <input type="text" v-model="atasNama" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Atas Nama" />
     </div>
 
-    <div v-if="isBankLain" class="tw-relative mb-4">
-      <input type="text" v-model="bankLain" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nama Bank Lain" />
-    </div>
+   
     <!-- Save Button -->
     <div class="tw-flex tw-text-center tw-px-4 tw-mt-6">
       <button @click="tambahDataRekening" class="tw-mt-4 tw-w-full tw-py-2 tw-bg-red-600 tw-text-white tw-rounded-full">
@@ -174,9 +176,10 @@ interface MetodePembayaran {
     id: any;
     nama: string;
     bank: string;
-    kode_pembayaran: string;
+    kode_pembayaran: any;
     biaya_transfer: string;
     icon: string;
+    kode:any;
   }
   
 const rekening = ref<Rekening[]>([]);
@@ -191,12 +194,12 @@ const showModal = ref(false);
 const selectedRekening = ref<string | null>(null);
 const isLoading = ref(false);
 const modalRekening = ref(false)
-  const metodepembayaran = ref<MetodePembayaran[]>([]);
+const metodepembayaran = ref<MetodePembayaran[]>([]);
 const nomorAkun = ref()
 const atasNama = ref()
 const selectedPaymentMethod = ref<MetodePembayaran | null>(null);
-  const formattedNominal = ref<string>('');
-    const bankLain = ref<string>(''); 
+const formattedNominal = ref<string>('');
+const bankLain = ref<string>(''); 
 const isBankLain = ref<boolean>(false); 
 
 
@@ -480,6 +483,7 @@ return 0;
 
 const confirmTransaction = async () => {
   isLoading.value = true; 
+  console.log(selectedRekening.value?.kode_pembayaran)
   try {
     const formData = new FormData();
     formData.append('tanggal', new Date().toISOString());
@@ -513,12 +517,12 @@ const confirmTransaction = async () => {
       
 
       const message = `
-            Nominal: Rp ${nominal.value.toLocaleString()} \n
-            Diterima: Rp ${calculatedSaldo.value.toLocaleString()} \n 
-            Nomer: ${phoneNumber.value}
-            Convert: ${provider.value?.name}
-            Nama: ${selectedRekening.value?.nama_rekening}
-            Rek: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran !== "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
+Nominal: Rp ${nominal.value.toLocaleString()} \n
+Diterima: Rp ${calculatedSaldo.value.toLocaleString()} \n 
+Nomer: ${phoneNumber.value}
+Convert: ${provider.value?.name}
+Nama: ${selectedRekening.value?.nama_rekening}
+Rek: ${selectedRekening.value?.bank} - ${selectedRekening.value?.kode_pembayaran !== "0" ? selectedRekening.value?.kode_pembayaran + selectedRekening.value?.no_rekening : selectedRekening.value?.no_rekening}
             `;
      const wa = provider.value?.no_cs;
 
@@ -578,7 +582,7 @@ const tambahDataRekening = async () => {
     });
     return;
   }
-
+// console.log(selectedPaymentMethod.value)
   try {
     const formData = new FormData();
     formData.append('email', userEmail);
@@ -586,7 +590,7 @@ const tambahDataRekening = async () => {
     formData.append('no_rekening', nomorAkun.value);
     formData.append('nama_rekening', atasNama.value);
     formData.append('bank', isBankLain.value ? bankLain.value : selectedPaymentMethod.value?.nama);
-    formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode_pembayaran || '-');
+    formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode);
     formData.append('biaya_transfer', selectedPaymentMethod.value?.biaya_transfer || '0');
     formData.append('icon', selectedPaymentMethod.value?.icon || '-');
 
@@ -611,6 +615,8 @@ const tambahDataRekening = async () => {
       selectedPaymentMethod.value = null;
       bankLain.value = '';
       isBankLain.value = false;
+      // close modal
+      modalRekening.value = false;  
       getRekening();
     } else {
       Swal.fire({

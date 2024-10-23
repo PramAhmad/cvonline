@@ -82,7 +82,6 @@ export const mainRoute = [
     },
     component: () => import('@/views/profile/index.vue')
   },
-  // rekening bank index detail tambah
   {
     path:'/rekening',
     name:'rekening',
@@ -129,7 +128,15 @@ export const mainRoute = [
     },
     component: () => import('@/views/login/index.vue')
   },
-  // blog detail
+  // blox index
+  {
+    path:'/blog',
+    name:'blog',
+    meta:{
+      title: setTitle('blog')
+    },
+    component: () => import('@/views/blog/index.vue')
+  },
   {
     path:'/blog/:slug',
     name:'blog.detail',

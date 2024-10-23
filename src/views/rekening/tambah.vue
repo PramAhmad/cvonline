@@ -14,6 +14,9 @@
         <option v-for="item in metodepembayaran" :key="item.id" :value="item.id">{{ item.nama }}</option>
       </select>
     </div>
+    <div v-if="isBankLain" class="tw-relative mb-4">
+      <input type="text" v-model="bankLain" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nama Bank Lain" />
+    </div>
 
     <div class="tw-relative mb-4"> 
       <input type="text" v-model="nomorAkun" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nomor akun/wallet" />
@@ -22,10 +25,7 @@
       <input type="text" v-model="atasNama" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Atas Nama" />
     </div>
 
-    <div v-if="isBankLain" class="tw-relative mb-4">
-      <input type="text" v-model="bankLain" class="tw-pl-10 tw-w-[100%] tw-py-3 tw-border tw-rounded-lg" placeholder="Nama Bank Lain" />
-    </div>
-
+   
     <!-- Save Button -->
     <div class="tw-flex tw-text-center tw-px-4 tw-mt-6">
       <button @click="tambahData" class="tw-mt-4 tw-w-full tw-py-2 tw-bg-red-600 tw-text-white tw-rounded-full">
