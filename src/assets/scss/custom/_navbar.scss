@@ -149,7 +149,7 @@
           border-top: 1px solid rgba(0, 0, 0, 0.1);
 
           .navbar-nav .nav-item {
-            border-bottom: 1px solid var(--#{$prefix}border-color);
+            // border-bottom: 1px solid var(--#{$prefix}border-color);
             padding: 8px 20px;
           }
           .navbar-nav .nav-item .nav-link {
