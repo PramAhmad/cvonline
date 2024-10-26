@@ -1,5 +1,5 @@
 <template>
-  <Section class="pb-0">
+  <div class="pb-0 ">
     <b-container>
       <b-row class="align-items-center mb-2">
         <b-col md="12" class="mb-3 mb-md-5">
@@ -11,7 +11,7 @@
         </b-col>
       </b-row>
 
-      <section class="pt-0">
+      <section class="pt-0 " style="padding-bottom: 3rem;">
         <div class="container">
           <div class="row g-4 g-lg-5">
             <div class="col-md-6">
@@ -76,7 +76,7 @@
           </div>
         </div>
       </section>
-<div class="tw-py-7">
+<div class="tw-pb-7">
   <h3 class="tw-text-center tw-text-2xl tw-text-red-600 tw-font-bold">Diliput Oleh
 </h3>
   <p class="tw-text-sm  text-center tw-font-normal tw-text-gray-900">Beberapa media yang telah meliput cvpulsa</p>
@@ -100,7 +100,7 @@
               </SwiperSlide>
             </Swiper>
     </b-container>
-  </Section>
+  </div>
 </template>
 
 <script lang="ts" setup>

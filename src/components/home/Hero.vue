@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-16 tw-flex container  tw-flex-col tw-items-center banner-section  dark:bg-gray-900">
+  <section class="mt-16 tw-flex container  tw-pt-28 tw-flex-col tw-items-center banner-section  dark:bg-gray-900">
     <!-- jam operasional -->
     <div class="tw-w-full tw-flex tw-justify-center tw-items-center  tw-text-gray-900  tw-rounded-lg  dark:bg-red-500">
    
@@ -105,7 +105,7 @@
       </div>
 
       <!-- Calculator Section -->
-      <div class="tw-w-full tw-rounded-lg tw-p-3 tw-mt-8  tw-mb-5 tw-border-2 tw-border-gray-200 dark:border-gray-700" @click="calculatorPage">
+      <div class="tw-w-full tw-rounded-lg tw-p-3 tw-mt-8  md:tw-mb-0 tw-mb-5  tw-border-2 tw-border-gray-200 dark:border-gray-700" @click="calculatorPage">
         <div class="tw-flex tw-items-center tw-justify-between">
           <div class="tw-flex tw-items-center">
             <img :src="cal" alt="Calculator" class="tw-w-6 tw-h-6 tw-mr-2" />

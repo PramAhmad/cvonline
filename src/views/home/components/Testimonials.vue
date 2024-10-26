@@ -1,5 +1,5 @@
 <template>
-  <section class="pb-0">
+  <section class="pb-0 tw-pt-5">
     <b-container>
       <div class="inner-container-small text-center mb-4 mb-sm-5">
         <h2 class="mb-0 tw-text-red-600 tw-font-semibold tw-text-2xl">Apa Yang Mereka Katakan</h2>
@@ -20,8 +20,7 @@
                 768: { slidesPerView: 3 }
               }"
       >
-        <!-- Testimonial slides -->
-        <swiper-slide v-for="(testimonial, idx) in testimonials" :key="idx">
+        <swiper-slide v-for="(testimonial, idx) in testimonials" :key="idx" class="equal-height-slide">
           <TestimonialCard :testimonial="testimonial" />
         </swiper-slide>
       </swiper>
@@ -38,3 +37,13 @@ import TestimonialCard from '@/views/home/components/TestimonialCard.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 </script>
+<style scoped>
+.equal-height-slide {
+  display: flex;
+  align-items: stretch;
+}
+
+.equal-height-slide > * {
+  flex: 1;
+}
+</style>

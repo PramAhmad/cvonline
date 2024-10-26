@@ -18,10 +18,19 @@ import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import '@/assets/scss/style.scss'
 import 'vue-toastification/dist/index.css'
 import '@/index.css'
+import { createGtm } from '@gtm-support/vue-gtm';
+
 
 const toastOptions: PluginOptions = {}
 addIcons(FcGoogle)
 const app = createApp(App)
+app.use(createGtm({
+    id: 'G-J59E55YPM6',
+    vueRouter: router,
+    debug: true,
+    enabled: true,
+    
+  }));
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('v-icon', OhVueIcon)

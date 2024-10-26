@@ -1,5 +1,5 @@
 <template>
-  <b-card no-body class="card-body border">
+  <b-card no-body class="card-body border tw-h-[230px]">
     <p class="mb-2">“{{ testimonial.comment }}”</p>
     <ul class="list-inline mb-3">
       <template v-if="testimonial.rating">

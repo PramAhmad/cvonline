@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-dark" data-bs-theme="dark">
-    <b-container class="">
+  <section class="bg-dark " data-bs-theme="dark">
+    <b-container class="tw-pt-5">
       <b-row class="align-items-start">
         <b-col md="6" xl="5" class="position-relative">
           <figure class="position-absolute top-0 start-0 mt-n6 ms-n5">

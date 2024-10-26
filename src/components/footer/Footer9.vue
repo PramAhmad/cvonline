@@ -56,9 +56,12 @@
               <h6 class="mb-2 mb-md-4 tw-font-semibold">Panduan</h6>
               <ul class="nav flex-column">
                 <li class="nav-item" v-for="(item) in blog" :key="item.id">
-                  <router-link class="nav-link" :class="item.id === 0 ? 'pt-0' : ''"
-                    :to="{ name: 'blog.detail', params: { slug: item.slug } }">
-                    {{ item.title }}
+                  <router-link
+                    class="nav-link tw-text-sm" 
+                    :class="item.id === 0 ? 'pt-0' : ''"
+                    :to="{ name: 'blog.detail', params: { slug: item.slug } }"
+                  >
+                    {{ formatedTitle(item.title) }}
                   </router-link>
                 </li>
               </ul>
@@ -67,7 +70,7 @@
               <h6 class="mb-2 mb-md-4 tw-font-semibold">Layanan</h6>
               <ul class="nav flex-column">
                 <li class="nav-item" v-for="(item) in provider" :key="item.id">
-                  <router-link class="nav-link" :class="item.id === 0 ? 'pt-0' : ''"
+                  <router-link class="nav-link tw-text-sm" :class="item.id === 0 ? 'pt-0' : ''"
                     :to="'/convert/' + item.id">
                     Jasa Convert {{ item.name }}
                   </router-link>
@@ -146,6 +149,7 @@ import googlePlay from "@/assets/images/playstore-white.png";
 import pattern2 from "@/assets/images/elements/decoration-pattern-2.svg";
 import kominfo from "@/assets/images/logo-kominfo.png";
 import { onMounted, ref } from "vue";
+import { watch } from "fs";
 
 interface Blog {
   id: number;
@@ -203,7 +207,10 @@ const getBlog = async () => {
     console.error('Failed to fetch provider:', error);
   }
 }
-
+const formatedTitle = (text)=>{
+  // uppercase first letter
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
 onMounted(() => {
   getBlog()

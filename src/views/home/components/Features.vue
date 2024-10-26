@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-0">
+  <div class="pb-0 tw-pt-5">
     <b-container>
       <div class="inner-container-small text-center mb-9">
         <h2 class="mb-4 tw-text-red-600 tw-font-semibold tw-text-2xl">Fitur apa saja yang kami miliki</h2>
