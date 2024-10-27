@@ -55,18 +55,16 @@
             <b-col cols="12" md="4">
               <h6 class="mb-2 mb-md-4 tw-font-semibold">Panduan</h6>
               <ul class="nav flex-column">
-                <!-- blog dan kebijakan privacy -->
-                 <li class="nav-item">
-                  <router-link class="nav-link tw-text-sm" to="/blog">
-                    Blog
-                  </router-link>
-                 </li>
-                <li class="nav-item">
-                  <router-link class="nav-link tw-text-sm" to="/kebijakan">
-                    Kebijakan Privasi
+                
+                <li class="nav-item" v-for="(item) in blog" :key="item.id">
+                  <router-link
+                    class="nav-link tw-text-sm" 
+                    :class="item.id === 0 ? 'pt-0' : ''"
+                    :to="{ name: 'blog.detail', params: { slug: item.slug } }"
+                  >
+                    {{ formatedTitle(item.title) }}
                   </router-link>
                 </li>
-            
               </ul>
             </b-col>
             <b-col cols="12" md="4">
@@ -85,7 +83,21 @@
 
 
             <b-col md="4">
-              <h6 class="mb-2 mb-md-4 tw-font-semibold">App available on</h6>
+              <h6 class="mb-2 mb-md-4 tw-font-semibold">Informasi</h6>
+              <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <router-link class="nav-link tw-text-sm" to="/blog">
+                      Blog
+                    </router-link>
+                   </li>
+                  <li class="nav-item">
+                    <router-link class="nav-link tw-text-sm" to="/kebijakan">
+                      Kebijakan Privasi
+                    </router-link>
+                  </li>
+              
+              </ul>
               <b-row class="g-2 mt-2 mb-4 mb-sm-5">
                 <b-col cols="5" sm="4" md="6">
                   <a href="https://play.google.com/store/apps/details?id=com.cv.pulsa"><img :src="googlePlay"
@@ -104,7 +116,7 @@
                   <a href="https://pse.kominfo.go.id/tdpse-detail/19979">
                     <img
                       :src="kominfo"
-                      alt="footer-logo" class="md:tw-w-full tw-w-[90%]"/>
+                      alt="footer-logo" class="md:tw-w-[100%] tw-w-[90%]"/>
                   </a> </b-col>
               </b-row>
 
