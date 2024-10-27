@@ -144,7 +144,15 @@ export const mainRoute = [
       title: setTitle('blog.detail')
     },
     component: () => import('@/views/blog/detail.vue')
-  }
+  },
+  { 
+    path:'/maintenance',
+    name:'maintenance',
+    meta:{
+      title: setTitle('maintance')
+    },
+    component: () => import('@/views/maintance/index.vue')
+  },
 ];
 
 

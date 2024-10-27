@@ -171,11 +171,13 @@ import nonaktiftelkomsel from '@/assets/images/client/icon_telkomsel_nonaktif.pn
 import nonaktifxl from '@/assets/images/client/icon_xl_axis_nonaktif.png';
 import nonaktifsmartfren from '@/assets/images/client/icon_smartfren_nonaktif.png';
 import nonaktifthree from '@/assets/images/client/iconthree_nonaktif.png';
+import { stat } from 'fs';
 
 const router = useRouter();
 const jamop = ref('');
 const homeinfo = ref('');
 const isLoading = ref(true);
+const status = ref('');
 interface Banner {
   id: number; 
   image: string;
@@ -282,8 +284,9 @@ const getSetting = async () => {
   const data = await res.json();
   jamop.value = data.data.my_settings[3].value;
   homeinfo.value = data.data.my_settings[0].value;
+  status.value = data.data.my_settings[4].value;
     
-  console.log(jamop.value);
+  console.log(status.value);
 };
 
 const handleSecondBannerClick = (id: number) => {
@@ -300,7 +303,11 @@ const closeModal = () => {
 
   const redirectToConvert = (providerId: number) => {
   closeModal();
+  if(status.value === 'OFF'){
+    router.push({ name: 'maintenance' });
+  }else{
   router.push({ name: 'convert', params: { id: providerId } });
+  }
 };
 const calculatorPage = () => {
   router.push({ name: 'calculator' });
