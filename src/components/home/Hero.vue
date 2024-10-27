@@ -80,14 +80,21 @@
           <div class="tw-w-full tw-bg-gray-300 tw-h-6 tw-rounded-b-lg animate-pulse tw-mt-2"></div>
         </div>
 
-        <div v-else v-for="(item, index) in clientLogos" :key="index" class="tw-flex tw-flex-col tw-items-center tw-border tw-border-gray-300 tw-rounded-lg tw-shadow-sm tw-w-1/5 tw-mr-1 dark:bg-gray-800 dark:border-gray-700" @click="redirectToConvert(item.id)">
-          <div class="tw-w-20 tw-h-14 tw-p-2">
-            <img :src="item.status === `1` ? item.image : item.nonaktif_image" alt="logo" class="tw-w-full tw-h-full tw-object-contain" />
-          </div>
-          <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
-            <p class="tw-font-semibold tw-text-center tw-text-[0.62rem] text-white py-2">{{ item.name }}</p>
-          </div>
-        </div>
+        <div 
+  v-else 
+  v-for="(item, index) in clientLogos" 
+  :key="index" 
+  :class="['tw-flex tw-flex-col tw-items-center tw-border tw-border-gray-300 tw-rounded-lg tw-shadow-sm tw-w-1/5 tw-mr-1 dark:bg-gray-800 dark:border-gray-700', { 'tw-pointer-events-none tw-opacity-50': item.status !== '1' }]"
+  @click="() => item.status === '1' && redirectToConvert(item.id)"
+>
+  <div class="tw-w-20 tw-h-14 tw-p-2">
+    <img :src="item.status === '1' ? item.image : item.nonaktif_image" alt="logo" class="tw-w-full tw-h-full tw-object-contain" />
+  </div>
+  <div class="tw-w-full tw-rounded-b-lg" :class="item.color">
+    <p class="tw-font-semibold tw-text-center tw-text-[0.62rem] text-white py-2">{{ item.name }}</p>
+  </div>
+</div>
+
       </div>
       <div class="tw-grid tw-grid-cols-2 tw-gap-4 tw-mt-5">
         <div v-if="isLoading" v-for="index in 2" :key="'loading-small-banner-' + index" class="tw-flex tw-flex-col tw-items-center tw-border-2 tw-rounded-lg tw-border-gray-100 cursor-pointer">

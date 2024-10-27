@@ -55,15 +55,18 @@
             <b-col cols="12" md="4">
               <h6 class="mb-2 mb-md-4 tw-font-semibold">Panduan</h6>
               <ul class="nav flex-column">
-                <li class="nav-item" v-for="(item) in blog" :key="item.id">
-                  <router-link
-                    class="nav-link tw-text-sm" 
-                    :class="item.id === 0 ? 'pt-0' : ''"
-                    :to="{ name: 'blog.detail', params: { slug: item.slug } }"
-                  >
-                    {{ formatedTitle(item.title) }}
+                <!-- blog dan kebijakan privacy -->
+                 <li class="nav-item">
+                  <router-link class="nav-link tw-text-sm" to="/blog">
+                    Blog
+                  </router-link>
+                 </li>
+                <li class="nav-item">
+                  <router-link class="nav-link tw-text-sm" to="/kebijakan">
+                    Kebijakan Privasi
                   </router-link>
                 </li>
+            
               </ul>
             </b-col>
             <b-col cols="12" md="4">
