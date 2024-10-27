@@ -24,24 +24,22 @@
         <b-col md="6" lg="4" v-for="blog in paginatedBlogs" :key="blog.id">
           <article class="h-100 tw-rounded-xl tw-bg-white tw-shadow-sm tw-transition-transform hover:tw-translate-y-[-4px]">
             <div class="tw-relative tw-pb-[60%] tw-overflow-hidden">
+              <router-link 
+              :to="'/blog/' + blog.slug" >
               <img 
                 :src="'https://admin.cvpulsa.id/uploads/blog/' + blog.image" 
                 :alt="blog.title" 
                 class="tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover tw-rounded-t-xl" 
               />
+            </router-link>
             </div>
             <div class="tw-p-4">
               <div class="tw-flex tw-items-center tw-gap-2 tw-mb-3">
                 <span class="tw-text-sm tw-text-gray-600">{{ formatDate(blog.created_at) }}</span>
               </div>
-              <h5 class="tw-text-xl tw-font-semibold tw-mb-3 tw-text-gray-800">{{ blog.title }}</h5>
+              <router-link :to="'/blog/' + blog.slug"  class="tw-text-xl tw-font-semibold tw-mb-3 tw-text-gray-800">{{ blog.title }}</router-link>
               <div class="tw-flex tw-justify-between tw-items-center">
-                <router-link 
-                  :to="'/blog/' + blog.slug" 
-                  class="tw-flex tw-items-center tw-gap-2 tw-text-red-500 tw-font-medium hover:tw-underline"
-                >
-                  Read more <BIconArrowRight class="tw-w-4 tw-h-4" />
-                </router-link>
+                
               </div>
             </div>
           </article>

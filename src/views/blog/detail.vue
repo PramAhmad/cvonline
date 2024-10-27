@@ -7,8 +7,12 @@
             <div class="d-flex position-relative z-index-9">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-dots mb-1">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                  <li class="breadcrumb-item">
+                    <router-link to="/">Home</router-link>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <router-link to="/blog">Blog</router-link>
+                  </li>
                   <li class="breadcrumb-item active" aria-current="page">{{ blog?.title || 'Blog not found' }}</li>
                 </ol>
               </nav>
