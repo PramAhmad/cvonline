@@ -21,9 +21,7 @@
       </p>
       
       <div v-else-if="nominal >= provider?.min_transaksi && nominal <= provider?.max_transaksi">
-        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#EBFBFF]">Saldo Diterima
-          <!-- biaya kiri,m -->
-           
+        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#EBFBFF]">a
 
           <h5 class="tw-text-[#000000] tw-font-medium">Rate <span class="tw-font-semibold">{{ provider?.rate }}</span></h5>
           <h5 class="tw-text-[#000000] tw-font-medium">Saldo Diterima <span class="tw-font-semibold">{{ formatedHasilKonversi }}</span></h5>
