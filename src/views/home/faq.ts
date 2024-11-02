@@ -127,7 +127,7 @@ export const faqData: FAQType[] = [
 
   },
   {
-    question: 'Apakah Sendpulsa aman & Terpercaya ?',
+    question: 'Apakah CVPulsa aman & Terpercaya ?',
     answer:
       "Tukar Pulsa sudah berbadan hukum dan sudah melayani ribuan pelanggan. Jadi, kamu bisa bertransaksi secara aman."
   },

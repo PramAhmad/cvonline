@@ -478,6 +478,7 @@ watch(selectedRekening,(value)=>{
 const calculatedSaldo = computed(() => {
 const fee = calculateFee(nominal.value);
 const biaya_transfer = selectedRekening.value?.biaya_transfer || 0;
+console.log(selectedRekening.value)
 
 if (provider.value && nominal.value >= provider.value.min_transaksi && nominal.value <= provider.value.max_transaksi) {
   return Math.floor(nominal.value * provider.value.rate) -biaya_transfer ;

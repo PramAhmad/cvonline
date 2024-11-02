@@ -69,7 +69,7 @@ export const mainRoute = [
     name:'kebijakan',
     meta:{
       title: setTitle('kebijakan'),
-      requiresAuth: true
+
     },
     component: () => import('@/views/kebijakan/index.vue')
   },
