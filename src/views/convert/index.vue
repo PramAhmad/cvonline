@@ -28,7 +28,7 @@
       </div>
   
       <label class="tw-block tw-mb-2 tw-text-sm tw-font-medium">Nomor Pengirim Pulsa <span class="tw-text-red-500">*</span></label>
-      <input v-model="phoneNumber" type="number" placeholder="081234xxxxxxx" class="tw-w-full tw-border tw-rounded tw-p-2 tw-mb-2" />
+      <input v-model="phoneNumber" type="text" placeholder="081234xxxxxxx" class="tw-w-full tw-border tw-rounded tw-p-2 tw-mb-2" />
       <span v-if="errorMessages.phoneNumber" class="tw-text-red-500 tw-text-sm">{{ errorMessages.phoneNumber }}</span>
     
       <label class="tw-block tw-mb-2 tw-text-sm tw-font-medium">Pilih Rekening</label>
