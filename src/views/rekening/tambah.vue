@@ -59,7 +59,7 @@ const isBankLain = ref<boolean>(false);
 
 const getMetodePembayaran = async () => {
   try {
-    const response = await fetch(`https://admin.cvpulsa.id/api/my_metode_pembayaran/all`, {
+    const response = await fetch(`https://admin.cvpulsa.id/api/my_metode_pembayaran/all?sort_order=ASC`, {
       method: 'GET',
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY,
@@ -103,7 +103,7 @@ const tambahData = async () => {
     });
     return;
   }
-
+console.log(selectedPaymentMethod.value)
   try {
     const formData = new FormData();
     formData.append('email', userEmail);
@@ -112,7 +112,7 @@ const tambahData = async () => {
     formData.append('nama_rekening', atasNama.value);
     formData.append('bank', isBankLain.value ? bankLain.value : selectedPaymentMethod.value?.nama );
     formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode_pembayaran || '0');
-    formData.append('biaya_transfer',isBankLain.value ? "2500" : selectedPaymentMethod.value?.biaya_transfer);
+    formData.append('biaya_transfer',isBankLain.value ? "2500" : selectedPaymentMethod.value?.biaya);
     formData.append('icon',selectedPaymentMethod.value?.icon ?? "20240920184317-2024-09-20my_metode_pembayaran184314.png"  );
 
     const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/add`, {

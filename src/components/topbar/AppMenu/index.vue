@@ -3,7 +3,31 @@
     <ul class="navbar-nav navbar-nav-scroll dropdown-hover" :class="ulClass">
       <PagesMenuDropdown />
       <!-- halmaan 2 halmaan 3 hjalaman 4 -->
-   
+      <li class="nav-item" v-if="isLoggedIn">
+    <router-link class="nav-link" to="/panduan">
+      Tutorial
+    </router-link>
+  </li>
+  <li class="nav-item" >
+    <router-link class="nav-link" to="/blog">
+      Blog
+    </router-link>
+  </li>
+  <li class="nav-item" v-if="isLoggedIn">
+    <router-link class="nav-link" to="/transaksi">
+      Transaksi
+    </router-link>
+  </li>
+  <li class="nav-item" v-if="isLoggedIn">
+    <router-link class="nav-link" to="/profile">
+      Profile
+    </router-link>
+  </li>
+  <li class="nav-item" v-else>
+    <router-link class="nav-link" to="/login">
+      Login
+    </router-link>
+  </li>
              
       <ResourcesMenuDropdown v-if="showResources" />
     
@@ -36,6 +60,9 @@ import PortfolioMenuDropdown from '@/components/topbar/AppMenu/PortfolioMenuDrop
 import ResourcesMenuDropdown from '@/components/topbar/AppMenu/ResourcesMenuDropdown.vue'
 import appStore from "@/assets/images/elements/app-store.svg";
 import googlePlay from "@/assets/images/elements/google-play.svg";
+import { defineProps, computed } from 'vue'
+const isLoggedIn = computed(() => !!localStorage.getItem('user_email'))
+
 
 type AppMenuProps = {
   showMegaMenu?: boolean

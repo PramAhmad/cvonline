@@ -33,31 +33,7 @@
       </li>
     </div>
   </li>
-  <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/panduan">
-      Tutorial
-    </router-link>
-  </li>
-  <li class="nav-item" >
-    <router-link class="nav-link" to="/blog">
-      Blog
-    </router-link>
-  </li>
-  <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/transaksi">
-      Transaksi
-    </router-link>
-  </li>
-  <li class="nav-item" v-if="isLoggedIn">
-    <router-link class="nav-link" to="/profile">
-      Profile
-    </router-link>
-  </li>
-  <li class="nav-item" v-else>
-    <router-link class="nav-link" to="/login">
-      Login
-    </router-link>
-  </li>
+ 
 </template>
 
 <script lang="ts" setup>
