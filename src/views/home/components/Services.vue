@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="align-items-center mb-2">
         <b-col md="12" class="mb-3 mb-md-5">
-          <h2 class="mb-0 tw-text-center tw-text-2xl tw-text-red-600 tw-font-bold">Kenapa Memilih Kami</h2>
+          <h2 class="mb-0 tw-text-center tw-text-2xl tw-text-[#bb0606] tw-font-bold">Kenapa Memilih Kami</h2>
           <p class="tw-text-sm  text-center tw-font-normal tw-text-gray-900">CV Pulsa adalah layanan digital yang khusus membantu mengkonversi pulsa Anda menjadi saldo dompet digital Anda. Terjamin aman sebab kami sudah terdaftar secara resmi di PSE Kominfo</p>
         </b-col>
 
@@ -77,7 +77,7 @@
         </div>
       </section>
 <div class="tw-pb-7">
-  <h3 class="tw-text-center tw-text-2xl tw-text-red-600 tw-font-bold">Diliput Oleh
+  <h3 class="tw-text-center tw-text-2xl tw-text-[#bb0606] tw-font-bold">Diliput Oleh
 </h3>
   <p class="tw-text-sm  text-center tw-font-normal tw-text-gray-900">Beberapa media yang telah meliput cvpulsa</p>
 </div>

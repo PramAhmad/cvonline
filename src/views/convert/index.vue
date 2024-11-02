@@ -229,7 +229,7 @@ const formattedSaldoDiterima = computed(() => formatCurrency(calculatedSaldo.val
 
 const getRekening = async () => {
 try {
-  const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/all?filter=${userEmail}`, {
+  const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/all?filter=${userEmail}&sort_oder=ASC`, {
     method: 'GET',
     headers: {
       'X-Api-Key': import.meta.env.VITE_API_KEY,
@@ -239,6 +239,7 @@ try {
   if (response.ok) {
     const data = await response.json();
     rekening.value = data.data.my_bank;
+
   } else {
     console.log('Unexpected response:', response);
   }
@@ -268,7 +269,7 @@ try {
 };
 const getMetodePembayaran = async () => {
     try {
-      const response = await fetch(`https://admin.cvpulsa.id/api/my_metode_pembayaran/all`, {
+      const response = await fetch(`https://admin.cvpulsa.id/api/my_metode_pembayaran/all?sort_oder=DESC`, {
         method: 'GET',
         headers: {
           'X-Api-Key': import.meta.env.VITE_API_KEY,
@@ -278,6 +279,9 @@ const getMetodePembayaran = async () => {
       if (response.ok) {
         const data = await response.json();
         metodepembayaran.value = data.data.my_metode_pembayaran;
+        // order array
+        metodepembayaran.value.sort((a, b) => a.id - b.id);
+        console.log(metodepembayaran.value)
       } else {
         console.log('Unexpected response:', response);
       }

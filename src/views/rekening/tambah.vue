@@ -113,7 +113,7 @@ const tambahData = async () => {
     formData.append('bank', isBankLain.value ? bankLain.value : selectedPaymentMethod.value?.nama );
     formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode_pembayaran || '0');
     formData.append('biaya_transfer',isBankLain.value ? "2500" : selectedPaymentMethod.value?.biaya_transfer);
-    formData.append('icon',isBankLain ? "20240920184317-2024-09-20my_metode_pembayaran184314.png" : selectedPaymentMethod.value?.icon);
+    formData.append('icon',selectedPaymentMethod.value?.icon ?? "20240920184317-2024-09-20my_metode_pembayaran184314.png"  );
 
     const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/add`, {
       method: 'POST',

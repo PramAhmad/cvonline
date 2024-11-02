@@ -2,7 +2,7 @@
   <section class="pb-0 tw-pt-5">
     <b-container>
       <div class="inner-container-small text-center mb-4 mb-sm-5">
-        <h2 class="mb-0 tw-text-red-600 tw-font-semibold tw-text-2xl">Apa Yang Mereka Katakan</h2>
+        <h2 class="mb-0 tw-text-[#bb0606] tw-font-semibold tw-text-2xl">Apa Yang Mereka Katakan</h2>
       </div>
 
       <!-- Swiper container -->

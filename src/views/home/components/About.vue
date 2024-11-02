@@ -2,7 +2,7 @@
   <div class="tw-mt-3">
       <b-row>
         <b-col xl="10" class="text-center mx-auto">
-          <h3 class="tw-font-bold tw-text-red-600 tw-text-4xl x-3 py-2 rounded-3 mb-4"
+          <h3 class="tw-font-bold tw-text-[#bb0606] tw-text-4xl x-3 py-2 rounded-3 mb-4"
             >Convert Pulsa Jadi Uang </h3
           >
           <p class="lead mb-0 tw-text-base">
@@ -11,7 +11,7 @@
 
           <b-row class="g-4 mt-5 mx-auto align-items-center">
             <b-col md="12" class="d-flex justify-content-center align-items-center position-relative">
-              <img :src="about14" class="rounded mb-4" alt="about-img" />
+              <img :src="about14" class="rounded mb-4 tw-z-10" alt="about-img"  />
 
               <figure class="position-absolute top-0 start-0 z-index-1 mt-n6 ms-n5">
                 <svg
@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 
-import about14 from '@/assets/images/avatar/hero.png'
+import about14 from '@/assets/images/hero.webp'
 import about15 from '@/assets/images/about/15.jpg'
 import about16 from '@/assets/images/about/16.jpg'
 </script>
