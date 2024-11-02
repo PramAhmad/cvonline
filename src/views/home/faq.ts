@@ -136,6 +136,13 @@ export const faqData: FAQType[] = [
     answer:
       'Proses pengiriman pulsa antara 5-10 menit dalam keadaan normal. Namun, proses akan terhambat apabila terjadi gangguan eksternal seperti gangguan bank dari pusat. Selain itu, proses juga dapat terhambat apabila nomor rekening yang di-input salah.'
   },
+  {
+    question: 'Kenapa Nomer Tujuan Berbeda Beda ?',
+    answer:'Setiap provider memiliki batas penerimaan pulsa, hal itu yang membuat nomer penerima Cvpulsa selalu berbeda-beda. Dan juga untuk memastikan agar kamu bisa mengirim pulsa kapanpun tanpa mengalami limit.'
+  },{
+    question:'Bagaimana Jika Sudah Terlanjur Kirim ke Nomer Sebelumnya ?',
+    answer:'Segera hubungi customer care Cvpulsa untuk dibantu pengecekan pulsanya. Untuk mempermudah, silahkan siapkan bukti pengiriman pulsa lengkap beserta tanggal dan jam pengiriman.'
+  }
   
 ]
 

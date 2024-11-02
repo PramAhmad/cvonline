@@ -103,7 +103,6 @@ tertentu dari layanan kami.</li>
                 <p class="tw-font-semibold">CV Pulsa</p>
                 <span>PT Solusi Digital Gresindo</span>
                 <span>info@cvpulsa.id</span>
-                <span>Dsn Gridi Jaya RT 10 RW 04, Ds Pacuh Kecamatan Balongpanggang, Kab Gresik, Jawa Timur +62 821-2255-5556</span>
                 </li>   
         </ol>
       </div>

@@ -21,9 +21,12 @@
       </p>
       
       <div v-else-if="nominal >= provider?.min_transaksi && nominal <= provider?.max_transaksi">
-        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#EBFBFF]">
+        <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-py-2 tw-px-3 tw-rounded-md tw-bg-[#EBFBFF]">Saldo Diterima
+          <!-- biaya kiri,m -->
+           
+
           <h5 class="tw-text-[#000000] tw-font-medium">Rate <span class="tw-font-semibold">{{ provider?.rate }}</span></h5>
-          <h5 class="tw-text-[#000000] tw-font-medium">Saldo Diterima <span class="tw-font-semibold">{{ formattedSaldoDiterima }}</span></h5>
+          <h5 class="tw-text-[#000000] tw-font-medium">Saldo Diterima <span class="tw-font-semibold">{{ formatedHasilKonversi }}</span></h5>
         </div>
       </div>
   
@@ -55,9 +58,14 @@
       </div>
       <span v-if="errorMessages.isConfirmed" class="tw-text-red-500 tw-text-sm">{{ errorMessages.isConfirmed }}</span>
   
-      <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-pt-10">
-        <p>Saldo Diterima</p>
-        <p class="tw-font-bold">{{ formattedSaldoDiterima }}</p>
+      <div  class="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-pt-10">
+        <h5 class="tw-text-[#000000] tw-font-medium">Biaya Kirim</h5>
+        <p class="tw-font-bold">{{ selectedRekening?.biaya_transfer }}</p>
+      </div>
+      <div class="tw-flex tw-justify-between tw-items-center tw-mb-4 ">
+    <p>Saldo Diterima</p>
+    <p class="tw-font-bold">{{ formattedSaldoDiterima }}</p>
+  
       </div>
   
       <button
@@ -79,6 +87,7 @@
       <p><strong>Provider:</strong> {{ provider?.name }}</p>
       <p><strong>Rekening:</strong> {{ selectedRekening.bank }} - {{ selectedRekening.no_rekening }}</p>
       <p><strong>Nama Penerima:</strong> {{ selectedRekening.nama_rekening }}</p>
+      <p><strong>Biaya Transfer:</strong> {{ selectedRekening.biaya_transfer }}</p>
       <p><strong>Saldo Diterima:</strong> {{ formattedSaldoDiterima }}</p>
   
       <div class="tw-flex tw-justify-end tw-mt-4">
@@ -224,7 +233,7 @@ watch(nominal, (newVal) => {
 });
 
 const formattedSaldoDiterima = computed(() => formatCurrency(calculatedSaldo.value));
-
+const formatedHasilKonversi = computed(() => formatCurrency(calculateHasilKonversi.value)); 
 
 
 const getRekening = async () => {
@@ -484,6 +493,13 @@ if (provider.value && nominal.value >= provider.value.min_transaksi && nominal.v
   return Math.floor(nominal.value * provider.value.rate) -biaya_transfer ;
 }
 return 0;
+});
+const calculateHasilKonversi = computed( () => {
+  
+  if (provider.value && nominal.value >= provider.value.min_transaksi && nominal.value <= provider.value.max_transaksi) {
+    return Math.floor(nominal.value * provider.value.rate)
+  }
+  return 0;
 });
 
 const confirmTransaction = async () => {
