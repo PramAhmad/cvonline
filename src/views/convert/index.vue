@@ -594,7 +594,7 @@ console.log(selectedPaymentMethod.value)
     formData.append('nama_rekening', atasNama.value);
     formData.append('bank', isBankLain.value ? bankLain.value : selectedPaymentMethod.value?.nama);
     formData.append('kode_pembayaran', selectedPaymentMethod.value?.kode);
-    formData.append('biaya_transfer', selectedPaymentMethod.value?.biaya || '0');
+    formData.append('biaya_transfer',isBankLain.value ? "2500" : selectedPaymentMethod.value?.biaya);
     formData.append('icon', selectedPaymentMethod.value?.icon || '-');
 
     const response = await fetch(`https://admin.cvpulsa.id/api/my_bank/add`, {
