@@ -3,8 +3,8 @@ import authMiddleware from '@/middleware/auth'
 
 const setTitle = (pageName = '') => {
   return pageName
-    ? `${pageName} |CV pulsa`
-    : 'Cv Pulsa'
+    ? `${pageName} |Jasa Convert Pulsa Jadi Uang/Saldo E-Wallet – Cvpulsa`
+    : 'Jasa Convert Pulsa Jadi Uang/Saldo E-Wallet – Cvpulsa'
 }
 
 export const mainRoute = [

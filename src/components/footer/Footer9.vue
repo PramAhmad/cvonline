@@ -205,7 +205,7 @@ const getProvider = async () => {
 
 const getBlog = async () => {
   try {
-    const response = await fetch(`https://admin.cvpulsa.id/api/blog/all`, {
+    const response = await fetch(`https://admin.cvpulsa.id/api/blog/all?sort_order=asc`, {
       method: 'GET',
       headers: {
         'X-Api-Key': import.meta.env.VITE_API_KEY,
@@ -214,7 +214,9 @@ const getBlog = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      blog.value = data.data.blog;
+      // ambil 5 data saja paling bawah
+
+      blog.value = data.data.blog.slice(-5);
     } else {
       console.log('Unexpected response:', response);
     }
