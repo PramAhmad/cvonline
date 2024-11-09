@@ -299,7 +299,7 @@ const getMetodePembayaran = async () => {
 
   const calculateFee = (nominal: number) => {
   let mandatoryBalance = 0;
-
+console.log(provider.value)
   switch (provider.value?.name) {
     case 'Telkomsel':
       mandatoryBalance = 2000; // Sisa pulsa wajib for Telkomsel
@@ -404,8 +404,8 @@ const getMetodePembayaran = async () => {
           sisaPulsa.value = 0;
       }
       break;
-    case 'Im3': 
-      mandatoryBalance = 5000; // Sisa pulsa wajib for Im3
+    case 'IM3': 
+      mandatoryBalance = 5000;
       switch (true) {
         case nominal >= 25000 && nominal <= 49999:
           sisaPulsa.value = 1500;
